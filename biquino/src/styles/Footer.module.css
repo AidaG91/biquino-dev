@@ -1,0 +1,22 @@
+.footer {
+    background-color: var(--color-primary);
+    
+    /* Relleno vertical para que parezca una "franja" */
+    padding: 1.5rem 0; 
+    
+    /* Opcional: Asegura que esté al final de la página */
+    width: 100%;
+    
+    /* Centrado de texto (si dejas el texto de derechos de autor) */
+    text-align: center;
+}
+
+.copyright {
+    /* Darle un color blanco o claro para que contraste con el fondo primario */
+    color: var(--color-white); 
+    
+    /* Asegura que el texto use la fuente base y un tamaño legible */
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    margin: 0;
+}
