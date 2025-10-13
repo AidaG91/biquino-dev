@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProjectTab from "./ProjectTab";
 import projectsData from "../../data/projectsData";
-import styles from '../../styles/ProjectsSection.module.css'; 
+import styles from "../../styles/ProjectsSection.module.css";
 
 export default function ProjectsSection() {
   const [activeTabId, setActiveTabId] = useState(null);

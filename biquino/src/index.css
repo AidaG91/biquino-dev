@@ -10,7 +10,7 @@
 
   /* COLORES */
   --color-white: #ffffff;
-  --color-black: #000000; 
+  --color-black: #000000;
   --color-primary: #e62556;
   --color-background: #fce9ee;
   --color-btn: #eb5178;
@@ -21,7 +21,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --transition-normal: 0.3s ease-in-out
+  --transition-normal: 0.3s ease-in-out;
 }
 
 /* Reset y Box Sizing para todos los elementos */
@@ -35,7 +35,7 @@
 
 /* Base de la unidad REM */
 html {
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 /* Estilos de texto base */
@@ -45,8 +45,8 @@ body {
   line-height: 1.5;
   font-weight: 400;
   min-height: 100vh;
-  font-size: 1rem; 
-  color: var(--color-black); 
+  font-size: 1rem;
+  color: var(--color-black);
 }
 
 /* Estilos de Encabezados */
@@ -56,7 +56,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
   color: var(--color-primary);
   line-height: 1.2;
 }

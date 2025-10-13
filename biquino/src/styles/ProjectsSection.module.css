@@ -1,37 +1,108 @@
-/* ProjectsSection.module.css */
-
-/* ... otros estilos para .projectTab, .tabsContainer, etc. ... */
-
-/* Cuadrícula para la galería (Flexbox o Grid) */
-.imageGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    gap: 10px; /* Espacio entre los cuadraditos */
-    margin-bottom: 1rem;
+.projects {
+  background-color: var(--color-background);
+  margin-top: 2rem;
 }
 
-/* Estilos para el placeholder de la imagen (los cuadraditos blancos) */
-.imagePlaceholder {
-    /* Fondo blanco (simulando que la imagen está ahí) */
-    background-color: var(--color-white); 
-    
-    /* Le da la apariencia cuadrada (Ratio 1:1) */
-    width: 100%;
-    padding-top: 100%; 
-    position: relative; 
-    
-    /* Borde sutil para separarlo del fondo del sitio, si es necesario */
-    border: 1px solid var(--color-background); 
+.sectionTitle {
+  text-align: center;
+  font-size: 35px;
+  padding-top: 2rem;
 }
 
-/* Opcional: Estilo para la pestaña expandida */
+.tabsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 350px;
+  margin: 3rem 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.projectTab {
+  flex: 1;
+
+  background-color: var(--color-btn);
+  color: var(--color-white);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin: 0 3px;
+
+  transition: all 0.5s ease-in-out;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.tabTitle {
+  writing-mode: sideways-lr;
+  color: var(--color-white);
+
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 20px 0;
+
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  user-select: none;
+  z-index: 2;
+}
+
+.projectTab.active {
+  flex: 12;
+  background-color: var(--color-secondary);
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.projectTab.active .tabTitle {
+  writing-mode: horizontal-tb;
+  padding: 1.5rem;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-secondary);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+
+  align-self: flex-start;
+}
+
 .tabContent {
-    /* Asegúrate de que este contenido solo sea visible en la pestaña .active */
-    max-height: 0;
-    overflow: hidden;
-    /* ... transición, etc. ... */
+  position: absolute;
+
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+
+  /* Oculto por defecto */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out 0.2s;
+
+  z-index: 1;
 }
 
 .projectTab.active .tabContent {
-    max-height: 500px; /* Suficiente altura para mostrar las imágenes y texto */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.projectImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background-color: var(--color-white);
 }
