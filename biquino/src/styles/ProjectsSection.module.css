@@ -1,0 +1,37 @@
+/* ProjectsSection.module.css */
+
+/* ... otros estilos para .projectTab, .tabsContainer, etc. ... */
+
+/* Cuadrícula para la galería (Flexbox o Grid) */
+.imageGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 10px; /* Espacio entre los cuadraditos */
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el placeholder de la imagen (los cuadraditos blancos) */
+.imagePlaceholder {
+    /* Fondo blanco (simulando que la imagen está ahí) */
+    background-color: var(--color-white); 
+    
+    /* Le da la apariencia cuadrada (Ratio 1:1) */
+    width: 100%;
+    padding-top: 100%; 
+    position: relative; 
+    
+    /* Borde sutil para separarlo del fondo del sitio, si es necesario */
+    border: 1px solid var(--color-background); 
+}
+
+/* Opcional: Estilo para la pestaña expandida */
+.tabContent {
+    /* Asegúrate de que este contenido solo sea visible en la pestaña .active */
+    max-height: 0;
+    overflow: hidden;
+    /* ... transición, etc. ... */
+}
+
+.projectTab.active .tabContent {
+    max-height: 500px; /* Suficiente altura para mostrar las imágenes y texto */
+}
