@@ -62,7 +62,7 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 35px;
   font-family: var(--font-heading);
   font-weight: 700;
 }
@@ -76,6 +76,7 @@ p {
 }
 
 button {
+   margin-top: 1rem;
   border-radius: 8px;
   border: none;
   padding: 0.6em 1.2em;
@@ -85,12 +86,16 @@ button {
   background-color: var(--color-btn);
   color: var(--color-white);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 button:hover {
-  border-color: #646cff;
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.15);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
