@@ -21,18 +21,37 @@ export default function ContactForm() {
   // 2. Función de validación
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.name.trim()) {
-      newErrors.name = "El nombre es obligatorio.";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "El email es obligatorio.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "El formato del email no es válido.";
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "El mensaje no puede estar vacío.";
-    }
+    // Reutilizamos la lógica de validateField para cada campo
+    const fieldsToValidate = ['name', 'email', 'message'];
+
+    fieldsToValidate.forEach(field => {
+      const error = validateField(field, formData[field]);
+      if (error) {
+        newErrors[field] = error;
+      }
+    });
+    
     return newErrors;
+  };
+
+  // Función de validación para un solo campo
+  const validateField = (name, value) => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) return "El nombre es obligatorio.";
+        break;
+      case "email":
+        if (!value.trim()) return "El email es obligatorio.";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+          return "El formato del email no es válido.";
+        break;
+      case "message":
+        if (!value.trim()) return "El mensaje no puede estar vacío.";
+        break;
+      default:
+        break;
+    }
+    return null; // No hay error
   };
 
   const handleChange = (e) => {
@@ -41,6 +60,12 @@ export default function ContactForm() {
     if (errors[name]) {
       setErrors({ ...errors, [name]: null });
     }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    setErrors({ ...errors, [name]: error });
   };
 
   const handleSubmit = async (e) => {
@@ -89,8 +114,39 @@ export default function ContactForm() {
 
   return (
     <section className={styles.contact}>
-      <Toaster position="top-center" reverseOrder={false} />
-
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          // Estilos generales para todos los toasts
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+          },
+          // Estilos específicos para toasts de éxito
+          success: {
+            style: {
+              background: "#28a745",
+              color: "white",
+            },
+            iconTheme: {
+              primary: "white",
+              secondary: "#28a745",
+            },
+          },
+          // Estilos específicos para toasts de error
+          error: {
+            style: {
+              background: "#dc3545",
+              color: "white",
+            },
+            iconTheme: {
+              primary: "white",
+              secondary: "#dc3545",
+            },
+          },
+        }}
+      />
       <div>
         <h1 className={styles.contactTitle}>¿Hablamos de tu proyecto?</h1>
         <h2 className={styles.contactTitle}>Te escuchamos</h2>
@@ -106,13 +162,14 @@ export default function ContactForm() {
           <div className={styles.formGroup}>
             <label htmlFor="name">Nombre completo *</label>
             <input
-              className={styles.input}
+              className={`${styles.input} ${errors.name ? styles.inputError : ""}`}
               type="text"
               id="name"
               name="name"
               placeholder="Nombre y apellidos"
               value={formData.name}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
             {errors.name && (
               <p className={styles.errorMessage}>{errors.name}</p>
@@ -122,13 +179,14 @@ export default function ContactForm() {
           <div className={styles.formGroup}>
             <label htmlFor="email">Correo electrónico *</label>
             <input
-              className={styles.input}
+              className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
               type="email"
               id="email"
               name="email"
               placeholder="name@ejemplo.com"
               value={formData.email}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
             {errors.email && (
               <p className={styles.errorMessage}>{errors.email}</p>
@@ -151,10 +209,12 @@ export default function ContactForm() {
           <div className={styles.formGroup}>
             <label htmlFor="message">Sobre tu proyecto *</label>
             <textarea
+              className={`${styles.input} ${errors.message ? styles.inputError : ""}`}
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
+              onBlur={handleBlur}
               rows={5}
               placeholder="Cuéntanos tu proyecto…"
             />

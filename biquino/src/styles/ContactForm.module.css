@@ -1,0 +1,16 @@
+.inputError {
+  border-color: #dc3545; /* Mismo rojo que el toast de error */
+  box-shadow: 0 0 0 1px #dc3545; /* Opcional: un brillo sutil */
+}
+
+.inputError:focus {
+  outline-color: #dc3545;
+}
+
+.input::placeholder,
+textarea::placeholder {
+  font-family: var(--font-body);
+  color: #a9a9a9; 
+  font-style: italic;
+  opacity: 1; 
+}
