@@ -59,11 +59,11 @@ h6 {
   margin-bottom: 0.5rem;
   color: var(--color-primary);
   line-height: 1.2;
+  font-family: var(--font-heading);
 }
 
 h1 {
   font-size: 35px;
-  font-family: var(--font-heading);
   font-weight: 700;
 }
 
@@ -76,7 +76,7 @@ p {
 }
 
 button {
-   margin-top: 1rem;
+  margin-top: 1rem;
   border-radius: 8px;
   border: none;
   padding: 0.6em 1.2em;
@@ -91,7 +91,7 @@ button {
 }
 
 button:hover {
-  transform: translateY(-3px); 
+  transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   filter: brightness(1.15);
 }
