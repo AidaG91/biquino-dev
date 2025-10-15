@@ -1,0 +1,13 @@
+.hero {
+  background-color: var(--color-background);
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroLogo {
+  height: 80px;
+  margin-bottom: 2rem;
+}

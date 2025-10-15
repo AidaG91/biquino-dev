@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/Header.module.css";
-import logoBiquino from '../assets/LOGO_WEB.svg'; 
-
+import logoBiquino from "../assets/LOGO_WEB.svg";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
