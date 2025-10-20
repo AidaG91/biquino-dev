@@ -1,0 +1,129 @@
+.projectsPage {
+  width: 100%;
+}
+
+.hero {
+  background-color: var(--color-background);
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.galleryWrapper {
+  padding: 2rem 3rem 4rem 3rem; /* Espacio alrededor de los filtros y la cuadrícula */
+}
+
+.filters {
+  display: flex;
+  align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  color: var(--color-primary);
+  flex-direction: column;
+}
+
+.filters span {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.filters ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.filters li {
+  font-size: 1.1rem;
+  color: #f4a8cb;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 1rem;
+}
+
+.filters li:hover {
+  color: var(--color-primary);
+}
+
+.filters li.active {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.projectCard {
+  /* background-color: var(--color-secondary);  */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pageContainer {
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-primary);
+}
+
+.pageTitle {
+  font-size: 2rem;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.ctaButton {
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-btn);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.15);
+}
+
+.ctaButton:focus,
+.ctaButton:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
