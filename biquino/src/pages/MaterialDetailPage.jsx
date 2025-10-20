@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { materialsData } from "../data/materialsData"; 
+import { materialsData } from "../data/materialsData";
 import styles from "../styles/MaterialDetailPage.module.css";
+import { BsChevronDown } from "react-icons/bs";
 
 function FaqItem({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ function FaqItem({ faq }) {
     <div className={styles.faqItem}>
       <button onClick={() => setIsOpen(!isOpen)} className={styles.faqQuestion}>
         {faq.question}
-        <span>{isOpen ? 'V' : 'V'}</span>
+        <BsChevronDown className={isOpen ? styles.open : ""} />{" "}
       </button>
       {isOpen && (
         <div className={styles.faqAnswer}>
@@ -21,7 +22,7 @@ function FaqItem({ faq }) {
 }
 
 export default function MaterialDetailPage() {
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   const material = materialsData.find((m) => m.id === id);
 
@@ -34,7 +35,7 @@ export default function MaterialDetailPage() {
       {/* 1. Hero del Detalle */}
       <div className={styles.hero}>
         <h1>{material.title}</h1>
-        <p>{material.text}</p>
+        <p>{material.heroText}</p>
       </div>
 
       {/* 2. Secciones de contenido */}
@@ -43,7 +44,9 @@ export default function MaterialDetailPage() {
           <div
             key={index}
             className={`${styles.contentSection} ${
-              section.layout === "imageLeft" ? styles.imageLeft : styles.imageRight
+              section.layout === "imageLeft"
+                ? styles.imageLeft
+                : styles.imageRight
             }`}
           >
             <div className={styles.imageWrapper}>
@@ -69,8 +72,6 @@ export default function MaterialDetailPage() {
           ))}
         </div>
       </div>
-
-
     </section>
   );
 }

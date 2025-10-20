@@ -12,22 +12,29 @@
 }
 
 .gridContainer {
-  display: grid;
+ display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  background-color: #FEE9F2;
-  padding: 2rem;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  
 }
 
 .materialCard {
-  background-color: var(--color-primary); /* Fucsia oscuro */
+  background-color: var(--color-primary);
   color: var(--color-white);
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
+  min-height: 200px;
   padding: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10);
+
 }
 
 .materialCard:hover {
@@ -36,7 +43,7 @@
 }
 
 .materialCard h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
     color: var(--color-white);
 
