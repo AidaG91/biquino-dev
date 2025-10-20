@@ -1,0 +1,77 @@
+/* styles/MaterialDetailPage.module.css */
+.detailPage {
+  background-color: #FEE9F2;
+}
+.hero {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: #D72C80;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.1rem; line-height: 1.6; }
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contentSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+.imageWrapper, .textWrapper {
+  flex: 1;
+  min-width: 300px;
+}
+.imageWrapper img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  background-color: #F4A8CB;
+  border-radius: 8px;
+}
+.textWrapper h2 {
+  font-size: 1.8rem;
+  color: #D72C80;
+  margin-bottom: 1rem;
+}
+.textWrapper p { line-height: 1.7; }
+.imageLeft { flex-direction: row-reverse; } /* Imagen a la derecha */
+
+.faqContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-top: 1px solid #E883B4;
+}
+.faqHeader { flex: 1; min-width: 250px; }
+.faqHeader h4 { color: #E883B4; font-size: 1rem; }
+.faqHeader h3 { color: #D72C80; font-size: 2rem; }
+.faqList { flex: 2; min-width: 300px; }
+
+.faqItem { border-bottom: 1px solid #E883B4; }
+.faqQuestion {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.5rem 0.5rem;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #D72C80;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faqQuestion span { transform: rotate(90deg); } /* Simula flecha */
+.faqAnswer { padding: 0 1rem 1.5rem 1rem; line-height: 1.6; }

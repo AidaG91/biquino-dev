@@ -1,0 +1,43 @@
+.hero {
+  background-color: var(--color-background);
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  background-color: #FEE9F2;
+  padding: 2rem;
+}
+
+.materialCard {
+  background-color: var(--color-primary); /* Fucsia oscuro */
+  color: var(--color-white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.materialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.materialCard h2 {
+  font-size: 2rem;
+  text-align: center;
+    color: var(--color-white);
+
+}
