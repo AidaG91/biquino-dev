@@ -2,10 +2,12 @@ import { Toaster } from "react-hot-toast";
 import AppRouter from "./routes/AppRouter";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Toaster
         position="top-center"
         reverseOrder={false}

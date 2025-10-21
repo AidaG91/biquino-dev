@@ -9,6 +9,8 @@
 
 .hero h1 {
   font-size: 3rem;
+  text-align: center; /* Añadido por si el texto es largo */
+  padding: 0 1rem; /* Evita que toque los bordes en móvil */
 }
 
 .sectionInfo {
@@ -27,6 +29,7 @@
   gap: 1.5rem;
   max-width: 1400px;
   margin: 2rem auto;
+  padding: 0 1rem; /* Añadido para que el grid no toque los bordes */
 }
 
 .materialCard {
@@ -36,13 +39,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
   padding: 1rem;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* <-- ¡La regla clave! */
+  /* min-height: 200px; */ /* <-- ELIMINA esta línea */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -52,8 +55,35 @@
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Feedback para pantallas táctiles */
+.materialCard:active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
 .materialCard h2 {
   font-size: 1.5rem;
   text-align: center;
   color: var(--color-white);
+}
+
+
+/* --- MEJORAS PARA MÓVIL --- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem; /* Reduce el tamaño del título */
+  }
+
+  .sectionInfo {
+    padding: 2rem 1rem; /* Reduce el padding horizontal */
+  }
+  
+    .gridContainer {
+    margin: 1rem auto;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  .materialCard h2 {
+    font-size: 1.25rem; /* Reduce el texto de las tarjetas */
+  }
 }

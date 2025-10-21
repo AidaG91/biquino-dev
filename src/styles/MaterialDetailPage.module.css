@@ -125,3 +125,79 @@
   padding: 0 1rem 1.5rem 1rem;
   line-height: 1.6;
 }
+
+@media (max-width: 600px) {
+  /* --- Hero --- */
+  .hero {
+    height: auto; /* Dejamos que la altura sea automática */
+    padding: 2rem 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem; /* Reducimos el título */
+    text-align: center;
+  }
+  .hero p {
+    font-size: 0.9rem; /* Un poco más grande que el p global */
+    padding: 0 0.5rem;
+  }
+
+  /* --- Contenido (Secciones Imagen/Texto) --- */
+  .content {
+    padding: 1rem; /* Menos padding lateral */
+  }
+
+  .contentSection {
+    gap: 1.5rem; /* Menos espacio entre imagen y texto */
+    padding-bottom: 3rem; /* Añade espacio extra debajo del contenido */
+    border-bottom: 1px solid var(--color-secondary);
+  }
+
+  .contentSection:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0; 
+}
+
+  .imageWrapper,
+  .textWrapper {
+    /* Anulamos el min-width para que quepa en pantallas estrechas */
+    min-width: 100%;
+  }
+
+  .imageWrapper {
+    /* Anulamos el flex-basis fijo de 350px */
+    flex-basis: auto;
+  }
+
+  .imageWrapper img {
+    /* Hacemos la imagen un poco más pequeña que el 100% */
+    /* y la centramos para que "respire" */
+    width: 70%;
+    max-width: 350px; /* Evita que sea gigante incluso en 100% */
+    margin: 0 auto;
+    display: block;
+  }
+
+  .textWrapper h2 {
+    font-size: 1.5rem; /* Reducimos el subtítulo */
+    text-align: center;
+  }
+
+  .textWrapper p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* --- Sección FAQ --- */
+  .faqContainer {
+    padding: 2rem 1rem; /* Menos padding lateral */
+    gap: 1.5rem;
+  }
+  .faqHeader h3 {
+    font-size: 1.5rem;
+  }
+  .faqQuestion {
+    font-size: 1rem; /* Hacemos las preguntas más pequeñas */
+    padding: 1rem 0.25rem;
+  }
+}
