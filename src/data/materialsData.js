@@ -287,7 +287,8 @@ export const materialsData = [
   {
     id: "pegatinas",
     title: "Pegatinas / Etiquetas",
-    heroText: "Las pegatinas y etiquetas personalizadas son una herramienta versátil para reforzar la identidad de tu marca. Ideales para productos, packaging o promociones, combinan funcionalidad y diseño para ofrecer una presentación cuidada y profesional.",
+    heroText:
+      "Las pegatinas y etiquetas personalizadas son una herramienta versátil para reforzar la identidad de tu marca. Ideales para productos, packaging o promociones, combinan funcionalidad y diseño para ofrecer una presentación cuidada y profesional.",
     sections: [
       {
         title: "Etiquetas / pegatinas de vinilo",
@@ -315,27 +316,28 @@ export const materialsData = [
       },
     ],
     faqs: [
-       {
+      {
         question: "¿Qué diferencia hay entre una pegatina y una etiqueta?",
         answer:
           "Nuestras pegatinas son resistentes, llamativas y perfectas para destacar tu marca con un acabado duradero. Por otro lado, nuestras etiquetas son más delgadas, removibles y están pensadas para brindar información sobre el producto o el empaque de forma práctica y funcional.",
       },
-       {
+      {
         question: "¿Qué tipos de materiales ofrecemos?",
         answer:
           "Contamos con una amplia variedad de materiales para que encuentres la opción perfecta para tu proyecto. Trabajamos principalmente con vinilo polimérico, reconocido por su alta resistencia y durabilidad, ideal para aplicaciones permanentes en interiores y exteriores. Además, puedes elegir entre vinilos transparentes, holográficos, espejo, reflectantes, de alta adhesión (hi-tack) y también etiquetas en papel, para adaptarnos a cualquier necesidad y estilo. Si tienes alguna necesidad específica o buscas un acabado especial, ¡cuéntanos! Podemos asesorarte para seleccionar el material ideal para tu proyecto.",
       },
-       {
-        question: "¿Las etiquetas/pegatinas pueden tener un acabado determinado?",
+      {
+        question:
+          "¿Las etiquetas/pegatinas pueden tener un acabado determinado?",
         answer:
           "Para aumentar aún más la durabilidad de tus etiquetas, ofrecemos la opción de aplicar un protector en acabado brillante o mate, según el estilo que prefieras. Y si buscas un toque premium, también podemos añadir detalles en stamping (oro, plata, cobre, entre otros) y barniz selectivo, ideales para realzar partes específicas del diseño y lograr un resultado sofisticado y llamativo.",
       },
-       {
+      {
         question: "¿La etiquetas/pegatinas pueden ser de formas irregulares?",
         answer:
           "Redondas, cuadradas, rectangulares o con cortes personalizados… la forma de tu etiqueta la decides tú. No hay límites: gracias a nuestro sistema de corte con plotter, podemos adaptarnos a cualquier diseño sin problema.",
       },
-       {
+      {
         question: "¿Cuántas etiquetas hay en un rollo?",
         answer:
           "El número de etiquetas por rollo varía según el tamaño de las etiquetas y el volumen de tu pedido. Nos adaptamos a tus necesidades para ofrecerte la presentación más práctica y eficiente.",

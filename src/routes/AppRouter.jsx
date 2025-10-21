@@ -9,7 +9,7 @@ export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      
+
       <Route path="/faq" element={<h1>FAQ</h1>} />
 
       <Route path="/contacto" element={<ContactPage />} />

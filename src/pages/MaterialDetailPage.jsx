@@ -5,7 +5,6 @@ import styles from "../styles/MaterialDetailPage.module.css";
 import { BsChevronDown } from "react-icons/bs";
 import CallToAction from "../components/sections/CallToAction";
 
-
 function FaqItem({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
   return (

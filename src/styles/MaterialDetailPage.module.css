@@ -153,10 +153,10 @@
   }
 
   .contentSection:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0; 
-}
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
 
   .imageWrapper,
   .textWrapper {

@@ -67,7 +67,6 @@
   color: var(--color-white);
 }
 
-
 /* --- MEJORAS PARA MÓVIL --- */
 @media (max-width: 600px) {
   .hero h1 {
@@ -77,8 +76,8 @@
   .sectionInfo {
     padding: 2rem 1rem; /* Reduce el padding horizontal */
   }
-  
-    .gridContainer {
+
+  .gridContainer {
     margin: 1rem auto;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
