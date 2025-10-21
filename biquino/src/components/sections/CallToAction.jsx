@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
 import styles from "../../styles/CallToAction.module.css";
 
-export default function CallToAction() {
+export default function CallToAction({
+  title,
+  subtitle,
+  buttonText,
+  buttonLink,
+  variant = "primary",
+}) {
   return (
-    <section className={styles.cta}>
-      <h1 className={styles.ctaTitle}>
-        Gran variedad de materiales con infinidad de aplicaciones
-      </h1>
-      <p className={styles.ctaSubtitle}>
-        Explora nuestra galería de materiales.
-      </p>
-      <Link to="/materiales" className={styles.ctaButton}>
-        Materiales
+    <section className={`${styles.cta} ${styles[variant]}`}>
+      <h1 className={styles.ctaTitle}>{title}</h1>
+
+      {subtitle && <p className={styles.ctaSubtitle}>{subtitle}</p>}
+
+      <Link to={buttonLink} className={styles.ctaButton}>
+        {buttonText}
       </Link>
     </section>
   );

@@ -1,37 +1,69 @@
+/* --- 1. Estilos Base (Layout) --- */
 .cta {
-  background-color: var(--color-white);
-  max-width: 550px;
+  padding: 1rem 2rem;
   text-align: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-inline: auto;
-  padding-bottom: 2rem;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.ctaTitle {
+  font-size: 2.2rem;
+  font-weight: bold;
+  max-width: 700px;
+  margin: 0 0 1rem 0;
+}
+
+.ctaSubtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
 }
 
 .ctaButton {
-  margin-top: 1rem;
   border-radius: 8px;
   border: none;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.7em 1.5em;
+  font-size: 1rem;
   font-family: inherit;
-  background-color: var(--color-btn);
-  color: var(--color-white);
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .ctaButton:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  filter: brightness(1.15);
 }
 
-.ctaButton:focus,
-.ctaButton:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* --- 2. Variante "primary" (Fondo Fucsia) --- */
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.primary .ctaButton {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.primary .ctaTitle {
+  color: var(--color-white);
+}
+
+/* --- 3. Variante "light" (Fondo Blanco) --- */
+.light {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.light .ctaButton {
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }

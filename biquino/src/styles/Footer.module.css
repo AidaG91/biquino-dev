@@ -2,7 +2,7 @@
   background-color: var(--color-primary);
 
   /* Relleno vertical para que parezca una "franja" */
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 
   /* Opcional: Asegura que esté al final de la página */
   width: 100%;

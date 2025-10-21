@@ -1,0 +1,127 @@
+.hero {
+  background-color: var(--color-background);
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 1400px;
+  margin: 1rem auto;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contentSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.imageWrapper,
+.textWrapper {
+  min-width: 300px;
+}
+
+.imageWrapper {
+  flex: 0 0 350px;
+}
+
+.textWrapper {
+  flex: 1;
+}
+
+.imageWrapper img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.textWrapper h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+.textWrapper p {
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+.imageLeft {
+  flex-direction: row-reverse;
+} /* Imagen a la derecha */
+
+.faqContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--color-background);
+}
+.faqHeader {
+  flex: 1;
+  min-width: 250px;
+}
+.faqHeader h4 {
+  color: var(--color-primary);
+
+  font-size: 1rem;
+}
+.faqHeader h3 {
+  color: var(--color-primary);
+
+  font-size: 2rem;
+}
+.faqList {
+  flex: 2;
+  min-width: 300px;
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--color-primary);
+}
+.faqQuestion {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.5rem 0.5rem;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqQuestion svg {
+  font-size: 1.2rem; /* Tamaño del icono */
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+
+.faqQuestion svg.open {
+  transform: rotate(0deg);
+}
+
+.faqAnswer {
+  padding: 0 1rem 1.5rem 1rem;
+  line-height: 1.6;
+}

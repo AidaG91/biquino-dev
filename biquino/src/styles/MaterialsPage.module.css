@@ -1,0 +1,59 @@
+.hero {
+  background-color: var(--color-background);
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.sectionInfo {
+  display: flex;
+  max-width: 1400px;
+  flex-direction: column;
+  align-content: center;
+  align-items: flex-start;
+  margin: auto;
+  padding: 2rem;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+}
+
+.materialCard {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 1rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.materialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.materialCard h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+}
