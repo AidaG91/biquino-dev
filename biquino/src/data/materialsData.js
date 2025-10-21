@@ -194,9 +194,10 @@ export const materialsData = [
   {
     id: "soportes",
     title: "Soportes publicitarios",
-    heroText: "Los soportes publicitarios son mucho más que simples estructuras: representan el espacio donde tus ideas toman forma. Descubre los tipos más utilizados y cómo pueden potenciar la visibilidad y el alcance de tu marca.",
+    heroText:
+      "Los soportes publicitarios son mucho más que simples estructuras: representan el espacio donde tus ideas toman forma. Descubre los tipos más utilizados y cómo pueden potenciar la visibilidad y el alcance de tu marca.",
     sections: [
-       {
+      {
         title: "Beach Flag",
         text: "El beach flag, o bandera publicitaria, es ideal para eventos al aire libre y puntos de venta. Su forma distintiva y el movimiento natural al viento atraen la atención, mientras que su base estable permite colocarla en prácticamente cualquier superficie.",
         image: "https://picsum.photos/200/200/?blur",
@@ -216,7 +217,7 @@ export const materialsData = [
       },
     ],
     faqs: [
-       {
+      {
         question: "¿Cuáles son las ventajas de usar un roll up?",
         answer:
           "Los Roll Ups destacan por su facilidad de transporte y montaje, ofreciendo una gran visibilidad incluso en espacios reducidos. Reutilizables y prácticos, resultan ideales para presentaciones, ferias y puntos de venta, combinando impacto visual y funcionalidad",
@@ -231,26 +232,116 @@ export const materialsData = [
   {
     id: "papeleria",
     title: "Papelería corporativa",
-    heroText: "Descripción de ...",
+    heroText:
+      "La papelería corporativa es mucho más que un conjunto de elementos de oficina: es una extensión de la identidad de tu marca. Desde tarjetas de visita hasta sobres, carpetas y blocs, cada pieza transmite profesionalismo y refuerza la imagen de tu empresa ante clientes y colaboradores.",
     sections: [
-      /* ... */
+      {
+        title: "Tarjetas de visita",
+        text: "Desde las más básicas hasta las más espectaculares, las tarjetas de visita combinan funcionalidad y estilo. Más que un medio de identificación, son una herramienta poderosa para diferenciar tu marca y causar una impresión duradera. Ofrecemos una amplia gama de soportes y acabados para potenciar el diseño y la presentación de cada tarjeta.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageRight",
+      },
+      {
+        title: "Carpetas corporativas",
+        text: "Las carpetas corporativas son un soporte clave para organizar documentos y presentar tu marca de manera profesional. Disponibles en distintos formatos y acabados, permiten mantener tus materiales ordenados mientras refuerzan la identidad visual de tu empresa.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageLeft",
+      },
+      {
+        title: "Flyers - Folletos plegados",
+        text: "Los flyers y folletos plegados son herramientas versátiles para comunicar información de manera clara y atractiva. Permiten presentar promociones, servicios o productos de forma estructurada, manteniendo la identidad visual de tu marca.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageRight",
+      },
+      {
+        title: "Calendarios personalizados",
+        text: "Los calendarios personalizados son una herramienta práctica y efectiva para mantener tu marca visible durante todo el año. Disponibles en distintos formatos y diseños, permiten comunicar tu imagen corporativa de manera constante a clientes y colaboradores.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageLeft",
+      },
+      {
+        title: "Hostelería y restauración",
+        text: "Cartas de restaurante, porta cuentas, posavasos, displays de mesa, etc. Todo ello personalizado para tu negocio.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageRight",
+      },
     ],
     faqs: [
-      /* ... */
+      {
+        question: "¿Qué tipos de acabados tienen las tarjetas?",
+        answer:
+          "Tarjetas de visita clásicas, con barniz UVi selectivo, con stamping metalizado, troqueladas, con papeles texturados, cotracoladas, e incluso con lenguaje braile.",
+      },
+      {
+        question: "¿Qué tipos de plegado tienen los folletos?",
+        answer:
+          "Plegado envolvente, folleto plegado en cruz, folleto plegado en ventana, folleto plegado en acordeón, podemos hacer folletos plegados de todo tipo.",
+      },
+      {
+        question: "¿Cómo afecta las condiciones ambientales?",
+        answer:
+          "Los cambios de temperatura y la exposición al sol pueden afectar la adherencia y el color de los vinilos. Por ello, es importante seleccionar vinilos específicos para interiores o exteriores, según el uso previsto. Además, se puede aplicar un vinilo protector que prolonga la durabilidad y protege la superficie de arañazos.",
+      },
     ],
   },
   {
     id: "pegatinas",
     title: "Pegatinas / Etiquetas",
-    heroText: "Descripción de ...",
+    heroText: "Las pegatinas y etiquetas personalizadas son una herramienta versátil para reforzar la identidad de tu marca. Ideales para productos, packaging o promociones, combinan funcionalidad y diseño para ofrecer una presentación cuidada y profesional.",
     sections: [
-      /* ... */
+      {
+        title: "Etiquetas / pegatinas de vinilo",
+        text: "Perfectas para decoración de escaparates, publicidad o señalética, nuestras pegatinas destacan por su gran versatilidad y resistencia. Se adhieren fácilmente tanto a superficies lisas como irregulares, y funcionan igual de bien en interiores como en exteriores.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageRight",
+      },
+      {
+        title: "Etiquetas / pegatinas sueltas",
+        text: "Si buscas etiquetas individuales para tus productos o proyectos, nuestras etiquetas sueltas son perfectas para ti. Ideales para pequeñas tiradas, muestras o aplicaciones específicas, se adaptan a cualquier necesidad sin comprometer calidad ni diseño. Son ideales para identificar productos, marcar lotes, personalizar packaging o para eventos especiales. Fabricadas con materiales resistentes y con acabados personalizados, nuestras etiquetas sueltas ofrecen la versatilidad que necesitas para destacar tu marca o brindar información clara y profesional en cada producto.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageLeft",
+      },
+      {
+        title: "Etiquetas en bobina",
+        text: "Nuestras etiquetas en rollo son perfectas tanto para el etiquetado manual como automático. Se entregan en un soporte continúo enrollado sobre un carrete de cartón, lo que facilita su uso en todo tipo de procesos. El material sobrante alrededor de cada etiqueta se elimina, dejando únicamente tus diseños personalizados listos para aplicar de forma rápida, práctica y eficiente.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageRight",
+      },
+      {
+        title: "Etiquetas gota de resina",
+        text: "Cada una está impresa y recubierta con una cúpula de resina de poliuretano transparente que crea un increíble efecto de volumen. Son perfectas para personalizar todo tipo de superficies: madera, plástico, cuero, textiles ¡y mucho más! Gracias a  u acabado en resina, no solo lucen espectaculares, sino que también están protegidas contra los rayos UV y el desgaste, manteniendo los colores vivos y el diseño intacto por mucho más tiempo.",
+        image: "https://picsum.photos/200/200/?blur",
+        layout: "imageLeft",
+      },
     ],
     faqs: [
-      /* ... */
+       {
+        question: "¿Qué diferencia hay entre una pegatina y una etiqueta?",
+        answer:
+          "Nuestras pegatinas son resistentes, llamativas y perfectas para destacar tu marca con un acabado duradero. Por otro lado, nuestras etiquetas son más delgadas, removibles y están pensadas para brindar información sobre el producto o el empaque de forma práctica y funcional.",
+      },
+       {
+        question: "¿Qué tipos de materiales ofrecemos?",
+        answer:
+          "Contamos con una amplia variedad de materiales para que encuentres la opción perfecta para tu proyecto. Trabajamos principalmente con vinilo polimérico, reconocido por su alta resistencia y durabilidad, ideal para aplicaciones permanentes en interiores y exteriores. Además, puedes elegir entre vinilos transparentes, holográficos, espejo, reflectantes, de alta adhesión (hi-tack) y también etiquetas en papel, para adaptarnos a cualquier necesidad y estilo. Si tienes alguna necesidad específica o buscas un acabado especial, ¡cuéntanos! Podemos asesorarte para seleccionar el material ideal para tu proyecto.",
+      },
+       {
+        question: "¿Las etiquetas/pegatinas pueden tener un acabado determinado?",
+        answer:
+          "Para aumentar aún más la durabilidad de tus etiquetas, ofrecemos la opción de aplicar un protector en acabado brillante o mate, según el estilo que prefieras. Y si buscas un toque premium, también podemos añadir detalles en stamping (oro, plata, cobre, entre otros) y barniz selectivo, ideales para realzar partes específicas del diseño y lograr un resultado sofisticado y llamativo.",
+      },
+       {
+        question: "¿La etiquetas/pegatinas pueden ser de formas irregulares?",
+        answer:
+          "Redondas, cuadradas, rectangulares o con cortes personalizados… la forma de tu etiqueta la decides tú. No hay límites: gracias a nuestro sistema de corte con plotter, podemos adaptarnos a cualquier diseño sin problema.",
+      },
+       {
+        question: "¿Cuántas etiquetas hay en un rollo?",
+        answer:
+          "El número de etiquetas por rollo varía según el tamaño de las etiquetas y el volumen de tu pedido. Nos adaptamos a tus necesidades para ofrecerte la presentación más práctica y eficiente.",
+      },
     ],
   },
-  // ...Añade el resto de materiales (Rótulos, Papelería, etc.)
 ];
 
 // También puedes crear un array solo con las categorías para la cuadrícula
