@@ -8,6 +8,8 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+
+    document.body.classList.toggle('menu-open', !isOpen)
   };
 
   const navLinks = [

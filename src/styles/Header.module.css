@@ -74,10 +74,10 @@
 }
 
 /* Estilos para el menú móvil */
+/* --- Estilos del Menú Hamburguesa (Móvil) --- */
 @media (max-width: 768px) {
-  /* El punto de quiebre (breakpoint) para móvil */
-
-  /* Mostrar el botón hamburguesa en móvil */
+  
+  /* --- Botón Hamburguesa --- */
   .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -88,7 +88,8 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 100; /* Asegurar que esté encima del menú abierto */
+    position: relative; /* Asegurar que z-index funcione */
+    z-index: 1002; /* Por encima del header (1000) y del menú (1001) */
   }
 
   .menu-toggle span {
@@ -97,57 +98,72 @@
     height: 3px;
     background: var(--color-primary);
     border-radius: 1px;
-    transition: all var(--transition-normal);
-    transform-origin: left center;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
   }
 
   /* Transformación de la hamburguesa a 'X' */
   .menu-toggle.open span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 2px;
+    transform: translateY(8px) rotate(45deg);
   }
 
   .menu-toggle.open span:nth-child(2) {
-    opacity: 0; /* Ocultar la línea del medio */
+    opacity: 0;
+    transform: translateX(-100%);
   }
 
   .menu-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: -2px;
+    transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* Ocultar la navegación por defecto */
+  /* --- Panel del Menú --- */
   .header-nav {
-    position: absolute;
-    top: 60px; /* Debajo de la barra superior */
+    position: fixed; /* Fijo a la ventana */
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Ocupa el alto de la vista */
-    background-color: var(--color-background); /* Fondo del menú móvil */
-    transform: translateX(100%); /* Desplazar fuera de la pantalla */
-    transition: transform var(--transition-normal);
-    padding: 2rem 0;
+    height: 100vh;
+    
+    /* Fondo moderno (ajusta el color a tu gusto) */
+    background-color: rgba(255, 249, 251, 0.95); /* Fondo de tu web pero semitransparente */
+    backdrop-filter: blur(8px);
+    
+    /* Deslizar desde arriba */
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+    
+    z-index: 1001; /* Detrás del botón, encima del header */
+    
+    /* Centrar los enlaces */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 0; /* Quitamos el padding superior ya que centramos todo */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   }
 
   /* Mostrar la navegación cuando esté activa */
   .header-nav.active {
-    transform: translateX(0); /* Desplazar hacia dentro */
+    transform: translateY(0);
   }
 
   .nav-list {
-    flex-direction: column; /* Apilar enlaces verticalmente */
+    flex-direction: column;
     align-items: center;
+    padding: 0;
+    margin: 0;
   }
 
   .nav-item {
-    margin: 1rem 0;
+    margin: 1.5rem 0; /* Más espacio */
   }
 
   .nav-link {
-    font-size: 1.25rem; /* Más grande en móvil para tocar fácil */
-    font-weight: 500;
+    font-size: 1.5rem; /* Letras más grandes para tocar */
+    font-weight: 700;
     display: block;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    color: var(--color-primary);
   }
 }

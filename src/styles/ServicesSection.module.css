@@ -38,3 +38,29 @@
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
 }
+
+
+@media (max-width: 600px) {
+  .servicesTitle {
+    font-size: 28px; 
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+    padding: 1rem;
+  }
+
+  .cardIcon {
+    height: 60px; 
+  }
+
+  .cardTitle {
+    font-size: 1.1rem; 
+  }
+
+  .cardText {
+    text-align: left;
+    font-size: 0.85rem; 
+  }
+}

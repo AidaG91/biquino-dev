@@ -49,6 +49,10 @@ body {
   color: var(--color-black);
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 /* Estilos de Encabezados */
 h1,
 h2,
