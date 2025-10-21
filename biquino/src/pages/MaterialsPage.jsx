@@ -1,6 +1,7 @@
 import styles from "../styles/MaterialsPage.module.css";
 import { Link } from "react-router-dom";
 import { materialsGrid } from "../data/materialsData";
+import CallToAction from "../components/sections/CallToAction";
 
 export default function MaterialsPage() {
   return (
@@ -9,7 +10,7 @@ export default function MaterialsPage() {
         <h1>Catálogo</h1>
       </div>
 
-      <div>
+      <div className={styles.sectionInfo}>
         <h2>Materiales</h2>
         <p>
           Descubre nuestra amplia gama de materiales para impresión digital:
@@ -25,13 +26,18 @@ export default function MaterialsPage() {
         {materialsGrid.map((material, index) => (
           <Link
             key={material.id}
-            to={`/materiales/${material.id}`} 
+            to={`/materiales/${material.id}`}
             className={`${styles.materialCard} ${index >= 4 ? styles.lightCard : ""}`}
           >
             <h2>{material.title}</h2>
           </Link>
         ))}
       </div>
+      <CallToAction
+        title="Explícanos tu proyecto y te asesoramos."
+        buttonText="Contacto"
+        buttonLink="/contacto"
+      />
     </section>
   );
 }

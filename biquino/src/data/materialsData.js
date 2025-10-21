@@ -346,7 +346,7 @@ export const materialsData = [
 
 // También puedes crear un array solo con las categorías para la cuadrícula
 export const materialsGrid = [
-  { id: "vinilos", title: "Vinilo" },
+  { id: "vinilos", title: "Vinilos" },
   { id: "lonas", title: "Lonas" },
   { id: "rigidos", title: "Rígidos impresos" },
   { id: "rotulos", title: "Rótulos" },

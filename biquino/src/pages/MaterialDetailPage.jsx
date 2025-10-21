@@ -3,6 +3,8 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { materialsData } from "../data/materialsData";
 import styles from "../styles/MaterialDetailPage.module.css";
 import { BsChevronDown } from "react-icons/bs";
+import CallToAction from "../components/sections/CallToAction";
+
 
 function FaqItem({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,6 +74,13 @@ export default function MaterialDetailPage() {
           ))}
         </div>
       </div>
+
+      {/* 4. CTA */}
+      <CallToAction
+        title={`Haz realidad tu proyecto con ${material.title.toLowerCase()}.`}
+        buttonText="Contacto"
+        buttonLink="/contacto"
+      />
     </section>
   );
 }

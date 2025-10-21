@@ -11,7 +11,13 @@ export default function LandingPage() {
       <Hero />
       <ServicesSection />
       <ProjectsSection />
-      <CallToAction />
+      <CallToAction
+        variant="light"
+        title="Gran variedad de materiales con infinidad de aplicaciones"
+        subtitle="Explora nuestra galería de materiales."
+        buttonText="Materiales"
+        buttonLink="/materiales"
+      />
       <ContactForm />
     </article>
   );
