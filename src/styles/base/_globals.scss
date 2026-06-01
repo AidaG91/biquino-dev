@@ -1,6 +1,10 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+/* Fuentes externas */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://use.typekit.net/ydn5jcq.css");
+
 // CSS CUSTOM PROPERTIES (para usar en componentes, theming, etc.)
 :root {
   --font-heading: #{$font-heading};
