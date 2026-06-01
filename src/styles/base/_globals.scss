@@ -1,0 +1,103 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// CSS CUSTOM PROPERTIES (para usar en componentes, theming, etc.)
+:root {
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
+
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-primary: #{$color-primary};
+  --color-background: #{$color-background};
+  --color-btn: #{$color-btn};
+  --color-secondary: #{$color-secondary};
+
+  --transition-normal: #{$transition-normal};
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// BASE
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $color-white;
+  line-height: 1.5;
+  font-weight: 400;
+  min-height: 100vh;
+  font-size: $font-size-body;
+  color: $color-black;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+// HEADINGS
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: $space-xs;
+  color: $color-primary;
+  line-height: 1.2;
+  font-family: $font-heading;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+
+p {
+  color: $color-black;
+  font-size: $font-size-body;
+}
+
+button {
+  border-radius: $radius-md;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: $color-btn;
+  color: $color-white;
+  cursor: pointer;
+  transition: all $transition-normal;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.15);
+  }
+
+  &:focus,
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// RESPONSIVE GLOBAL
+@media (max-width: 600px) {
+  p {
+    font-size: $font-size-xs;
+  }
+}
+
+// Respeto a reduced motion
+@include respect-reduced-motion;

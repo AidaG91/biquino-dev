@@ -1,0 +1,41 @@
+// TIPOGRAFÍAS
+$font-heading: "bogart", serif;
+$font-body: "Montserrat", sans-serif;
+
+// COLORES
+$color-white: #ffffff;
+$color-black: #000000;
+$color-primary: #e62556;
+$color-background: #fce9ee;
+$color-btn: #eb5178;
+$color-secondary: #f07c9a;
+
+// TIPOGRAFÍA ESCALA
+$font-size-base: 18px;
+$font-size-body: 1rem; 
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.8rem;
+$font-size-h1: 2rem;   
+$font-size-h2: 1.75rem;
+$font-size-h3: 1.5rem;
+
+// RADIOS
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-pill: 999px;
+
+// ESPACIADOS
+$space-xxs: 0.25rem;
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+
+// BREAKPOINTS
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+// TRANSICIONES
+$transition-normal: 0.3s ease-in-out;

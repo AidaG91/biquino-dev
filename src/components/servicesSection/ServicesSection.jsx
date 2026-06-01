@@ -1,6 +1,6 @@
 import ServiceCard from "./ServiceCard";
-import services from "../../data/servicesData";
-import styles from "../../styles/ServicesSection.module.css";
+import services from "../../assets/data/servicesData";
+import styles from "./ServicesSection.module.scss";
 
 export default function ServicesSection() {
   return (

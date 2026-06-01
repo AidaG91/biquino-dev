@@ -1,11 +1,5 @@
 import { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
-
-// La conexión a Supabase
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 export function useContactForm() {
   const [formData, setFormData] = useState({
@@ -14,6 +8,7 @@ export function useContactForm() {
     phone: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({});
   const [isSending, setIsSending] = useState(false);
 
@@ -42,9 +37,7 @@ export function useContactForm() {
 
     fieldsToValidate.forEach((field) => {
       const error = validateField(field, formData[field]);
-      if (error) {
-        newErrors[field] = error;
-      }
+      if (error) newErrors[field] = error;
     });
 
     return newErrors;
@@ -53,6 +46,7 @@ export function useContactForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
     if (errors[name]) {
       setErrors({ ...errors, [name]: null });
     }
@@ -67,7 +61,6 @@ export function useContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validar antes de enviar
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -76,39 +69,22 @@ export function useContactForm() {
     }
 
     setIsSending(true);
-    toast.promise(
-      supabase
-        .from("contacts")
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            message: formData.message,
-          },
-        ])
-        .then(({ error }) => {
-          if (error) {
-            throw new Error(error.message);
-          }
-        }),
-      {
-        loading: "Enviando mensaje...",
-        success: () => {
-          setFormData({ name: "", email: "", phone: "", message: "" });
-          setIsSending(false);
-          return <b>¡Mensaje enviado con éxito!</b>;
-        },
-        error: (err) => {
-          console.error("Error de Supabase:", err);
-          setIsSending(false);
-          return <b>Hubo un problema al enviar el mensaje.</b>;
-        },
-      },
-    );
+
+    // Simulación temporal de envío
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
+    toast.success("Mensaje enviado correctamente.");
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+
+    setIsSending(false);
   };
 
-  // El hook devuelve todo lo que el componente de UI necesita
   return {
     formData,
     errors,

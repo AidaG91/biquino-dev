@@ -1,0 +1,32 @@
+@use "./variables" as *;
+
+// BREAKPOINTS
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+// FOCUS VISIBLE ACCESIBLE
+@mixin focus-ring {
+  outline: 3px solid $color-primary;
+  outline-offset: 2px;
+}
+
+// REDUCED MOTION
+@mixin respect-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
