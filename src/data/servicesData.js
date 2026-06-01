@@ -1,26 +1,26 @@
-import calidadIcon from "../assets/CALIDAD_PRECIO.svg";
-import envioIcon from "../assets/ENVIO.svg";
-import respuestaIcon from "../assets/RESPUESTA_RAPIDA.svg";
-import integralIcon from "../assets/SERVICIO_INTEGRAL.svg";
+import calidadIcon from "../assets/icons/CALIDAD_PRECIO.svg";
+import envioIcon from "../assets/icons/ENVIO.svg";
+import respuestaIcon from "../assets/icons/RESPUESTA_RAPIDA.svg";
+import integralIcon from "../assets/icons/SERVICIO_INTEGRAL.svg";
 
 const services = [
   {
     id: 1,
     icon: respuestaIcon,
     title: "Respuesta rápida",
-    text: "Valoramos tu tiempo. Te garantizamos una comunicación fluida y un compromiso de respuesta en menos de 24 horas a todas tus consultas y peticiones.",
+    text: "Valoramos tu tiempo. Damos una respuesta rápida, no superando las 24/48h.",
   },
   {
     id: 2,
     icon: integralIcon,
     title: "Servicio integral",
-    text: "Ofrecemos un servicio 360º. Incluye asesoramiento, diseño, artes finales, producción, instalación y servicio post-venta.",
+    text: "Ofrecemos un servicio 360º que incluye asesoramiento, diseño, producción, instalación y post‑venta.",
   },
   {
     id: 3,
     icon: envioIcon,
     title: "Envíos a península",
-    text: "Trabajamos con una red de colaboradores, la cual nos permite poder enviar y instalar en toda la península y fuera.",
+    text: "Trabajamos con una red de colaboradores, la cual nos permite poder enviar e instalar en toda la península.",
   },
   {
     id: 4,

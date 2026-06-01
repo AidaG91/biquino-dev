@@ -1,12 +1,13 @@
 import Hero from "../components/hero/Hero";
 import CallToAction from "../components/sections/CallToAction";
 import ContactForm from "../components/sections/ContactForm";
-import ServicesSection from "../components/sections/ServicesSection";
+import ServicesSection from "../components/servicesSection/ServicesSection";
 
 export default function LandingPage() {
   return (
     <article>
       <Hero />
+
       <ServicesSection />
     
       <CallToAction
