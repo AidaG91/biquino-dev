@@ -1,7 +1,7 @@
-import calidadIcon from "../assets/icons/CALIDAD_PRECIO.svg";
-import envioIcon from "../assets/icons/ENVIO.svg";
-import respuestaIcon from "../assets/icons/RESPUESTA_RAPIDA.svg";
-import integralIcon from "../assets/icons/SERVICIO_INTEGRAL.svg";
+import calidadIcon from "../icons/CALIDAD_PRECIO.svg";
+import envioIcon from "../icons/ENVIO.svg";
+import respuestaIcon from "../icons/RESPUESTA_RAPIDA.svg";
+import integralIcon from "../icons/SERVICIO_INTEGRAL.svg";
 
 const services = [
   {
