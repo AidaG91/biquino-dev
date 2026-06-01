@@ -1,10 +1,13 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
 /* -------------------------------------- */
 /* MOBILE FIRST                           */
 /* -------------------------------------- */
 
 .header {
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-background);
+  background-color: v.$color-white;
+  border-bottom: 1px solid v.$color-background;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -13,19 +16,21 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 v.$space-lg;
   height: 60px;
 
   display: flex;
   justify-content: space-between;
-  align-items: center; /* <-- CENTRA LOGO + HAMBURGUESA */
+  align-items: center;
 }
 
 /* Logo */
-.header-logo img {
-  height: 40px;
-  width: auto;
-  display: block;
+.header-logo {
+  img {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
 }
 
 /* NAV (oculto en móvil) */
@@ -39,17 +44,17 @@
   backdrop-filter: blur(8px);
 
   transform: translateY(-100%);
-  transition: transform .4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   z-index: 1001;
-}
 
-.header-nav.active {
-  transform: translateY(0);
+  &.active {
+    transform: translateY(0);
+  }
 }
 
 /* Lista móvil */
@@ -68,10 +73,10 @@
 }
 
 .nav-link {
-  font-family: var(--font-heading);
+  font-family: v.$font-heading;
   font-weight: 700;
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: v.$color-primary;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
@@ -81,11 +86,11 @@
   width: 22px;
   height: 22px;
   display: block;
-  transition: opacity .2s ease;
-}
+  transition: opacity 0.2s ease;
 
-.instagram-icon:hover {
-  opacity: .7;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 /* -------------------------------------- */
@@ -95,8 +100,8 @@
 .menu-toggle {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* <-- evita saltos */
-  height: 22px; /* <-- altura exacta para centrar */
+  justify-content: space-between;
+  height: 22px;
   width: 28px;
 
   background: none;
@@ -105,37 +110,37 @@
   padding: 0;
 
   z-index: 1002;
-}
 
-.menu-toggle span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: var(--color-primary);
-  border-radius: 2px;
-  transition: all .3s ease;
+  span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: v.$color-primary;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
 }
 
 /* Animación a X */
-.open span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+.open {
+  span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  span:nth-child(2) {
+    opacity: 0;
+  }
+
+  span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
 }
-
-.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.open span:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-}
-
-
 
 /* -------------------------------------- */
 /* TABLET                                 */
 /* -------------------------------------- */
 
-@media (min-width: 768px) {
+@include m.tablet {
   .container {
     height: 70px;
   }
@@ -145,13 +150,11 @@
   }
 }
 
-
 /* -------------------------------------- */
 /* DESKTOP                                */
 /* -------------------------------------- */
 
-@media (min-width: 1024px) {
-
+@include m.desktop {
   .menu-toggle {
     display: none;
   }

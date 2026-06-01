@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../header/Header.module.css";
+import styles from "../header/Header.module.scss";
 import logoBiquino from "../../assets/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
 
