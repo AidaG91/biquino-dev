@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/ServicesSection.module.css";
+import styles from "./ServicesSection.module.scss";
 
 export default function ServiceCard({ data }) {
   const { icon, title, text } = data;
