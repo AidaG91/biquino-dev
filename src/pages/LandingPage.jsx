@@ -1,12 +1,12 @@
+import Hero from "../components/hero/Hero";
 import CallToAction from "../components/sections/CallToAction";
 import ContactForm from "../components/sections/ContactForm";
-import Menu from "../components/sections/Menu";
 import ServicesSection from "../components/sections/ServicesSection";
 
 export default function LandingPage() {
   return (
     <article>
-      <Menu />
+      <Hero />
       <ServicesSection />
     
       <CallToAction

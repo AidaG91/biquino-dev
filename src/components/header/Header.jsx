@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../header/Header.module.scss";
-import logoBiquino from "../../assets/LOGO_WEB.svg";
+import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
 
 export default function Header() {
