@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import AppRouter from "./routes/AppRouter";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 

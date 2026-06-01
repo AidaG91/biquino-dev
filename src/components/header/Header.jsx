@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/Header.module.css";
-import logoBiquino from "../assets/LOGO_WEB.svg";
+import styles from "../header/Header.module.css";
+import logoBiquino from "../../assets/LOGO_WEB.svg";
+import instagramIcon from "../../assets/icons/icon-instagram.svg";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ export default function Header() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
 
-    document.body.classList.toggle('menu-open', !isOpen)
+    document.body.classList.toggle("menu-open", !isOpen);
   };
 
   const navLinks = [
@@ -25,7 +26,10 @@ export default function Header() {
         <Link
           to="/"
           className={styles["header-logo"]}
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            document.body.classList.remove("menu-open");
+          }}
         >
           <img src={logoBiquino} alt="Biquiño Logo" />
         </Link>
@@ -55,6 +59,21 @@ export default function Header() {
                 </Link>
               </li>
             ))}
+            <li className={styles["nav-item"]}>
+              <a
+                href="https://www.instagram.com/biquinostudio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className={styles["nav-link"]}
+              >
+                <img
+                  src={instagramIcon}
+                  alt=""
+                  className={styles["instagram-icon"]}
+                />
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
