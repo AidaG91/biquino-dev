@@ -1,0 +1,155 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.contactWrapper {
+  background-color: v.$color-background;
+  padding: v.$space-md v.$space-md;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-md;
+  padding: v.$space-xl;
+  max-width: 1200px;
+  margin-inline: auto;
+  background-color: v.$color-background;
+  color: v.$color-primary;
+
+  @include m.tablet {
+    flex-direction: row;
+    gap: v.$space-xl;
+  }
+}
+
+/* --- COLUMNAS --- */
+.cfLeft,
+.cfRight {
+  flex: 1;
+  min-width: 100%;
+  color: v.$color-black;
+
+  @include m.tablet {
+    min-width: 300px;
+  }
+}
+
+.cfLeft {
+  h1,
+  h2 {
+    font-size: v.$font-size-h1;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+
+    @include m.tablet {
+      font-size: 2.5rem;
+    }
+  }
+
+  h3 {
+    font-size: v.$font-size-h3;
+    margin-top: v.$space-lg;
+    margin-bottom: v.$space-xs;
+  }
+
+  p {
+    font-size: v.$font-size-body;
+    line-height: 1.6;
+    margin-block: v.$space-sm;
+  }
+}
+
+/* --- FORMULARIO --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-sm;
+  font-size: v.$font-size-body;
+}
+
+/* Fila para los campos side-by-side (Correo y Teléfono) */
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-md;
+
+  @include m.tablet {
+    flex-direction: row;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+    margin-bottom: v.$space-xs;
+    font-weight: 500;
+    color: v.$color-primary;
+  }
+}
+
+.input,
+textarea {
+  width: 100%;
+  padding: v.$space-sm v.$space-md;
+  border: none;
+  border-radius: v.$radius-md;
+  font-size: v.$font-size-sm;
+  font-family: v.$font-body;
+  background-color: v.$color-white;
+  color: v.$color-black;
+
+  &::placeholder {
+    color: lighten(v.$color-black, 40%);
+    font-style: italic;
+  }
+
+  &:focus,
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* --- BOTÓN DE ENVÍO --- */
+.form button {
+  align-self: flex-start;
+  background-color: v.$color-btn;
+  color: v.$color-white;
+  border-radius: v.$radius-md;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all v.$transition-normal;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.15);
+  }
+
+  &:disabled {
+    background-color: lighten(v.$color-black, 70%);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+/* --- GESTIÓN DE ERRORES --- */
+.errorMessage {
+  color: #dc3545;
+  font-size: v.$font-size-sm;
+  margin-top: v.$space-xxs;
+}
+
+.inputError {
+  border: 1px solid #dc3545 !important;
+}
