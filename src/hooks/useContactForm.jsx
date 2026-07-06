@@ -58,6 +58,24 @@ export function useContactForm() {
     setErrors({ ...errors, [name]: error });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validaciones
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      toast.error("Por favor, corrige los errores del formulario.");
+      return;
+    }
+
+    setIsSending(true);
+
+    // Envío nativo del formulario (Netlify Forms lo intercepta)
+    e.target.submit();
+  };
+
+/*
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -84,6 +102,7 @@ export function useContactForm() {
 
     setIsSending(false);
   };
+  */
 
   return {
     formData,

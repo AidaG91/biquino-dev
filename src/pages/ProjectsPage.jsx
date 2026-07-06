@@ -1,7 +1,7 @@
 import styles from "../styles/ProjectsPage.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ContactForm from "../components/sections/ContactForm";
+import ContactForm from "../components/contactForm/ContactForm";
 
 const filters = [
   "Papelería",
