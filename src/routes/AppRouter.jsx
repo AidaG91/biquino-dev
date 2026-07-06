@@ -4,7 +4,6 @@ import ContactPage from "../pages/ContactPage";
 import ProjectsPage from "../pages/ProjectsPage";
 import MaterialsPage from "../pages/MaterialsPage";
 import MaterialDetailPage from "../pages/MaterialDetailPage";
-import Gracias from "../pages/gracias/Gracias";
 
 export default function AppRouter() {
   return (
@@ -14,7 +13,6 @@ export default function AppRouter() {
       <Route path="/faq" element={<h1>FAQ</h1>} />
 
       <Route path="/contacto" element={<ContactPage />} />
-      <Route path="/gracias" element={<Gracias />} />
 
       <Route path="/proyectos" element={<ProjectsPage />} />
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-export function useContactForm() {
+export function useContactForm(onSuccess) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -58,7 +58,7 @@ export function useContactForm() {
     setErrors({ ...errors, [name]: error });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validaciones
@@ -71,38 +71,20 @@ export function useContactForm() {
 
     setIsSending(true);
 
-    // Envío nativo del formulario (Netlify Forms lo intercepta)
-    e.target.submit();
-  };
+    // Enviar a Netlify manualmente
+    const form = e.target;
+    const formData = new FormData(form);
 
-/*
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      toast.error("Por favor, corrige los errores del formulario.");
-      return;
-    }
-
-    setIsSending(true);
-
-    // Simulación temporal de envío
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-
-    toast.success("Mensaje enviado correctamente.");
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
+    await fetch("/", {
+      method: "POST",
+      body: formData,
     });
 
     setIsSending(false);
+
+    // Mostrar modal
+    onSuccess();
   };
-  */
 
   return {
     formData,

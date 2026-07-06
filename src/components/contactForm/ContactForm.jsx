@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { useContactForm } from "../../hooks/useContactForm";
 import styles from "./ContactForm.module.scss";
 import { Toaster } from "react-hot-toast";
 
 export default function ContactForm({ showInfoColumn = true }) {
+  const [showThanks, setShowThanks] = useState(false);
+
   const {
     formData,
     errors,
@@ -10,7 +13,7 @@ export default function ContactForm({ showInfoColumn = true }) {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useContactForm();
+  } = useContactForm(() => setShowThanks(true));
 
   return (
     <section className={styles.contactWrapper}>
@@ -33,7 +36,6 @@ export default function ContactForm({ showInfoColumn = true }) {
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            action="/gracias"
             className={styles.form}
             onSubmit={handleSubmit}
           >
@@ -119,81 +121,38 @@ export default function ContactForm({ showInfoColumn = true }) {
               {isSending ? "Enviando..." : "Enviar"}
             </button>
           </form>
+          {showThanks && (
+            <div className={styles.modalOverlay}>
+              <div className={styles.modal}>
+                <div className={styles.iconWrapper}>
+                  <svg
+                    className={styles.checkIcon}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </div>
 
-          {/* // pequeño cambio para forzar deploy
-           */}
-          {/*  
-          <form onSubmit={handleSubmit} className={styles.form} noValidate>
-            <div className={styles.formGroup}>
-              <label htmlFor="name">Nombre completo *</label>
-              <input
-                className={`${styles.input} ${errors.name ? styles.inputError : ""}`}
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Nombre y apellidos"
-                value={formData.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              {errors.name && (
-                <p className={styles.errorMessage}>{errors.name}</p>
-              )}
-            </div>
+                <h2>¡Gracias!</h2>
+                <p>Tu mensaje ha sido enviado correctamente.</p>
 
-            <div className={styles.formRow}>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Correo electrónico *</label>
-                <input
-                  className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="name@ejemplo.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {errors.email && (
-                  <p className={styles.errorMessage}>{errors.email}</p>
-                )}
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="phone">Teléfono</label>
-                <input
-                  className={styles.input}
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="+34 600 000 000"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
+                <button
+                  className={styles.closeButton}
+                  onClick={() => {
+                    setShowThanks(false);
+                    window.location.href = "/";
+                  }}
+                >
+                  Cerrar
+                </button>
               </div>
             </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="message">Sobre tu proyecto *</label>
-              <textarea
-                className={`${styles.input} ${errors.message ? styles.inputError : ""}`}
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                rows={5}
-                placeholder="Cuéntanos tu proyecto…"
-              />
-              {errors.message && (
-                <p className={styles.errorMessage}>{errors.message}</p>
-              )}
-            </div>
-
-            <button type="submit" disabled={isSending}>
-              {isSending ? "Enviando..." : "Enviar"}
-            </button>
-          </form>
-          */}
+          )}
         </div>
       </div>
     </section>
