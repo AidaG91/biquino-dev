@@ -1,6 +1,6 @@
 import { useContactForm } from "../../hooks/useContactForm";
-import styles from "../../styles/ContactForm.module.css";
-import toast, { Toaster } from "react-hot-toast";
+import styles from "./ContactForm.module.scss";
+import { Toaster } from "react-hot-toast";
 
 export default function ContactForm({ showInfoColumn = true }) {
   const {
