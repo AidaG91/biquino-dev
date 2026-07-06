@@ -3,130 +3,153 @@
 
 /* --- CONTENEDOR PRINCIPAL --- */
 .contactWrapper {
-  background-color: var(--color-background);
-  padding: 1rem 1rem; /* Padding vertical y un poco horizontal para móviles */
+  background-color: v.$color-background;
+  padding: v.$space-md v.$space-md;
 }
 
 .contact {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; /* Espacio entre la columna de texto y el formulario */
-  padding: 2rem;
+  flex-direction: column;
+  gap: v.$space-md;
+  padding: v.$space-xl;
   max-width: 1200px;
   margin-inline: auto;
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  background-color: v.$color-background;
+  color: v.$color-primary;
+
+  @include m.tablet {
+    flex-direction: row;
+    gap: v.$space-xl;
+  }
 }
 
 /* --- COLUMNAS --- */
 .cfLeft,
 .cfRight {
   flex: 1;
-  min-width: 300px;
+  min-width: 100%;
+  color: v.$color-black;
+
+  @include m.tablet {
+    min-width: 300px;
+  }
 }
 
-.cfLeft h1,
-.cfLeft h2 {
-  font-size: 35px;
-  font-weight: bold;
-  line-height: 1.1;
-  margin: 0;
-}
+.cfLeft {
+  h1,
+  h2 {
+    font-size: v.$font-size-h1;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
 
-.cfLeft h3 {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
+    @include m.tablet {
+      font-size: 2.5rem;
+    }
+  }
 
-.cfLeft p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-block: 1rem;
+  h3 {
+    font-size: v.$font-size-h3;
+    margin-top: v.$space-lg;
+    margin-bottom: v.$space-xs;
+  }
+
+  p {
+    font-size: v.$font-size-body;
+    line-height: 1.6;
+    margin-block: v.$space-sm;
+  }
 }
 
 /* --- FORMULARIO --- */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  font-size: 1rem;
+  gap: v.$space-sm;
+  font-size: v.$font-size-body;
 }
 
 /* Fila para los campos side-by-side (Correo y Teléfono) */
 .formRow {
   display: flex;
-  gap: 1.25rem;
+  flex-direction: column;
+  gap: v.$space-md;
+
+  @include m.tablet {
+    flex-direction: row;
+  }
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
 
-.formGroup label {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  label {
+    margin-bottom: v.$space-xs;
+    font-weight: 500;
+    color: v.$color-primary;
+  }
 }
 
 .input,
 textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: v.$space-sm v.$space-md;
   border: none;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-family: inherit;
-  background-color: white;
+  border-radius: v.$radius-md;
+  font-size: v.$font-size-sm;
+  font-family: v.$font-body;
+  background-color: v.$color-white;
+  color: v.$color-black;
+
+  &::placeholder {
+    color: lighten(v.$color-black, 40%);
+    font-style: italic;
+  }
+
+  &:focus,
+  &:focus-visible {
+    @include m.focus-ring;
+  }
 }
 
 textarea {
-  resize: vertical; /* Permite al usuario ajustar la altura */
+  resize: vertical;
 }
 
 /* --- BOTÓN DE ENVÍO --- */
 .form button {
-  border-radius: 8px;
-  border: none;
+  align-self: flex-start;
+  background-color: v.$color-btn;
+  color: v.$color-white;
+  border-radius: v.$radius-md;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: var(--color-btn);
-  color: var(--color-white);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  align-self: flex-start; /* Alinea el botón a la izquierda */
-}
+  transition: all v.$transition-normal;
 
-.form button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  filter: brightness(1.15);
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.15);
+  }
 
-.form button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+  &:disabled {
+    background-color: lighten(v.$color-black, 70%);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
 }
 
 /* --- GESTIÓN DE ERRORES --- */
 .errorMessage {
   color: #dc3545;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+  font-size: v.$font-size-sm;
+  margin-top: v.$space-xxs;
 }
 
 .inputError {
   border: 1px solid #dc3545 !important;
-}
-
-.input::placeholder,
-textarea::placeholder {
-  font-family: var(--font-body);
-  color: #cccccc;
-  font-style: italic;
-  opacity: 1;
 }
