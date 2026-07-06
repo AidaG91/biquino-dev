@@ -120,6 +120,8 @@ export default function ContactForm({ showInfoColumn = true }) {
             </button>
           </form>
 
+          {/* // pequeño cambio para forzar deploy
+           */}
           {/*  
           <form onSubmit={handleSubmit} className={styles.form} noValidate>
             <div className={styles.formGroup}>
