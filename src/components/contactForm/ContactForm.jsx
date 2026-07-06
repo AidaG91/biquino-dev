@@ -28,6 +28,99 @@ export default function ContactForm({ showInfoColumn = true }) {
         )}
 
         <div className={styles.cfRight}>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/gracias"
+            className={styles.form}
+            onSubmit={handleSubmit}
+          >
+            {/* obligatorio para Netlify */}
+            <input type="hidden" name="form-name" value="contact" />
+
+            {/* campo honeypot anti-spam */}
+            <input type="hidden" name="bot-field" />
+
+            {/* Nombre */}
+            <div className={styles.formGroup}>
+              <label htmlFor="name">Nombre completo *</label>
+              <input
+                className={`${styles.input} ${errors.name ? styles.inputError : ""}`}
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Nombre y apellidos"
+                value={formData.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                required
+              />
+              {errors.name && (
+                <p className={styles.errorMessage}>{errors.name}</p>
+              )}
+            </div>
+
+            {/* Correo */}
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="email">Correo electrónico *</label>
+                <input
+                  className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="name@ejemplo.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                />
+                {errors.email && (
+                  <p className={styles.errorMessage}>{errors.email}</p>
+                )}
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="phone">Teléfono</label>
+                <input
+                  className={styles.input}
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+34 600 000 000"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            {/* Mensaje */}
+            <div className={styles.formGroup}>
+              <label htmlFor="message">Sobre tu proyecto *</label>
+              <textarea
+                className={`${styles.input} ${errors.message ? styles.inputError : ""}`}
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                rows={5}
+                placeholder="Cuéntanos tu proyecto…"
+                required
+              />
+              {errors.message && (
+                <p className={styles.errorMessage}>{errors.message}</p>
+              )}
+            </div>
+
+            <button type="submit" disabled={isSending}>
+              {isSending ? "Enviando..." : "Enviar"}
+            </button>
+          </form>
+
+          {/*  
           <form onSubmit={handleSubmit} className={styles.form} noValidate>
             <div className={styles.formGroup}>
               <label htmlFor="name">Nombre completo *</label>
@@ -98,6 +191,7 @@ export default function ContactForm({ showInfoColumn = true }) {
               {isSending ? "Enviando..." : "Enviar"}
             </button>
           </form>
+          */}
         </div>
       </div>
     </section>
