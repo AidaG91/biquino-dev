@@ -25,3 +25,11 @@ dist-ssr
 
 # Variables de entorno locales
 .env.local
+
+# Spec-kit / speckit
+.specify/
+.agents.md
+speckit/
+
+# OpenCode integration
+.opencode/
