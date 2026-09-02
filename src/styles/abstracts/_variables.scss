@@ -34,8 +34,11 @@ $space-lg: 1.5rem;
 $space-xl: 2rem;
 
 // BREAKPOINTS
+$bp-mobile: 320px;
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
+$bp-wide: 1440px;
+$bp-ultrawide: 2560px;
 
 // TRANSICIONES
 $transition-normal: 0.3s ease-in-out;

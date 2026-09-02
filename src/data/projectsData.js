@@ -1,84 +1,48 @@
 const projectsData = [
   {
-    id: 1,
+    id: "papeleria",
     title: "Papelería",
-    description: "Descripción de prueba para el Proyecto 1.",
-    // Simulamos las 3 imágenes con un array de valores null
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
+    description:
+      "Diseño y producción de papelería corporativa para una marca de boutique local.",
+    image: "https://picsum.photos/id/200/600/400",
+    alt: "Tarjetas de visita y folletos de papelería corporativa sobre mesa de madera",
+    category: "Papelería",
   },
   {
-    id: 2,
-    title: "Ropa / Merchandising",
-    description: "Descripción de prueba para el Proyecto 2.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
+    id: "merchandising",
+    title: "Merchandising",
+    description:
+      "Camisetas, gorras y artículos promocionales personalizados para evento corporativo.",
+    image: "https://picsum.photos/id/201/600/400",
+    alt: "Camisetas y gorras con logotipo impreso en variedad de colores",
+    category: "Equipaciones",
   },
   {
-    id: 3,
+    id: "restauracion",
     title: "Restauración",
-    description: "Descripción de prueba para el Proyecto 3.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
+    description:
+      "Rotulación exterior e interior para restaurantes y locales de hostelería.",
+    image: "https://picsum.photos/id/202/600/400",
+    alt: "Letrero luminoso de neón instalado en fachada de restaurante",
+    category: "Rotulación",
   },
   {
-    id: 4,
+    id: "rotulos",
     title: "Rótulos",
-    description: "Descripción de prueba para el Proyecto 4.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
+    description:
+      "Fabricación e instalación de rótulos corporativos para puntos de venta.",
+    image: "https://picsum.photos/id/203/600/400",
+    alt: "Rótulo corporativo grande instalado en fachada de tienda comercial",
+    category: "Rotulación",
   },
   {
-    id: 5,
+    id: "escaparatismo",
     title: "Escaparatismo",
-    description: "Descripción de prueba para el Proyecto 5.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 6,
-    title: "Vehículos",
-    description: "Descripción de prueba para el Proyecto 6.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 7,
-    title: "Oficinas",
-    description: "Descripción de prueba para el Proyecto 7.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 8,
-    title: "Eventos",
-    description: "Descripción de prueba para el Proyecto 8.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
+    description:
+      "Diseño y montaje de escaparates comerciales para temporadas y campañas.",
+    image: "https://picsum.photos/id/204/600/400",
+    alt: "Escaparate decorado con productos de moda y señalización luminosa",
+    category: "Escaparatismo",
   },
 ];
 

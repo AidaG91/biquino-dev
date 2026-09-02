@@ -1,7 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import AppRouter from "./routes/AppRouter";
 import Header from "./components/header/Header";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
@@ -12,12 +12,10 @@ export default function App() {
         position="top-center"
         reverseOrder={false}
         toastOptions={{
-          // Estilos generales para todos los toasts
           style: {
             border: "1px solid #713200",
             padding: "16px",
           },
-          // Estilos específicos para toasts de éxito
           success: {
             style: {
               background: "#28a745",
@@ -28,7 +26,6 @@ export default function App() {
               secondary: "#28a745",
             },
           },
-          // Estilos específicos para toasts de error
           error: {
             style: {
               background: "#dc3545",

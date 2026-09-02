@@ -1,22 +1,40 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "../header/Header.module.scss";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styles from "./Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-
-    document.body.classList.toggle("menu-open", !isOpen);
+    setIsOpen((prev) => !prev);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        closeMenu();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
   const navLinks = [
-    { name: "FAQ", path: "/faq" },
-    { name: "Materiales", path: "/materiales" },
+    { name: "Inicio", path: "/" },
+    { name: "Servicios", path: "/servicios" },
     { name: "Proyectos", path: "/proyectos" },
+    { name: "FAQ", path: "/faq" },
     { name: "Contacto", path: "/contacto" },
   ];
 
@@ -26,26 +44,27 @@ export default function Header() {
         <Link
           to="/"
           className={styles["header-logo"]}
-          onClick={() => {
-            setIsOpen(false);
-            document.body.classList.remove("menu-open");
-          }}
+          onClick={closeMenu}
         >
           <img src={logoBiquino} alt="Biquiño Logo" />
         </Link>
-        {/* BURGER MENU */}
+
         <button
           className={`${styles["menu-toggle"]} ${isOpen ? styles.open : ""}`}
           onClick={toggleMenu}
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
-        {/* NAV CONTAINER (DESKTOP AND MOBILE) */}
+
         <nav
+          id="mobile-nav"
           className={`${styles["header-nav"]} ${isOpen ? styles.active : ""}`}
+          aria-label="Navegación principal"
         >
           <ul className={styles["nav-list"]}>
             {navLinks.map((link) => (
@@ -53,7 +72,7 @@ export default function Header() {
                 <Link
                   to={link.path}
                   className={styles["nav-link"]}
-                  onClick={toggleMenu}
+                  onClick={closeMenu}
                 >
                   {link.name}
                 </Link>

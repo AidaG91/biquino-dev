@@ -39,13 +39,9 @@ export default function ContactForm({ showInfoColumn = true }) {
             className={styles.form}
             onSubmit={handleSubmit}
           >
-            {/* obligatorio para Netlify */}
             <input type="hidden" name="form-name" value="contact" />
-
-            {/* campo honeypot anti-spam */}
             <input type="hidden" name="bot-field" />
 
-            {/* Nombre */}
             <div className={styles.formGroup}>
               <label htmlFor="name">Nombre completo *</label>
               <input
@@ -64,7 +60,6 @@ export default function ContactForm({ showInfoColumn = true }) {
               )}
             </div>
 
-            {/* Correo */}
             <div className={styles.formRow}>
               <div className={styles.formGroup}>
                 <label htmlFor="email">Correo electrónico *</label>
@@ -98,7 +93,6 @@ export default function ContactForm({ showInfoColumn = true }) {
               </div>
             </div>
 
-            {/* Mensaje */}
             <div className={styles.formGroup}>
               <label htmlFor="message">Sobre tu proyecto *</label>
               <textarea

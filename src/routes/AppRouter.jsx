@@ -1,25 +1,31 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "../pages/LandingPage";
-import ContactPage from "../pages/ContactPage";
-import ProjectsPage from "../pages/ProjectsPage";
-import MaterialsPage from "../pages/MaterialsPage";
-import MaterialDetailPage from "../pages/MaterialDetailPage";
+
+const ContactPage = lazy(() => import("../pages/ContactPage"));
+const ProjectsPage = lazy(() => import("../pages/ProjectsPage"));
+const ServiciosPage = lazy(() => import("../pages/ServiciosPage"));
+
+function Loading() {
+  return null;
+}
 
 export default function AppRouter() {
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
 
-      <Route path="/faq" element={<h1>FAQ</h1>} />
+        <Route path="/faq" element={<h1>FAQ</h1>} />
 
-      <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/contacto" element={<ContactPage />} />
 
-      <Route path="/proyectos" element={<ProjectsPage />} />
+        <Route path="/servicios" element={<ServiciosPage />} />
 
-      <Route path="/materiales" element={<MaterialsPage />} />
-      <Route path="/materiales/:id" element={<MaterialDetailPage />} />
+        <Route path="/proyectos" element={<ProjectsPage />} />
 
-      <Route path="*" element={<p>404 · Route not found</p>} />
-    </Routes>
+        <Route path="*" element={<p>404 · Route not found</p>} />
+      </Routes>
+    </Suspense>
   );
 }

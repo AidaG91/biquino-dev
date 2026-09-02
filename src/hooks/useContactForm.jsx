@@ -61,7 +61,6 @@ export function useContactForm(onSuccess) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validaciones
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -71,7 +70,6 @@ export function useContactForm(onSuccess) {
 
     setIsSending(true);
 
-    // Enviar a Netlify manualmente
     const form = e.target;
     const formData = new FormData(form);
 
@@ -82,7 +80,6 @@ export function useContactForm(onSuccess) {
 
     setIsSending(false);
 
-    // Mostrar modal
     onSuccess();
   };
 

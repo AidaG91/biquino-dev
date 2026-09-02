@@ -1,0 +1,80 @@
+@use "../../styles/abstracts/variables" as *;
+
+.footer {
+  background-color: $color-primary;
+  padding: $space-xl $space-md $space-md;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  align-items: center;
+}
+
+.contact {
+  text-align: center;
+
+  p {
+    margin: 0 0 $space-xs;
+  }
+}
+
+.social {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: $space-md;
+    justify-content: center;
+  }
+}
+
+.link {
+  color: $color-white;
+  text-decoration: none;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  transition: opacity $transition-normal;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-white;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}
+
+.copyright {
+  color: $color-white;
+  font-family: $font-body;
+  font-size: $font-size-xs;
+  margin: $space-lg 0 0;
+  text-align: center;
+}
+
+@media (min-width: $bp-tablet) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .contact {
+    text-align: left;
+  }
+
+  .copyright {
+    margin-top: $space-lg;
+  }
+}
+
+@media (min-width: $bp-desktop) {
+  .footer {
+    padding: $space-xl $space-xl $space-md;
+  }
+}

@@ -1,5 +1,5 @@
 import styles from "./ProjectsSection.module.scss";
-import projects from "../../assets/data/projectsData";
+import projects from "../../data/projectsData";
 
 export default function ProjectsSection() {
   return (
@@ -11,8 +11,9 @@ export default function ProjectsSection() {
           <div key={project.id} className={styles.card}>
             <img
               src={project.image}
-              alt={project.title}
+              alt={project.alt}
               className={styles.image}
+              loading="lazy"
             />
           </div>
         ))}

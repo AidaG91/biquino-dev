@@ -1,4 +1,4 @@
-import styles from "../styles/ProjectsPage.module.css";
+import styles from "./ProjectsPage.module.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ContactForm from "../components/contactForm/ContactForm";
