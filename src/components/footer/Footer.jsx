@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
+import contactInfo from "../../data/contactInfo";
 
 const navLinks = [
   { name: "Inicio", path: "/" },
@@ -76,13 +77,13 @@ export default function Footer() {
           <span className={styles.columnTitle}>Contacto</span>
           <ul className={styles.columnList}>
             <li>
-              <a href="mailto:biquinostudio@gmail.com" className={styles.link}>
-                biquinostudio@gmail.com
+              <a href={`mailto:${contactInfo.email}`} className={styles.link}>
+                {contactInfo.email}
               </a>
             </li>
             <li>
-              <a href="tel:+34630536821" className={styles.link}>
-                +34 630 53 68 21
+              <a href={`tel:${contactInfo.phoneHref}`} className={styles.link}>
+                {contactInfo.phoneDisplay}
               </a>
             </li>
           </ul>

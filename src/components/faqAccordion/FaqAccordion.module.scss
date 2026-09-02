@@ -48,16 +48,16 @@
   flex: 1;
 }
 
-.arrow {
+.icon {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   color: v.$color-primary;
   transition: transform v.$transition-normal;
 }
 
-.arrowOpen {
-  transform: rotate(180deg);
+.iconOpen {
+  transform: rotate(45deg);
 }
 
 .panel {

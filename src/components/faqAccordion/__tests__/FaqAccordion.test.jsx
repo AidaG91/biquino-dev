@@ -54,4 +54,15 @@ describe("FaqAccordion", () => {
     expect(second).toHaveAttribute("aria-expanded", "true");
     expect(first).toHaveAttribute("aria-expanded", "false");
   });
+
+  it("opens the first item by default when openFirstByDefault is set", () => {
+    render(<FaqAccordion items={items} openFirstByDefault />);
+
+    const first = screen.getByRole("button", { name: /pregunta uno/i });
+    const second = screen.getByRole("button", { name: /pregunta dos/i });
+
+    expect(first).toHaveAttribute("aria-expanded", "true");
+    expect(second).toHaveAttribute("aria-expanded", "false");
+    expect(screen.getByText("Respuesta uno.")).toBeVisible();
+  });
 });

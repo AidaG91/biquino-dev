@@ -1,24 +1,23 @@
+@use "sass:color";
 @use "../../styles/abstracts/variables" as v;
 @use "../../styles/abstracts/mixins" as m;
 
 .contactWrapper {
   background-color: v.$color-background;
-  padding: v.$space-md v.$space-md;
+  padding: v.$space-xl v.$space-md;
 }
 
 .contact {
   display: flex;
   flex-direction: column;
-  gap: v.$space-md;
-  padding: v.$space-xl;
-  max-width: 1200px;
+  gap: v.$space-xl;
+  max-width: 1160px;
   margin-inline: auto;
-  background-color: v.$color-background;
-  color: v.$color-primary;
 
-  @include m.tablet {
+  @include m.desktop {
     flex-direction: row;
-    gap: v.$space-xl;
+    align-items: flex-start;
+    gap: 4rem;
   }
 }
 
@@ -26,44 +25,91 @@
 .cfRight {
   flex: 1;
   min-width: 100%;
-  color: v.$color-black;
 
-  @include m.tablet {
-    min-width: 300px;
+  @include m.desktop {
+    min-width: 0;
   }
 }
 
 .cfLeft {
-  h1,
-  h2 {
-    font-size: v.$font-size-h1;
+  .pill {
+    display: inline-block;
+    background-color: v.$color-white;
+    color: v.$color-primary;
+    font-family: v.$font-body;
+    font-size: v.$font-size-xs;
     font-weight: 700;
-    line-height: 1.1;
-    margin: 0;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+    border-radius: v.$radius-pill;
+    margin-bottom: v.$space-md;
+  }
+}
 
-    @include m.tablet {
-      font-size: 2.5rem;
-    }
+.contactTitle {
+  font-size: 1.75rem;
+  line-height: 1.15;
+  margin: 0 0 v.$space-md;
+
+  @include m.desktop {
+    font-size: 2.25rem;
+  }
+}
+
+.contactLead {
+  font-family: v.$font-body;
+  font-size: v.$font-size-body;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
+  margin: 0 0 v.$space-lg;
+  max-width: 400px;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-md;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: v.$space-sm;
+  font-family: v.$font-body;
+  font-weight: 600;
+  font-size: v.$font-size-sm;
+  color: v.$color-dark;
+
+  &:hover {
+    color: v.$color-primary;
   }
 
-  h3 {
-    font-size: v.$font-size-h3;
-    margin-top: v.$space-lg;
-    margin-bottom: v.$space-xs;
+  &:focus-visible {
+    @include m.focus-ring;
   }
+}
 
-  p {
-    font-size: v.$font-size-body;
-    line-height: 1.6;
-    margin-block: v.$space-sm;
-  }
+.badge {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: v.$color-white;
+  color: v.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: v.$space-sm;
-  font-size: v.$font-size-body;
+  gap: v.$space-md;
+  background-color: v.$color-white;
+  border-radius: v.$radius-lg;
+  padding: v.$space-lg;
+  box-shadow: 0 16px 40px rgba(28, 20, 16, 0.08);
 }
 
 .formRow {
@@ -83,8 +129,9 @@
 
   label {
     margin-bottom: v.$space-xs;
-    font-weight: 500;
-    color: v.$color-primary;
+    font-weight: 600;
+    font-size: v.$font-size-sm;
+    color: v.$color-dark;
   }
 }
 
@@ -92,21 +139,23 @@
 textarea {
   width: 100%;
   padding: v.$space-sm v.$space-md;
-  border: none;
+  border: 1.5px solid v.$color-input-border;
   border-radius: v.$radius-md;
   font-size: v.$font-size-sm;
   font-family: v.$font-body;
   background-color: v.$color-white;
-  color: v.$color-black;
+  color: v.$color-dark;
 
   &::placeholder {
-    color: lighten(v.$color-black, 40%);
+    color: color.adjust(v.$color-black, $lightness: 40%);
     font-style: italic;
   }
 
   &:focus,
   &:focus-visible {
-    @include m.focus-ring;
+    outline: none;
+    border-color: v.$color-primary;
+    box-shadow: 0 0 0 3px rgba(230, 37, 86, 0.15);
   }
 }
 
@@ -114,27 +163,32 @@ textarea {
   resize: vertical;
 }
 
-.form button {
+.submitButton {
   align-self: flex-start;
-  background-color: v.$color-btn;
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-xs;
+  background-color: v.$color-cta;
   color: v.$color-white;
   border-radius: v.$radius-md;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  transition: all v.$transition-normal;
+  padding: 0.85em 1.5em;
+  font-size: v.$font-size-sm;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(230, 37, 86, 0.25);
+  transition: background-color v.$transition-normal;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.15);
+    background-color: v.$color-cta-hover;
   }
 
   &:disabled {
-    background-color: lighten(v.$color-black, 70%);
+    background-color: color.adjust(v.$color-black, $lightness: 70%);
     cursor: not-allowed;
     box-shadow: none;
-    transform: none;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
   }
 }
 
@@ -145,87 +199,19 @@ textarea {
 }
 
 .inputError {
-  border: 1px solid #dc3545 !important;
+  border-color: #dc3545 !important;
 }
 
-
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(6px);
-  background: rgba(0, 0, 0, 0.35);
+.formSuccess {
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 999;
-
-  animation: fadeIn 0.3s ease forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.modal {
-  background: #ffffff;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-
-  animation: slideUp 0.35s ease forwards;
-  transform: translateY(20px);
-  opacity: 0;
-}
-
-@keyframes slideUp {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.iconWrapper {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 1rem auto;
-  background: #e6f7ec;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.checkIcon {
-  width: 40px;
-  height: 40px;
-  color: #2ecc71; 
-}
-
-.closeButton {
-  margin-top: 1.8rem;
-  padding: 0.9rem 1.8rem;
-  border: none;
-  border-radius: 8px;
-  background: #333;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s ease;
-
-  &:hover {
-    background: #000;
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
+  gap: v.$space-xs;
+  background-color: #e7f6ec;
+  border: 1px solid #b7e3c4;
+  color: #1f6b39;
+  font-family: v.$font-body;
+  font-size: v.$font-size-sm;
+  font-weight: 600;
+  padding: v.$space-sm v.$space-md;
+  border-radius: v.$radius-md;
 }

@@ -5,7 +5,7 @@ import styles from "./FaqPage.module.scss";
 
 export default function FaqPage() {
   return (
-    <section>
+    <article>
       <title>Biquiño | Preguntas frecuentes</title>
       <meta
         name="description"
@@ -25,14 +25,21 @@ export default function FaqPage() {
       />
 
       <div className={styles.hero}>
-        <h1>Preguntas frecuentes</h1>
+        <div className={styles.heroInner}>
+          <p className={styles.eyebrow}>FAQ</p>
+          <h1 className={styles.heroTitle}>Preguntas frecuentes</h1>
+          <p className={styles.lead}>
+            Lo que más nos preguntan antes de empezar un proyecto. ¿No
+            encuentras tu respuesta? Escríbenos.
+          </p>
+        </div>
       </div>
 
       <div className={styles.container}>
-        <FaqAccordion items={faqData} />
+        <FaqAccordion items={faqData} openFirstByDefault />
       </div>
 
       <ContactForm />
-    </section>
+    </article>
   );
 }

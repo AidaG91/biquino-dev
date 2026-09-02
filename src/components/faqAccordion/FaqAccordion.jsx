@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
 import styles from "./FaqAccordion.module.scss";
 
-export default function FaqAccordion({ items }) {
-  const [openId, setOpenId] = useState(null);
+export default function FaqAccordion({ items, openFirstByDefault = false }) {
+  const [openId, setOpenId] = useState(() =>
+    openFirstByDefault && items.length > 0 ? items[0].id : null
+  );
   const triggerRefs = useRef([]);
 
   const toggle = (id) => {
@@ -61,7 +63,7 @@ export default function FaqAccordion({ items }) {
               >
                 <span className={styles.question}>{item.question}</span>
                 <svg
-                  className={`${styles.arrow} ${isOpen ? styles.arrowOpen : ""}`}
+                  className={`${styles.icon} ${isOpen ? styles.iconOpen : ""}`}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -70,7 +72,7 @@ export default function FaqAccordion({ items }) {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <path d="M6 9l6 6 6-6" />
+                  <path d="M12 5v14M5 12h14" />
                 </svg>
               </button>
             </h3>

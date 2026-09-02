@@ -1,79 +1,150 @@
 @use "../styles/abstracts/variables" as v;
+@use "../styles/abstracts/mixins" as m;
 
 .hero {
-  background-color: v.$color-primary;
-  color: v.$color-white;
-  padding: v.$space-xl;
-  text-align: center;
+  background-color: v.$color-background;
+}
 
-  h1 {
-    font-family: v.$font-heading;
-    font-size: v.$font-size-h1;
-    margin: 0;
-  }
+.heroInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-lg;
+  text-align: center;
+}
+
+.eyebrow {
+  color: v.$color-primary;
+  font-family: v.$font-body;
+  font-size: v.$font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin: 0 0 v.$space-md;
+}
+
+.heroTitle {
+  font-size: 1.75rem;
+  max-width: 640px;
+  margin: 0 auto v.$space-md;
+}
+
+.lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: v.$space-xl v.$space-md;
-  display: flex;
-  flex-direction: column;
-  gap: v.$space-xl;
+  padding: v.$space-lg v.$space-lg v.$space-xl;
 }
 
-.card {
-  background-color: v.$color-white;
-  border-radius: v.$radius-md;
-  padding: v.$space-xl;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-lg;
+  padding: v.$space-xl 0;
+  border-bottom: 1px solid v.$color-border-tint;
 
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.rowImage {
+  flex-shrink: 0;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-tile-bg;
+  color: v.$color-accent-mauve;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-xs;
+  padding: v.$space-lg;
+  text-align: center;
+  height: 150px;
+
+  span {
+    font-size: v.$font-size-xs;
+    font-weight: 600;
+    color: v.$color-muted-pink;
+    line-height: 1.4;
+  }
+}
+
+.rowContent {
   h2 {
-    font-family: v.$font-heading;
-    font-size: v.$font-size-h2;
-    margin: 0 0 v.$space-md;
+    font-size: v.$font-size-h3;
+    margin: 0 0 v.$space-sm;
   }
 
   p {
-    font-size: v.$font-size-body;
-    line-height: 1.6;
-    margin: 0 0 v.$space-lg;
+    font-size: v.$font-size-sm;
+    line-height: 1.75;
+    color: v.$color-text-secondary;
+    margin: 0 0 v.$space-md;
+    max-width: 560px;
   }
 }
 
-.ctaButton {
-  display: inline-block;
-  background-color: v.$color-primary;
-  color: v.$color-white;
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-xs;
   font-family: v.$font-body;
-  font-size: v.$font-size-body;
-  font-weight: 600;
-  padding: v.$space-sm v.$space-lg;
-  border-radius: v.$radius-pill;
-  text-decoration: none;
-  transition: background-color v.$transition-normal;
+  font-weight: 700;
+  font-size: v.$font-size-sm;
+  color: v.$color-primary;
 
   &:hover {
-    background-color: darken(v.$color-primary, 10%);
+    color: v.$color-cta-hover;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
   }
 }
 
-@media (min-width: v.$bp-tablet) {
-  .container {
-    padding: v.$space-xl;
+@include m.tablet {
+  .heroTitle {
+    font-size: 2.25rem;
   }
 
-  .hero h1 {
-    font-size: 2.5rem;
+  .row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: v.$space-xl;
+  }
+
+  .rowImage {
+    width: 200px;
   }
 }
 
-@media (min-width: v.$bp-desktop) {
-  .container {
-    max-width: 1100px;
+@include m.desktop {
+  .heroInner {
+    padding: 4.5rem 2.5rem;
   }
 
-  .hero h1 {
-    font-size: 3rem;
+  .heroTitle {
+    font-size: 2.75rem;
+  }
+
+  .container {
+    padding: v.$space-xl 2.5rem 5rem;
+  }
+
+  .rowImage {
+    width: 220px;
+    height: 170px;
+  }
+
+  .rowContent h2 {
+    font-size: 1.65rem;
   }
 }

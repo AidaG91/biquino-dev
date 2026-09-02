@@ -1,33 +1,207 @@
+@use "../styles/abstracts/variables" as v;
+@use "../styles/abstracts/mixins" as m;
+
 .hero {
-  background-color: var(--color-background);
-  height: 30vh;
+  background-color: v.$color-background;
+}
+
+.heroInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-lg;
+  text-align: center;
+}
+
+.eyebrow {
+  color: v.$color-primary;
+  font-family: v.$font-body;
+  font-size: v.$font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin: 0 0 v.$space-md;
+}
+
+.heroTitle {
+  font-size: 1.75rem;
+  max-width: 560px;
+  margin: 0 auto v.$space-md;
+}
+
+.lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.trustRow {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: v.$space-lg v.$space-lg 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: v.$space-sm v.$space-lg;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: v.$space-xs;
+    color: v.$color-dark;
+    font-family: v.$font-body;
+    font-size: v.$font-size-sm;
+    font-weight: 600;
+
+    svg {
+      color: v.$color-primary;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.photoBand {
+  max-width: 1240px;
+  margin: v.$space-lg auto 0;
+  padding: 0 v.$space-lg;
+  height: 180px;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-tile-bg;
+  color: v.$color-accent-mauve;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-xs;
+
+  span {
+    font-size: v.$font-size-xs;
+    font-weight: 600;
+    color: v.$color-muted-pink;
+  }
+}
+
+.visitSection {
+  max-width: 1240px;
+  margin: v.$space-lg auto 0;
+  padding: 0 v.$space-lg v.$space-xl;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+}
+
+.visitInfo {
+  background-color: v.$color-background;
+  padding: v.$space-xl;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.visitTitle {
+  font-size: 1.35rem;
+  margin: 0 0 v.$space-md;
+}
+
+.visitAddress {
+  display: flex;
+  align-items: flex-start;
+  gap: v.$space-sm;
+  margin-bottom: v.$space-md;
+}
+
+.badge {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: v.$color-white;
+  color: v.$color-primary;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.addressLine1 {
+  font-size: v.$font-size-sm;
+  font-weight: 600;
 }
 
-.pageContainer {
-  margin-top: 3rem;
+.addressLine2 {
+  font-size: v.$font-size-sm;
+  color: v.$color-text-secondary;
 }
 
-.pageTitle {
-  font-size: 2rem;
-  color: var(--color-primary);
-  text-align: center;
+.mapsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-xs;
+  font-family: v.$font-body;
+  font-weight: 700;
+  font-size: v.$font-size-sm;
+  color: v.$color-primary;
+
+  &:hover {
+    color: v.$color-cta-hover;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
 }
 
-.pageSubtitle {
-  font-size: 1rem;
-  color: var(--color-text);
-  margin-bottom: 3rem;
-  text-align: center;
+.visitMap {
+  position: relative;
+  min-height: 220px;
+  background-color: v.$color-tile-bg;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 }
 
-.formContainer {
-  background-color: var(--color-background);
+@include m.tablet {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+}
+
+@include m.desktop {
+  .heroInner {
+    padding: 4.5rem 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2.75rem;
+  }
+
+  .trustRow {
+    padding: v.$space-xl 2.5rem 0;
+  }
+
+  .photoBand {
+    margin: v.$space-xl auto 0;
+    padding: 0 2.5rem;
+    height: 220px;
+  }
+
+  .visitSection {
+    padding: 0 2.5rem v.$space-xl;
+    flex-direction: row;
+  }
+
+  .visitInfo,
+  .visitMap {
+    flex: 1;
+  }
 }
