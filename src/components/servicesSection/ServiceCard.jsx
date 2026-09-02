@@ -5,8 +5,12 @@ export default function ServiceCard({ data }) {
 
   return (
     <div className={styles.serviceCard}>
-      {icon && <img src={icon} alt={title} className={styles.cardIcon} />}
-      <h2 className={styles.cardTitle}>{title}</h2>
+      {icon && (
+        <div className={styles.cardIconTile}>
+          <img src={icon} alt="" className={styles.cardIcon} />
+        </div>
+      )}
+      <h3 className={styles.cardTitle}>{title}</h3>
       <p className={styles.cardText}>{teaser}</p>
     </div>
   );

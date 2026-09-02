@@ -1,0 +1,36 @@
+@use "../styles/abstracts/variables" as v;
+
+.hero {
+  background-color: v.$color-primary;
+  color: v.$color-white;
+  padding: v.$space-xl;
+  text-align: center;
+
+  h1 {
+    font-family: v.$font-heading;
+    font-size: v.$font-size-h1;
+    margin: 0;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-md;
+}
+
+@media (min-width: v.$bp-tablet) {
+  .container {
+    padding: v.$space-xl;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: v.$bp-desktop) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+}

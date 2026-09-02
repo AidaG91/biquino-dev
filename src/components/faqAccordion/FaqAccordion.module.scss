@@ -1,0 +1,83 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-sm;
+}
+
+.item {
+  background-color: v.$color-white;
+  border-radius: v.$radius-md;
+  overflow: hidden;
+}
+
+.heading {
+  margin: 0;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$space-md;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  padding: v.$space-md v.$space-lg;
+  font-family: v.$font-body;
+  font-weight: 600;
+  font-size: v.$font-size-body;
+  color: v.$color-black;
+
+  &:hover {
+    color: v.$color-primary;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.question {
+  flex: 1;
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: v.$color-primary;
+  transition: transform v.$transition-normal;
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.panel {
+  padding: 0 v.$space-lg v.$space-lg;
+}
+
+.answer {
+  margin: 0;
+  font-family: v.$font-body;
+  font-size: v.$font-size-body;
+  line-height: 1.6;
+  color: v.$color-black;
+}
+
+@include m.desktop {
+  .trigger {
+    padding: v.$space-lg v.$space-xl;
+  }
+
+  .panel {
+    padding: 0 v.$space-xl v.$space-lg;
+  }
+}

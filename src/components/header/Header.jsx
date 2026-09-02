@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
@@ -31,7 +31,7 @@ export default function Header() {
   }, [isOpen]);
 
   const navLinks = [
-    { name: "Inicio", path: "/" },
+    { name: "Inicio", path: "/", end: true },
     { name: "Servicios", path: "/servicios" },
     { name: "Proyectos", path: "/proyectos" },
     { name: "FAQ", path: "/faq" },
@@ -41,11 +41,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link
-          to="/"
-          className={styles["header-logo"]}
-          onClick={closeMenu}
-        >
+        <Link to="/" className={styles["header-logo"]} onClick={closeMenu}>
           <img src={logoBiquino} alt="Biquiño Logo" />
         </Link>
 
@@ -69,13 +65,16 @@ export default function Header() {
           <ul className={styles["nav-list"]}>
             {navLinks.map((link) => (
               <li key={link.name} className={styles["nav-item"]}>
-                <Link
+                <NavLink
                   to={link.path}
-                  className={styles["nav-link"]}
+                  end={link.end}
+                  className={({ isActive }) =>
+                    `${styles["nav-link"]} ${isActive ? styles.active : ""}`
+                  }
                   onClick={closeMenu}
                 >
                   {link.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
             <li className={styles["nav-item"]}>
@@ -92,6 +91,15 @@ export default function Header() {
                   className={styles["instagram-icon"]}
                 />
               </a>
+            </li>
+            <li className={`${styles["nav-item"]} ${styles["nav-item-cta"]}`}>
+              <Link
+                to="/contacto"
+                className={styles["header-cta"]}
+                onClick={closeMenu}
+              >
+                Solicita presupuesto
+              </Link>
             </li>
           </ul>
         </nav>

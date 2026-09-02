@@ -1,7 +1,8 @@
 import Hero from "../components/hero/Hero";
+import TrustStrip from "../components/trustStrip/TrustStrip";
 import ContactForm from "../components/contactForm/ContactForm";
 import ServicesSection from "../components/servicesSection/ServicesSection";
-import ProjectsSection from "../components/projectsSection/ProjectsSection";
+import ProjectsTeaser from "../components/projectsTeaser/ProjectsTeaser";
 
 export default function LandingPage() {
   return (
@@ -20,9 +21,11 @@ export default function LandingPage() {
 
       <Hero />
 
+      <TrustStrip />
+
       <ServicesSection />
 
-      <ProjectsSection />
+      <ProjectsTeaser />
 
       <ContactForm />
     </article>

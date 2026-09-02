@@ -1,3 +1,8 @@
+import respuestaRapidaIcon from "../assets/icons/RESPUESTA_RAPIDA.svg";
+import servicioIntegralIcon from "../assets/icons/SERVICIO_INTEGRAL.svg";
+import envioIcon from "../assets/icons/ENVIO.svg";
+import calidadPrecioIcon from "../assets/icons/CALIDAD_PRECIO.svg";
+
 const services = [
   {
     id: "respuesta-rapida",
@@ -6,6 +11,7 @@ const services = [
       "Valoramos tu tiempo. Damos una respuesta rápida, no superando las 24/48h.",
     fullDescription:
       "Sabemos que cada proyecto tiene plazos ajustados. Por eso nos comprometemos a darte una respuesta en un máximo de 24-48 horas, sin importar la complejidad de tu solicitud. Así podrás avanzar con tu proyecto sin demoras innecesarias.",
+    icon: respuestaRapidaIcon,
   },
   {
     id: "servicio-integral",
@@ -14,6 +20,7 @@ const services = [
       "Ofrecemos un servicio 360º que incluye asesoramiento, diseño, producción, instalación y post‑venta.",
     fullDescription:
       "No solo fabricamos. Te acompañamos durante todo el proceso: desde el asesoramiento inicial y el diseño creativo, pasando por la producción y la instalación, hasta el seguimiento post‑venta. Todo lo que necesitas, en un solo lugar.",
+    icon: servicioIntegralIcon,
   },
   {
     id: "envios-peninsula",
@@ -22,6 +29,7 @@ const services = [
       "Trabajamos con una red de colaboradores, la cual nos permite poder enviar e instalar en toda la península.",
     fullDescription:
       "Gracias a nuestra red de colaboradores repartidos por toda la península, podemos enviar e instalar tus proyectos en cualquier punto de España. Sin importar la distancia, garantizamos la misma calidad y cercanía en cada entrega.",
+    icon: envioIcon,
   },
   {
     id: "calidad-precio",
@@ -30,6 +38,7 @@ const services = [
       "Elección exhaustiva de los materiales para ofrecer la mejor calidad a un precio acorde.",
     fullDescription:
       "Seleccionamos cuidadosamente cada material para ofrecerte la mejor relación calidad‑precio del mercado. Trabajamos con proveedores de confianza y optimizamos nuestros procesos para que obtengas un acabado premium sin romper tu presupuesto.",
+    icon: calidadPrecioIcon,
   },
 ];
 

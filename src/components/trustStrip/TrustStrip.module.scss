@@ -1,0 +1,51 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+.trust {
+  background-color: v.$color-dark;
+  width: 100%;
+}
+
+.list {
+  list-style: none;
+  padding: v.$space-md v.$space-lg;
+  max-width: 1240px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$space-sm;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: v.$space-xs;
+  color: v.$color-white;
+  font-family: v.$font-body;
+  font-size: v.$font-size-sm;
+  font-weight: 600;
+
+  svg {
+    color: v.$color-secondary;
+    flex-shrink: 0;
+  }
+}
+
+@include m.tablet {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: v.$space-md v.$space-xl;
+  }
+}
+
+@include m.desktop {
+  .list {
+    padding: 1.375rem 2.5rem;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+}

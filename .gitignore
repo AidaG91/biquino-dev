@@ -28,7 +28,7 @@ dist-ssr
 
 # Spec-kit / speckit
 .specify/
-.agents.md
+AGENTS.md
 speckit/
 
 # OpenCode integration
