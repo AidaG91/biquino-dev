@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Image, ArrowRight } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import servicios from "../data/serviciosPageData";
 import styles from "./ServiciosPage.module.scss";
@@ -41,38 +42,16 @@ export default function ServiciosPage() {
         {servicios.map((servicio) => (
           <div key={servicio.id} className={styles.row}>
             <div className={styles.rowImage}>
-              <svg
-                width="26"
-                height="26"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                aria-hidden="true"
-              >
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <circle cx="9" cy="10" r="1.6" />
-                <path d="M21 16l-5.5-5.5a1.5 1.5 0 0 0-2 0L4 19" />
-              </svg>
+              <Image size={26} strokeWidth={1.5} aria-hidden="true" />
               <span>{servicio.photoCaption}</span>
             </div>
 
             <div className={styles.rowContent}>
               <h2>{servicio.title}</h2>
               <p>{servicio.description}</p>
-              <Link to="/contacto" className={styles.ctaLink}>
-                Solicitar presupuesto
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.3"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
+              <Link to={`/servicios/${servicio.id}`} className={styles.ctaLink}>
+                Ver detalle
+                <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
               </Link>
             </div>
           </div>

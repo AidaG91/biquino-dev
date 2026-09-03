@@ -1,0 +1,196 @@
+@use "../styles/abstracts/variables" as v;
+@use "../styles/abstracts/mixins" as m;
+
+.hero {
+  background-color: v.$color-background;
+}
+
+.heroInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-lg;
+  text-align: center;
+}
+
+.eyebrow {
+  color: v.$color-primary;
+  font-family: v.$font-body;
+  font-size: v.$font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin: 0 0 v.$space-md;
+}
+
+.heroTitle {
+  font-size: 1.75rem;
+  max-width: 640px;
+  margin: 0 auto v.$space-md;
+}
+
+.lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-lg 5rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-xs;
+  font-family: v.$font-body;
+  font-weight: 700;
+  font-size: v.$font-size-sm;
+  color: v.$color-dark;
+  margin-bottom: v.$space-xl;
+
+  &:hover {
+    color: v.$color-primary;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.svcGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-lg;
+}
+
+.card {
+  border: 1.5px solid v.$color-tile-bg;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  background-color: v.$color-white;
+  transition: transform v.$transition-normal, box-shadow v.$transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(28, 20, 16, 0.1);
+  }
+}
+
+.cardTile {
+  height: 120px;
+  background-color: v.$color-tile-bg;
+  color: v.$color-accent-mauve;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-xs;
+  padding: v.$space-sm;
+  text-align: center;
+
+  span {
+    font-size: v.$font-size-xs;
+    font-weight: 600;
+    color: v.$color-muted-pink;
+    line-height: 1.3;
+  }
+}
+
+.cardBody {
+  padding: v.$space-lg;
+
+  h3 {
+    font-size: 1.125rem;
+    margin: 0 0 v.$space-sm;
+  }
+
+  p {
+    font-size: v.$font-size-sm;
+    line-height: 1.65;
+    color: v.$color-text-secondary;
+    margin: 0;
+  }
+}
+
+.ctaBand {
+  margin-top: v.$space-xl;
+  padding: v.$space-lg;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-background;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: v.$space-md;
+}
+
+.ctaText {
+  font-size: v.$font-size-sm;
+  line-height: 1.65;
+  color: v.$color-text-secondary;
+  margin: 0;
+  max-width: 460px;
+}
+
+.ctaButton {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-xs;
+  background-color: v.$color-cta;
+  color: v.$color-white;
+  border-radius: v.$radius-md;
+  padding: 0.85em 1.5em;
+  font-family: v.$font-body;
+  font-size: v.$font-size-sm;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(230, 37, 86, 0.25);
+  transition: background-color v.$transition-normal;
+
+  &:hover {
+    background-color: v.$color-cta-hover;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+@include m.tablet {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .svcGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ctaBand {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@include m.desktop {
+  .heroInner {
+    padding: 4.5rem 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2.75rem;
+  }
+
+  .container {
+    padding: 3.5rem 2.5rem 6rem;
+  }
+
+  .svcGrid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}

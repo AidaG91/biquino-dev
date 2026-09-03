@@ -5,6 +5,7 @@ import LandingPage from "../pages/LandingPage";
 const ContactPage = lazy(() => import("../pages/ContactPage"));
 const ProjectsPage = lazy(() => import("../pages/ProjectsPage"));
 const ServiciosPage = lazy(() => import("../pages/ServiciosPage"));
+const ServicioDetailPage = lazy(() => import("../pages/ServicioDetailPage"));
 const FaqPage = lazy(() => import("../pages/FaqPage"));
 
 function Loading() {
@@ -22,6 +23,7 @@ export default function AppRouter() {
         <Route path="/contacto" element={<ContactPage />} />
 
         <Route path="/servicios" element={<ServiciosPage />} />
+        <Route path="/servicios/:slug" element={<ServicioDetailPage />} />
 
         <Route path="/proyectos" element={<ProjectsPage />} />
 
