@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Image, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import servicios from "../data/serviciosPageData";
 import styles from "./ServiciosPage.module.scss";
@@ -42,8 +42,11 @@ export default function ServiciosPage() {
         {servicios.map((servicio) => (
           <div key={servicio.id} className={styles.row}>
             <div className={styles.rowImage}>
-              <Image size={26} strokeWidth={1.5} aria-hidden="true" />
-              <span>{servicio.photoCaption}</span>
+              <img
+                src={servicio.image}
+                alt={servicio.photoCaption.replace(/^Foto:\s*/i, "")}
+                loading="lazy"
+              />
             </div>
 
             <div className={styles.rowContent}>

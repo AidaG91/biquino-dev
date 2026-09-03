@@ -81,23 +81,14 @@
 }
 
 .cardTile {
-  height: 120px;
+  aspect-ratio: 4 / 3;
   background-color: v.$color-tile-bg;
-  color: v.$color-accent-mauve;
+  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: v.$space-xs;
-  padding: v.$space-sm;
-  text-align: center;
-
-  span {
-    font-size: v.$font-size-xs;
-    font-weight: 600;
-    color: v.$color-muted-pink;
-    line-height: 1.3;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

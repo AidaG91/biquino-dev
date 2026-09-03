@@ -58,22 +58,13 @@
   flex-shrink: 0;
   border-radius: v.$radius-lg;
   background-color: v.$color-tile-bg;
-  color: v.$color-accent-mauve;
+  overflow: hidden;
+  height: 220px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: v.$space-xs;
-  padding: v.$space-lg;
-  text-align: center;
-  height: 150px;
-
-  span {
-    font-size: v.$font-size-xs;
-    font-weight: 600;
-    color: v.$color-muted-pink;
-    line-height: 1.4;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -123,6 +114,8 @@
 
   .rowImage {
     width: 200px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -140,8 +133,9 @@
   }
 
   .rowImage {
-    width: 220px;
-    height: 170px;
+    width: 240px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .rowContent h2 {

@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Image } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import serviciosSubpagesData from "../data/serviciosSubpagesData";
 import styles from "./ServicioDetailPage.module.scss";
 
@@ -40,8 +40,11 @@ export default function ServicioDetailPage() {
           {servicio.cards.map((card) => (
             <div key={card.title} className={styles.card}>
               <div className={styles.cardTile}>
-                <Image size={24} strokeWidth={1.5} aria-hidden="true" />
-                <span>{card.photoCaption}</span>
+                <img
+                  src={card.image}
+                  alt={card.photoCaption.replace(/^Foto:\s*/i, "")}
+                  loading="lazy"
+                />
               </div>
               <div className={styles.cardBody}>
                 <h3>{card.title}</h3>
