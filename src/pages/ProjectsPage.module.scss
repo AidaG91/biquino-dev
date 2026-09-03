@@ -87,9 +87,28 @@
 
 .card {
   position: relative;
+  display: block;
+  width: 100%;
+  height: 220px;
   border-radius: v.$radius-lg;
   overflow: hidden;
-  height: 220px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
 }
 
 .image {
@@ -201,4 +220,83 @@
       grid-row: 2;
     }
   }
+}
+
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(28, 20, 16, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: v.$space-md;
+}
+
+.lightboxContent {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-white;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: v.$space-sm;
+  right: v.$space-sm;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(28, 20, 16, 0.55);
+  color: v.$color-white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgba(28, 20, 16, 0.8);
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.lightboxImage {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+}
+
+.lightboxInfo {
+  padding: v.$space-lg;
+
+  .chipLabel {
+    background-color: v.$color-tile-bg;
+    color: v.$color-primary;
+  }
+}
+
+.lightboxTitle {
+  font-size: 1.35rem;
+  margin: 0 0 v.$space-xs;
+}
+
+.lightboxDescription {
+  font-size: v.$font-size-sm;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
+  margin: 0;
 }
