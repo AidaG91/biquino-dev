@@ -57,6 +57,11 @@ h6 {
   font-family: $font-heading;
 }
 
+h2,
+h3 {
+  color: $color-primary;
+}
+
 h1 {
   font-size: $font-size-h1;
   font-weight: 700;
