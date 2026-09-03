@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Plus } from "lucide-react";
 import styles from "./FaqAccordion.module.scss";
 
 export default function FaqAccordion({ items, openFirstByDefault = false }) {
@@ -62,18 +63,11 @@ export default function FaqAccordion({ items, openFirstByDefault = false }) {
                 onKeyDown={(event) => handleKeyDown(event, index)}
               >
                 <span className={styles.question}>{item.question}</span>
-                <svg
+                <Plus
                   className={`${styles.icon} ${isOpen ? styles.iconOpen : ""}`}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  strokeWidth={2}
                   aria-hidden="true"
-                >
-                  <path d="M12 5v14M5 12h14" />
-                </svg>
+                />
               </button>
             </h3>
             <div

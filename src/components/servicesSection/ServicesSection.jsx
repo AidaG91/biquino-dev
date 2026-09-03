@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 import services from "../../data/servicesData";
 import styles from "./ServicesSection.module.scss";
@@ -15,17 +16,7 @@ export default function ServicesSection() {
         </div>
         <Link to="/servicios" className={styles.linkArrow}>
           Ver todos los servicios
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.3"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
+          <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
         </Link>
       </div>
 

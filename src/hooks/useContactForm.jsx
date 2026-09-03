@@ -1,12 +1,14 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-export function useContactForm(onSuccess) {
+export function useContactForm(onSuccess, initialData = {}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    servicio: "",
     message: "",
+    ...initialData,
   });
 
   const [errors, setErrors] = useState({});

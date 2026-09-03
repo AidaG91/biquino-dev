@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { Mail, Phone, MapPin, ArrowRight, Check } from "lucide-react";
 import { useContactForm } from "../../hooks/useContactForm";
 import contactInfo from "../../data/contactInfo";
+import servicios from "../../data/serviciosPageData";
 import styles from "./ContactForm.module.scss";
 import { Toaster } from "react-hot-toast";
 
-export default function ContactForm({ showInfoColumn = true }) {
+export default function ContactForm({
+  showInfoColumn = true,
+  initialServicio = "",
+}) {
   const [showThanks, setShowThanks] = useState(false);
 
   const {
@@ -14,7 +19,9 @@ export default function ContactForm({ showInfoColumn = true }) {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useContactForm(() => setShowThanks(true));
+  } = useContactForm(() => setShowThanks(true), {
+    servicio: initialServicio,
+  });
 
   return (
     <section className={styles.contactWrapper}>
@@ -36,18 +43,7 @@ export default function ContactForm({ showInfoColumn = true }) {
                 className={styles.contactLink}
               >
                 <span className={styles.badge}>
-                  <svg
-                    width="17"
-                    height="17"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    aria-hidden="true"
-                  >
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="M3 7l9 6 9-6" />
-                  </svg>
+                  <Mail size={17} strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 {contactInfo.email}
               </a>
@@ -56,17 +52,7 @@ export default function ContactForm({ showInfoColumn = true }) {
                 className={styles.contactLink}
               >
                 <span className={styles.badge}>
-                  <svg
-                    width="17"
-                    height="17"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    aria-hidden="true"
-                  >
-                    <path d="M4 4h4l2 6-3 2a13 13 0 0 0 6 6l2-3 6 2v4a2 2 0 0 1-2 2A17 17 0 0 1 2 6a2 2 0 0 1 2-2Z" />
-                  </svg>
+                  <Phone size={17} strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 {contactInfo.phoneDisplay}
               </a>
@@ -77,18 +63,7 @@ export default function ContactForm({ showInfoColumn = true }) {
                 className={styles.contactLink}
               >
                 <span className={styles.badge}>
-                  <svg
-                    width="17"
-                    height="17"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12Z" />
-                    <circle cx="12" cy="9" r="2.5" />
-                  </svg>
+                  <MapPin size={17} strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 {contactInfo.addressLine1}, {contactInfo.addressLine2}
               </a>
@@ -160,6 +135,24 @@ export default function ContactForm({ showInfoColumn = true }) {
             </div>
 
             <div className={styles.formGroup}>
+              <label htmlFor="servicio">Servicio de interés</label>
+              <select
+                className={styles.input}
+                id="servicio"
+                name="servicio"
+                value={formData.servicio}
+                onChange={handleChange}
+              >
+                <option value="">Consulta general / no lo tengo claro</option>
+                {servicios.map((servicio) => (
+                  <option key={servicio.id} value={servicio.id}>
+                    {servicio.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className={styles.formGroup}>
               <label htmlFor="message">Sobre tu proyecto *</label>
               <textarea
                 className={`${styles.input} ${errors.message ? styles.inputError : ""}`}
@@ -179,32 +172,12 @@ export default function ContactForm({ showInfoColumn = true }) {
 
             <button type="submit" className={styles.submitButton} disabled={isSending}>
               {isSending ? "Enviando..." : "Enviar mensaje"}
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
+              <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
             </button>
 
             {showThanks && (
               <div className={styles.formSuccess} role="status">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  aria-hidden="true"
-                >
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
+                <Check size={16} strokeWidth={2.4} aria-hidden="true" />
                 Mensaje enviado. Te responderemos en un máximo de 24–48 horas.
               </div>
             )}

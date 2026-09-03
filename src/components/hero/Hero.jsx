@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import heroImage from "../../assets/images/hero-bg.svg";
 import styles from "./Hero.module.scss";
 
@@ -22,17 +23,7 @@ export default function Hero() {
             </Link>
             <Link to="/proyectos" className={styles.ctaSecondary}>
               Ver proyectos
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.3"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
+              <ArrowRight size={14} strokeWidth={2.3} aria-hidden="true" />
             </Link>
           </div>
         </div>

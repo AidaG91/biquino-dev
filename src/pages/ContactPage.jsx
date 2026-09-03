@@ -1,8 +1,13 @@
+import { useSearchParams } from "react-router-dom";
+import { Clock, Check, Image, MapPin, ExternalLink } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import contactInfo from "../data/contactInfo";
 import styles from "./ContactPage.module.scss";
 
 export default function ContactPage() {
+  const [searchParams] = useSearchParams();
+  const servicioInicial = searchParams.get("servicio") || "";
+
   return (
     <article>
       <title>Biquiño | Contacto</title>
@@ -36,50 +41,17 @@ export default function ContactPage() {
 
       <div className={styles.trustRow}>
         <span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 7v5l3 3" />
-          </svg>
+          <Clock size={16} strokeWidth={2} aria-hidden="true" />
           Respuesta en 24–48h
         </span>
         <span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            aria-hidden="true"
-          >
-            <path d="M20 7 9 18l-5-5" />
-          </svg>
+          <Check size={16} strokeWidth={2} aria-hidden="true" />
           Presupuesto sin compromiso
         </span>
       </div>
 
       <div className={styles.photoBand}>
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          aria-hidden="true"
-        >
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <circle cx="9" cy="10" r="1.6" />
-          <path d="M21 16l-5.5-5.5a1.5 1.5 0 0 0-2 0L4 19" />
-        </svg>
+        <Image size={32} strokeWidth={1.5} aria-hidden="true" />
         <span>Foto: taller o equipo de Biquiño</span>
       </div>
 
@@ -88,18 +60,7 @@ export default function ContactPage() {
           <h2 className={styles.visitTitle}>Visítanos</h2>
           <div className={styles.visitAddress}>
             <span className={styles.badge}>
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                aria-hidden="true"
-              >
-                <path d="M12 21s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12Z" />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
+              <MapPin size={17} strokeWidth={1.8} aria-hidden="true" />
             </span>
             <div>
               <div className={styles.addressLine1}>
@@ -117,17 +78,7 @@ export default function ContactPage() {
             className={styles.mapsLink}
           >
             Cómo llegar (Google Maps)
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              aria-hidden="true"
-            >
-              <path d="M7 17 17 7M9 7h8v8" />
-            </svg>
+            <ExternalLink size={13} strokeWidth={2.2} aria-hidden="true" />
           </a>
         </div>
 
@@ -142,7 +93,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <ContactForm />
+      <ContactForm initialServicio={servicioInicial} />
     </article>
   );
 }
