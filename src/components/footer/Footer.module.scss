@@ -9,25 +9,17 @@
 .top {
   max-width: 1200px;
   margin: 0 auto;
-  padding: v.$space-xl v.$space-lg 0;
+  padding: v.$space-md v.$space-lg;
 
-  display: flex;
-  flex-direction: column;
-  gap: v.$space-xl;
-}
-
-.brand {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: v.$space-sm;
-  max-width: 320px;
-  margin: 0 auto;
 }
 
 .logo {
-  height: 36px;
+  height: 24px;
   width: auto;
   // El SVG es de un solo color sólido (#e72d55) — de momento lo forzamos a
   // blanco por CSS para que se lea sobre el fondo rosa. Sustituir por el
@@ -35,46 +27,20 @@
   filter: brightness(0) invert(1);
 }
 
-.tagline {
-  color: rgba(255, 255, 255, 0.85);
-  font-family: v.$font-body;
-  font-size: v.$font-size-sm;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: v.$space-md;
-}
-
-.columnTitle {
-  color: rgba(255, 255, 255, 0.75);
-  font-family: v.$font-body;
-  font-size: v.$font-size-xs;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.columnList {
+.contactList {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: v.$space-sm;
+  gap: v.$space-md;
 }
 
 .link {
   color: v.$color-white;
   text-decoration: none;
   font-family: v.$font-body;
-  font-size: v.$font-size-sm;
+  font-size: v.$font-size-xs;
   transition: opacity v.$transition-normal;
 
   &:hover {
@@ -88,26 +54,16 @@
   }
 }
 
-.social {
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: v.$space-sm;
-    justify-content: center;
-  }
-}
-
 .socialLink {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1.5px solid rgba(255, 255, 255, 0.4);
   color: v.$color-white;
+  flex-shrink: 0;
   transition:
     opacity v.$transition-normal,
     border-color v.$transition-normal,
@@ -126,62 +82,54 @@
 
 .bottom {
   max-width: 1200px;
-  margin: v.$space-lg auto 0;
-  padding: v.$space-md v.$space-lg;
+  margin: 0 auto;
+  padding: v.$space-xs v.$space-lg v.$space-sm;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: v.$space-xxs;
+  justify-content: center;
   text-align: center;
 }
 
-.copyright,
-.bottomNote {
-  color: rgba(255, 255, 255, 0.75);
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
   font-family: v.$font-body;
-  font-size: v.$font-size-xs;
+  font-size: 0.7rem;
   margin: 0;
 }
 
 @include m.tablet {
   .top {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
     text-align: left;
+    padding: v.$space-sm v.$space-lg;
   }
 
-  .brand {
-    align-items: flex-start;
-    text-align: left;
-    margin: 0;
+  .logo {
+    justify-self: start;
   }
 
-  .column {
-    align-items: flex-start;
-    text-align: left;
+  .contactList {
+    justify-self: center;
   }
 
-  .columnList {
-    align-items: flex-start;
+  .socialLink {
+    justify-self: end;
   }
 
   .bottom {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+    padding: v.$space-xs v.$space-lg;
   }
 }
 
 @include m.desktop {
   .top {
-    padding: v.$space-xl v.$space-xl 0;
+    padding: v.$space-sm v.$space-xl;
   }
 
   .bottom {
-    padding: v.$space-md v.$space-xl;
+    padding: v.$space-xs v.$space-xl;
   }
 }
