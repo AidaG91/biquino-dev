@@ -92,15 +92,6 @@ export default function Header() {
                 />
               </a>
             </li>
-            <li className={`${styles["nav-item"]} ${styles["nav-item-cta"]}`}>
-              <Link
-                to="/contacto"
-                className={styles["header-cta"]}
-                onClick={closeMenu}
-              >
-                Solicita presupuesto
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>
