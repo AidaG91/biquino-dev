@@ -33,3 +33,8 @@ speckit/
 
 # OpenCode integration
 .opencode/
+# Local Netlify folder
+.netlify
+
+# Carpeta local de salidas de Claude (no forma parte del proyecto)
+Claude outputs/
