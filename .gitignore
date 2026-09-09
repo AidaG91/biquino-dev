@@ -25,3 +25,6 @@ dist-ssr
 
 # Variables de entorno locales
 .env.local
+# Herramientas de IA / spec-kit (no publicar en el repo)
+.opencode/
+.specify/
