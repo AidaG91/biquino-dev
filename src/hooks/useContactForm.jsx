@@ -72,17 +72,25 @@ export function useContactForm(onSuccess, initialData = {}) {
 
     setIsSending(true);
 
-    const form = e.target;
-    const formData = new FormData(form);
+    try {
+      const form = e.target;
+      const formData = new FormData(form);
 
-    await fetch("/", {
-      method: "POST",
-      body: formData,
-    });
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData,
+      });
 
-    setIsSending(false);
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}`);
+      }
 
-    onSuccess();
+      onSuccess();
+    } catch {
+      toast.error("No hemos podido enviar el mensaje. Inténtalo de nuevo.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return {

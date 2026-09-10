@@ -4,7 +4,6 @@ import { useContactForm } from "../../hooks/useContactForm";
 import contactInfo from "../../data/contactInfo";
 import servicios from "../../data/serviciosPageData";
 import styles from "./ContactForm.module.scss";
-import { Toaster } from "react-hot-toast";
 
 export default function ContactForm({
   showInfoColumn = true,
@@ -95,9 +94,11 @@ export default function ContactForm({
                 onChange={handleChange}
                 onBlur={handleBlur}
                 required
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? "name-error" : undefined}
               />
               {errors.name && (
-                <p className={styles.errorMessage}>{errors.name}</p>
+                <p id="name-error" className={styles.errorMessage}>{errors.name}</p>
               )}
             </div>
 
@@ -114,9 +115,11 @@ export default function ContactForm({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   required
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <p className={styles.errorMessage}>{errors.email}</p>
+                  <p id="email-error" className={styles.errorMessage}>{errors.email}</p>
                 )}
               </div>
 
@@ -164,9 +167,11 @@ export default function ContactForm({
                 rows={5}
                 placeholder="Cuéntanos tu proyecto…"
                 required
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <p className={styles.errorMessage}>{errors.message}</p>
+                <p id="message-error" className={styles.errorMessage}>{errors.message}</p>
               )}
             </div>
 
