@@ -1,7 +1,7 @@
-import styles from "../styles/MaterialsPage.module.css";
+import styles from "./MaterialsPage.module.scss";
 import { Link } from "react-router-dom";
-import { materialsGrid } from "../data/materialsData";
-import CallToAction from "../components/sections/CallToAction";
+import { materialsGrid } from "@/data/materialsData";
+import CallToAction from "@/components/CallToAction/CallToAction";
 
 export default function MaterialsPage() {
   return (

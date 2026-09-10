@@ -1,0 +1,60 @@
+@use "../../styles/abstracts/variables" as v;
+
+.hero {
+  background-color: v.$color-background;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-lg;
+}
+
+.faqGroup {
+  margin-bottom: v.$space-xl;
+}
+
+.faqGroupTitle {
+  font-size: v.$font-size-h2;
+  margin-bottom: v.$space-md;
+}
+
+.faqItem {
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.faqQuestion {
+  font-weight: 600;
+  cursor: pointer;
+  padding: v.$space-md 0;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before {
+    content: "+ ";
+    font-weight: 700;
+    color: v.$color-primary;
+  }
+}
+
+.faqAnswer {
+  padding: 0 0 v.$space-md 0;
+  line-height: 1.6;
+  color: #444;
+}

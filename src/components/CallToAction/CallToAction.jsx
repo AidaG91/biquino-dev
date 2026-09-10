@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/CallToAction.module.css";
+import styles from "./CallToAction.module.scss";
 
 export default function CallToAction({
   title,
@@ -10,7 +10,7 @@ export default function CallToAction({
 }) {
   return (
     <section className={`${styles.cta} ${styles[variant]}`}>
-      <h1 className={styles.ctaTitle}>{title}</h1>
+      <h2 className={styles.ctaTitle}>{title}</h2>
 
       {subtitle && <p className={styles.ctaSubtitle}>{subtitle}</p>}
 

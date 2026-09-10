@@ -1,5 +1,5 @@
-import ContactForm from "../components/contactForm/ContactForm";
-import styles from "../styles/ContactPage.module.css";
+import ContactForm from "@/components/contactForm/ContactForm";
+import styles from "./ContactPage.module.scss";
 
 export default function ContactPage() {
   return (
@@ -8,7 +8,7 @@ export default function ContactPage() {
         <h1>Contacto</h1>
       </div>
       <div className={styles.pageContainer}>
-        <h1 className={styles.pageTitle}>¿Hablamos de tu proyecto?</h1>
+        <h2 className={styles.pageTitle}>¿Hablamos de tu proyecto?</h2>
         <p className={styles.pageSubtitle}>
           Rellena el formulario y te responderemos lo antes posible.
         </p>
