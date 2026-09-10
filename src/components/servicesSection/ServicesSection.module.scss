@@ -1,10 +1,6 @@
 @use "../../styles/abstracts/variables" as v;
 @use "../../styles/abstracts/mixins" as m;
 
-/* -------------------------------------- */
-/* MOBILE FIRST                           */
-/* -------------------------------------- */
-
 .services {
   max-width: 1240px;
   margin: 0 auto;
@@ -17,13 +13,7 @@
 }
 
 .eyebrow {
-  color: v.$color-primary;
-  font-family: v.$font-body;
-  font-size: v.$font-size-xs;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  margin: 0 0 v.$space-xs;
+  @include m.eyebrow;
 }
 
 .servicesTitle {
@@ -33,22 +23,7 @@
 }
 
 .linkArrow {
-  display: inline-flex;
-  align-items: center;
-  gap: v.$space-xs;
-  font-family: v.$font-body;
-  font-weight: 700;
-  font-size: v.$font-size-sm;
-  color: v.$color-dark;
-  margin-top: v.$space-md;
-
-  &:hover {
-    color: v.$color-primary;
-  }
-
-  &:focus-visible {
-    @include m.focus-ring;
-  }
+  @include m.link-arrow;
 }
 
 .cardGrid {
@@ -100,10 +75,6 @@
   margin: 0;
 }
 
-/* -------------------------------------- */
-/* TABLET                                 */
-/* -------------------------------------- */
-
 @include m.tablet {
   .head {
     display: flex;
@@ -123,10 +94,6 @@
     gap: v.$space-lg;
   }
 }
-
-/* -------------------------------------- */
-/* DESKTOP                                */
-/* -------------------------------------- */
 
 @include m.desktop {
   .services {

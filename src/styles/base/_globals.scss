@@ -1,11 +1,9 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
-/* Fuentes externas */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://use.typekit.net/ydn5jcq.css");
 
-// CSS CUSTOM PROPERTIES (para usar en componentes, theming, etc.)
 :root {
   --font-heading: #{$font-heading};
   --font-body: #{$font-body};
@@ -14,7 +12,6 @@
   --color-black: #{$color-black};
   --color-primary: #{$color-primary};
   --color-background: #{$color-background};
-  --color-btn: #{$color-btn};
   --color-secondary: #{$color-secondary};
 
   --transition-normal: #{$transition-normal};
@@ -25,7 +22,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// BASE
 html {
   font-size: $font-size-base;
 }
@@ -44,7 +40,6 @@ body.menu-open {
   overflow: hidden;
 }
 
-// HEADINGS
 h1,
 h2,
 h3,
@@ -101,12 +96,10 @@ button {
   }
 }
 
-// RESPONSIVE GLOBAL
 @media (max-width: 600px) {
   p {
     font-size: $font-size-xs;
   }
 }
 
-// Respeto a reduced motion
 @include respect-reduced-motion;

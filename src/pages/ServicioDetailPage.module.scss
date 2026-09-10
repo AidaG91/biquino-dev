@@ -1,39 +1,10 @@
 @use "../styles/abstracts/variables" as v;
 @use "../styles/abstracts/mixins" as m;
 
-.hero {
-  background-color: v.$color-background;
-}
+@include m.page-hero;
 
 .heroInner {
-  max-width: 1240px;
-  margin: 0 auto;
   padding: v.$space-xl v.$space-lg;
-  text-align: center;
-}
-
-.eyebrow {
-  color: v.$color-primary;
-  font-family: v.$font-body;
-  font-size: v.$font-size-xs;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  margin: 0 0 v.$space-md;
-}
-
-.heroTitle {
-  font-size: 1.75rem;
-  max-width: 640px;
-  margin: 0 auto v.$space-md;
-}
-
-.lead {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: v.$color-text-secondary;
-  max-width: 520px;
-  margin: 0 auto;
 }
 
 .container {
@@ -153,10 +124,6 @@
 }
 
 @include m.tablet {
-  .heroTitle {
-    font-size: 2.25rem;
-  }
-
   .svcGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -169,14 +136,6 @@
 }
 
 @include m.desktop {
-  .heroInner {
-    padding: 4.5rem 2.5rem;
-  }
-
-  .heroTitle {
-    font-size: 2.75rem;
-  }
-
   .container {
     padding: 3.5rem 2.5rem 6rem;
   }
