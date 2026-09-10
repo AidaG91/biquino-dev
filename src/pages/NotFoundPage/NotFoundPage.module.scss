@@ -1,0 +1,37 @@
+@use "../../styles/abstracts/variables" as v;
+
+.notFound {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: v.$space-md;
+  text-align: center;
+  padding: v.$space-xl;
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+  }
+
+  p {
+    max-width: 30rem;
+  }
+}
+
+.homeLink {
+  color: v.$color-white;
+  background-color: v.$color-btn;
+  border-radius: v.$radius-md;
+  padding: 0.6em 1.2em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all v.$transition-normal;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.15);
+  }
+}

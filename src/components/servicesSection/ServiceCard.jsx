@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ServicesSection.module.scss";
 
 export default function ServiceCard({ data }) {

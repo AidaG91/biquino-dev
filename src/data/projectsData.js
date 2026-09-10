@@ -1,85 +1,13 @@
-const projectsData = [
-  {
-    id: 1,
-    title: "Papelería",
-    description: "Descripción de prueba para el Proyecto 1.",
-    // Simulamos las 3 imágenes con un array de valores null
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 2,
-    title: "Ropa / Merchandising",
-    description: "Descripción de prueba para el Proyecto 2.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 3,
-    title: "Restauración",
-    description: "Descripción de prueba para el Proyecto 3.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 4,
-    title: "Rótulos",
-    description: "Descripción de prueba para el Proyecto 4.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 5,
-    title: "Escaparatismo",
-    description: "Descripción de prueba para el Proyecto 5.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 6,
-    title: "Vehículos",
-    description: "Descripción de prueba para el Proyecto 6.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 7,
-    title: "Oficinas",
-    description: "Descripción de prueba para el Proyecto 7.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
-  {
-    id: 8,
-    title: "Eventos",
-    description: "Descripción de prueba para el Proyecto 8.",
-    images: [
-      "https://picsum.photos/id/200/200/200",
-      "https://picsum.photos/id/201/200/200",
-      "https://picsum.photos/id/202/200/200",
-    ],
-  },
+import tshirt from "../assets/images/projects/mock1.svg";
+import branding from "../assets/images/projects/mock2.svg";
+import book from "../assets/images/projects/mock3.svg";
+import cactus from "../assets/images/projects/mock4.svg";
+
+const projects = [
+  { id: 1, title: "Camiseta", image: tshirt },
+  { id: 2, title: "Branding", image: branding },
+  { id: 3, title: "Editorial", image: book },
+  { id: 4, title: "Fotografía", image: cactus },
 ];
 
-export default projectsData;
+export default projects;

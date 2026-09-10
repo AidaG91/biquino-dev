@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../../styles/abstracts/variables" as v;
 @use "../../styles/abstracts/mixins" as m;
 
@@ -104,7 +105,7 @@ textarea {
   color: v.$color-black;
 
   &::placeholder {
-    color: lighten(v.$color-black, 40%);
+    color: color.adjust(v.$color-black, $lightness: 40%);
     font-style: italic;
   }
 
@@ -136,7 +137,7 @@ textarea {
   }
 
   &:disabled {
-    background-color: lighten(v.$color-black, 70%);
+    background-color: color.adjust(v.$color-black, $lightness: 70%);
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
@@ -225,7 +226,7 @@ textarea {
   padding: 0.9rem 1.8rem;
   border: none;
   border-radius: 8px;
-  background: #333; // cámbialo por tu color principal
+  background: #333;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;

@@ -61,7 +61,6 @@ export function useContactForm(onSuccess) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validaciones
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -71,19 +70,25 @@ export function useContactForm(onSuccess) {
 
     setIsSending(true);
 
-    // Enviar a Netlify manualmente
-    const form = e.target;
-    const formData = new FormData(form);
+    try {
+      const form = e.target;
+      const netlifyData = new FormData(form);
 
-    await fetch("/", {
-      method: "POST",
-      body: formData,
-    });
+      const response = await fetch("/", {
+        method: "POST",
+        body: netlifyData,
+      });
 
-    setIsSending(false);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
 
-    // Mostrar modal
-    onSuccess();
+      onSuccess();
+    } catch {
+      toast.error("No se ha podido enviar el mensaje. Inténtalo de nuevo.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return {

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { materialsData } from "../data/materialsData";
-import styles from "../styles/MaterialDetailPage.module.css";
+import { materialsData } from "@/data/materialsData";
+import styles from "./MaterialDetailPage.module.scss";
 import { BsChevronDown } from "react-icons/bs";
-import CallToAction from "../components/sections/CallToAction";
+import CallToAction from "@/components/CallToAction/CallToAction";
 
 function FaqItem({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,13 +33,11 @@ export default function MaterialDetailPage() {
 
   return (
     <section className={styles.detailPage}>
-      {/* 1. Hero del Detalle */}
       <div className={styles.hero}>
         <h1>{material.title}</h1>
         <p>{material.heroText}</p>
       </div>
 
-      {/* 2. Secciones de contenido */}
       <div className={styles.content}>
         {material.sections.map((section, index) => (
           <div
@@ -61,7 +59,6 @@ export default function MaterialDetailPage() {
         ))}
       </div>
 
-      {/* 3. Sección de FAQ */}
       <div className={styles.faqContainer}>
         <div className={styles.faqHeader}>
           <h4>FAQ</h4>
@@ -74,7 +71,6 @@ export default function MaterialDetailPage() {
         </div>
       </div>
 
-      {/* 4. CTA */}
       <CallToAction
         title={`Haz realidad tu proyecto con ${material.title.toLowerCase()}.`}
         buttonText="Contacto"

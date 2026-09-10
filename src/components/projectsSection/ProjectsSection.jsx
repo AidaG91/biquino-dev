@@ -1,10 +1,10 @@
 import styles from "./ProjectsSection.module.scss";
-import projects from "../../assets/data/projectsData";
+import projects from "@/data/projectsData";
 
 export default function ProjectsSection() {
   return (
     <section className={styles.wrapper}>
-      <h1 className={styles.title}>Proyectos</h1>
+      <h2 className={styles.title}>Proyectos</h2>
 
       <div className={styles.grid}>
         {projects.map((project) => (

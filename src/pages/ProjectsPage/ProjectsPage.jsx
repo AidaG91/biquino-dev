@@ -1,7 +1,7 @@
-import styles from "../styles/ProjectsPage.module.css";
+import styles from "./ProjectsPage.module.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ContactForm from "../components/contactForm/ContactForm";
+import ContactForm from "@/components/contactForm/ContactForm";
 
 const filters = [
   "Papelería",
@@ -30,12 +30,17 @@ export default function ProjectsPage() {
           <span>Filtros:</span>
           <ul>
             {filters.map((filter) => (
-              <li
-                key={filter}
-                className={activeFilter === filter ? styles.active : ""}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
+              <li key={filter}>
+                <button
+                  type="button"
+                  className={`${styles.filterButton} ${
+                    activeFilter === filter ? styles.active : ""
+                  }`}
+                  onClick={() => setActiveFilter(filter)}
+                  aria-pressed={activeFilter === filter}
+                >
+                  {filter}
+                </button>
               </li>
             ))}
           </ul>
@@ -55,9 +60,9 @@ export default function ProjectsPage() {
       </div>
 
       <div className={styles.pageContainer}>
-        <h1 className={styles.pageTitle}>
+        <h2 className={styles.pageTitle}>
           ¿Aún no has visto con qué materiales trabajamos?
-        </h1>
+        </h2>
         <Link to="/materiales" className={styles.ctaButton}>
           Materiales
         </Link>

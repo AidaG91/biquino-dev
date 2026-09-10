@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../header/Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
@@ -33,18 +33,19 @@ export default function Header() {
         >
           <img src={logoBiquino} alt="Biquiño Logo" />
         </Link>
-        {/* BURGER MENU */}
         <button
           className={`${styles["menu-toggle"]} ${isOpen ? styles.open : ""}`}
           onClick={toggleMenu}
           aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+          aria-controls="main-nav"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        {/* NAV CONTAINER (DESKTOP AND MOBILE) */}
         <nav
+          id="main-nav"
           className={`${styles["header-nav"]} ${isOpen ? styles.active : ""}`}
         >
           <ul className={styles["nav-list"]}>

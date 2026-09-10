@@ -1,6 +1,6 @@
 export const materialsData = [
   {
-    id: "vinilos", // ¡Clave! Se usará en la URL
+    id: "vinilos",
     title: "Vinilos",
     heroText:
       "Los vinilos representan una solución altamente versátil para múltiples aplicaciones. En Biquiño Studio ofrecemos una amplia gama de vinilos, impresos o sin impresión, diseñados para adaptarse a todas las necesidades de impresión digital de tu negocio.",
@@ -278,9 +278,9 @@ export const materialsData = [
           "Plegado envolvente, folleto plegado en cruz, folleto plegado en ventana, folleto plegado en acordeón, podemos hacer folletos plegados de todo tipo.",
       },
       {
-        question: "¿Cómo afecta las condiciones ambientales?",
+        question: "¿Qué gramaje de papel es recomendable para papelería corporativa?",
         answer:
-          "Los cambios de temperatura y la exposición al sol pueden afectar la adherencia y el color de los vinilos. Por ello, es importante seleccionar vinilos específicos para interiores o exteriores, según el uso previsto. Además, se puede aplicar un vinilo protector que prolonga la durabilidad y protege la superficie de arañazos.",
+          "Depende de la pieza: para tarjetas de visita se recomiendan gramajes de 350g/m² o superiores para aportar rigidez y una buena sensación al tacto. Para carpetas y dípticos, 250g/m² es una opción equilibrada entre resistencia y coste. Si tienes dudas, te asesoramos según el acabado que busques.",
       },
     ],
   },
@@ -346,7 +346,6 @@ export const materialsData = [
   },
 ];
 
-// También puedes crear un array solo con las categorías para la cuadrícula
 export const materialsGrid = [
   { id: "vinilos", title: "Vinilos" },
   { id: "lonas", title: "Lonas" },
