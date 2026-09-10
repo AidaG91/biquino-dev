@@ -2,31 +2,20 @@ import { useSearchParams } from "react-router-dom";
 import { Clock, Check, Image, MapPin, ExternalLink } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import contactInfo from "../data/contactInfo";
+import useSeo from "../hooks/useSeo";
 import styles from "./ContactPage.module.scss";
 
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
   const servicioInicial = searchParams.get("servicio") || "";
 
+  useSeo(
+    "Biquiño | Contacto",
+    "Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas."
+  );
+
   return (
     <article>
-      <title>Biquiño | Contacto</title>
-      <meta
-        name="description"
-        content="Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas."
-      />
-      <meta property="og:title" content="Biquiño | Contacto" />
-      <meta
-        property="og:description"
-        content="Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas."
-      />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Biquiño | Contacto" />
-      <meta
-        name="twitter:description"
-        content="Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas."
-      />
 
       <div className={styles.hero}>
         <div className={styles.heroInner}>

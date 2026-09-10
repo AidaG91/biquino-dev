@@ -1,11 +1,17 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import serviciosSubpagesData from "../data/serviciosSubpagesData";
+import useSeo from "../hooks/useSeo";
 import styles from "./ServicioDetailPage.module.scss";
 
 export default function ServicioDetailPage() {
   const { slug } = useParams();
   const servicio = serviciosSubpagesData[slug];
+
+  useSeo(
+    servicio ? `Biquiño | ${servicio.title}` : undefined,
+    servicio?.lead
+  );
 
   if (!servicio) {
     return <Navigate to="/servicios" replace />;
@@ -13,14 +19,6 @@ export default function ServicioDetailPage() {
 
   return (
     <article>
-      <title>{`Biquiño | ${servicio.title}`}</title>
-      <meta name="description" content={servicio.lead} />
-      <meta property="og:title" content={`Biquiño | ${servicio.title}`} />
-      <meta property="og:description" content={servicio.lead} />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`Biquiño | ${servicio.title}`} />
-      <meta name="twitter:description" content={servicio.lead} />
 
       <div className={styles.hero}>
         <div className={styles.heroInner}>

@@ -2,28 +2,17 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import servicios from "../data/serviciosPageData";
+import useSeo from "../hooks/useSeo";
 import styles from "./ServiciosPage.module.scss";
 
 export default function ServiciosPage() {
+  useSeo(
+    "Biquiño | Servicios",
+    "Personalización de prendas y objetos, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
+  );
+
   return (
     <article>
-      <title>Biquiño | Servicios</title>
-      <meta
-        name="description"
-        content="Personalización de prendas y objetos, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
-      />
-      <meta property="og:title" content="Biquiño | Servicios" />
-      <meta
-        property="og:description"
-        content="Personalización de prendas y objetos, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
-      />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Biquiño | Servicios" />
-      <meta
-        name="twitter:description"
-        content="Personalización de prendas y objetos, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
-      />
 
       <div className={styles.hero}>
         <div className={styles.heroInner}>

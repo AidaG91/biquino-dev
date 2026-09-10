@@ -3,11 +3,16 @@ import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import projects from "../data/projectsData";
+import useSeo from "../hooks/useSeo";
 import styles from "./ProjectsPage.module.scss";
 
 const ALL = "Todos";
 
 export default function ProjectsPage() {
+  useSeo(
+    "Biquiño | Proyectos",
+    "Una muestra de proyectos recientes de Biquiño: papelería, equipaciones, rotulación y escaparatismo."
+  );
   const categories = useMemo(() => {
     const unique = [...new Set(projects.map((project) => project.category))];
     return [ALL, ...unique];
@@ -40,7 +45,6 @@ export default function ProjectsPage() {
       if (event.key === "Escape") {
         closeLightbox();
       } else if (event.key === "Tab") {
-        // Único elemento interactivo dentro del lightbox: mantenemos el foco ahí.
         event.preventDefault();
         closeButtonRef.current?.focus();
       }
@@ -56,23 +60,6 @@ export default function ProjectsPage() {
 
   return (
     <article>
-      <title>Biquiño | Proyectos</title>
-      <meta
-        name="description"
-        content="Una muestra de proyectos recientes de Biquiño: papelería, equipaciones, rotulación y escaparatismo."
-      />
-      <meta property="og:title" content="Biquiño | Proyectos" />
-      <meta
-        property="og:description"
-        content="Una muestra de proyectos recientes de Biquiño: papelería, equipaciones, rotulación y escaparatismo."
-      />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Biquiño | Proyectos" />
-      <meta
-        name="twitter:description"
-        content="Una muestra de proyectos recientes de Biquiño: papelería, equipaciones, rotulación y escaparatismo."
-      />
 
       <div className={styles.hero}>
         <div className={styles.heroInner}>

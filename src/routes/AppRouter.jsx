@@ -7,6 +7,7 @@ const ProjectsPage = lazy(() => import("../pages/ProjectsPage"));
 const ServiciosPage = lazy(() => import("../pages/ServiciosPage"));
 const ServicioDetailPage = lazy(() => import("../pages/ServicioDetailPage"));
 const FaqPage = lazy(() => import("../pages/FaqPage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 function Loading() {
   return null;
@@ -27,7 +28,8 @@ export default function AppRouter() {
 
         <Route path="/proyectos" element={<ProjectsPage />} />
 
-        <Route path="*" element={<p>404 · Route not found</p>} />
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );
