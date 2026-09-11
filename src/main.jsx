@@ -1,10 +1,5 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { hydrateRoot } from "react-dom/client";
 import "./styles/main.scss";
 import App from "./App.jsx";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-);
+hydrateRoot(document.getElementById("app"), <App />);

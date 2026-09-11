@@ -1,36 +1,6 @@
-import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
-import LandingPage from "../pages/LandingPage";
+import { createBrowserRouter } from "react-router-dom";
+import { routes } from "./routesConfig";
 
-const ContactPage = lazy(() => import("../pages/ContactPage"));
-const ProjectsPage = lazy(() => import("../pages/ProjectsPage"));
-const ServiciosPage = lazy(() => import("../pages/ServiciosPage"));
-const ServicioDetailPage = lazy(() => import("../pages/ServicioDetailPage"));
-const FaqPage = lazy(() => import("../pages/FaqPage"));
-const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
-
-function Loading() {
-  return null;
-}
-
-export default function AppRouter() {
-  return (
-    <Suspense fallback={<Loading />}>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-
-        <Route path="/faq" element={<FaqPage />} />
-
-        <Route path="/contacto" element={<ContactPage />} />
-
-        <Route path="/servicios" element={<ServiciosPage />} />
-        <Route path="/servicios/:slug" element={<ServicioDetailPage />} />
-
-        <Route path="/proyectos" element={<ProjectsPage />} />
-
-        <Route path="/404" element={<NotFoundPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
-  );
+export function createAppRouter() {
+  return createBrowserRouter(routes);
 }
