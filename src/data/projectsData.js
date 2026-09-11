@@ -1,10 +1,10 @@
 // Fotos placeholder generadas con IA (a sustituir por fotos reales de
 // Biquiño en cuanto estén disponibles). Vite las procesa como asset local.
-import papeleriaImg from "../assets/images/placeholders/proyectos/papeleria.jpg";
-import merchandisingImg from "../assets/images/placeholders/proyectos/merchandising.jpg";
-import restauracionImg from "../assets/images/placeholders/proyectos/restauracion.jpg";
-import rotulosImg from "../assets/images/placeholders/proyectos/rotulos.jpg";
-import escaparatismoImg from "../assets/images/placeholders/proyectos/escaparatismo.jpg";
+import papeleriaImg from "../assets/images/placeholders/proyectos/papeleria.webp";
+import merchandisingImg from "../assets/images/placeholders/proyectos/merchandising.webp";
+import restauracionImg from "../assets/images/placeholders/proyectos/restauracion.webp";
+import rotulosImg from "../assets/images/placeholders/proyectos/rotulos.webp";
+import escaparatismoImg from "../assets/images/placeholders/proyectos/escaparatismo.webp";
 
 const projectsData = [
   {

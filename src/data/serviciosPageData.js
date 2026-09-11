@@ -1,9 +1,9 @@
 // Fotos placeholder generadas con IA (ver nota en projectsData.js) — a
 // sustituir por fotos reales de Biquiño.
-import personalizacionImg from "../assets/images/placeholders/servicios/personalizacion.jpg";
-import disenoTecnicoImg from "../assets/images/placeholders/servicios/diseno-tecnico.jpg";
-import gestionProyectosImg from "../assets/images/placeholders/servicios/gestion-proyectos.jpg";
-import webRrssImg from "../assets/images/placeholders/servicios/web-rrss.jpg";
+import personalizacionImg from "../assets/images/placeholders/servicios/personalizacion.webp";
+import disenoTecnicoImg from "../assets/images/placeholders/servicios/diseno-tecnico.webp";
+import gestionProyectosImg from "../assets/images/placeholders/servicios/gestion-proyectos.webp";
+import webRrssImg from "../assets/images/placeholders/servicios/web-rrss.webp";
 
 const serviciosPageData = [
   {
