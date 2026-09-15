@@ -75,6 +75,7 @@ export default function ContactForm({
             name="contact"
             method="POST"
             data-netlify="true"
+            data-netlify-recaptcha="true"
             netlify-honeypot="bot-field"
             className={styles.form}
             onSubmit={handleSubmit}
@@ -174,6 +175,11 @@ export default function ContactForm({
                 <p id="message-error" className={styles.errorMessage}>{errors.message}</p>
               )}
             </div>
+
+            <div
+              className={styles.recaptcha}
+              data-netlify-recaptcha="true"
+            ></div>
 
             <button type="submit" className={styles.submitButton} disabled={isSending}>
               {isSending ? "Enviando..." : "Enviar mensaje"}

@@ -25,7 +25,33 @@ function rewriteSsgAssetUrls() {
         if (!key.startsWith("src/assets/") || typeof value.file !== "string") continue;
         replacements.push([`/${key}`, `/${value.file}`]);
       }
-      if (replacements.length === 0) return;
+
+      const FONT_URLS = [
+        "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
+        "https://use.typekit.net/ydn5jcq.css",
+      ];
+
+      function fixHead(html) {
+        let out = html;
+        out = out.replace(/<html[^>]*>/i, '<html lang="es">');
+        for (const url of FONT_URLS) {
+          const esc = url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          out = out.replace(
+            new RegExp(`<link rel="stylesheet" href="${esc}"\\s*/?>`, "g"),
+            "",
+          );
+          const asyncLink = `<link rel="stylesheet" href="${url}" media="print" onload="this.media='all'" />`;
+          const preload = new RegExp(`(<link rel="preload" as="style" href="${esc}"[^>]*>\\s*)`);
+          if (preload.test(out)) out = out.replace(preload, `$1${asyncLink}\n`);
+          else out = out.replace(/<head([^>]*)>/, `<head$1>\n${asyncLink}`);
+        }
+        out = out.replace(
+          /<head([^>]*)>/,
+          `<head$1>\n<noscript>${FONT_URLS.map((u) => `<link rel="stylesheet" href="${u}" />`).join("")}</noscript>`,
+        );
+        out = out.replace(/<noscript>\s*<\/noscript>/g, "");
+        return out;
+      }
 
       function walk(dir) {
         for (const d of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -43,6 +69,11 @@ function rewriteSsgAssetUrls() {
             html = html.split(from).join(to);
             changed = true;
           }
+        }
+        const fixed = fixHead(html);
+        if (fixed !== html) {
+          html = fixed;
+          changed = true;
         }
         if (changed) fs.writeFileSync(file, html);
       }
