@@ -1,0 +1,3 @@
+[build]
+  command = "echo 'modo mantenimiento, sin build'"
+  publish = "maintenance"

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Biquiño — Próximamente</title>
+  <link rel="icon" type="image/svg+xml" href="./FAVICON.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #e62556;
+      --color-background: #fce9ee;
+      --color-btn: #eb5178;
+      --color-secondary: #f07c9a;
+      --color-text: #2b2b2b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Montserrat", sans-serif;
+      background: var(--color-background);
+      color: var(--color-text);
+      text-align: center;
+      padding: 24px;
+    }
+    .wrap { max-width: 480px; }
+    .logo { width: min(70vw, 280px); height: auto; margin-bottom: 32px; }
+    h1 {
+      font-size: clamp(1.15rem, 4vw, 1.5rem);
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: var(--color-primary);
+    }
+    p { font-size: 1rem; line-height: 1.5; margin: 0 0 20px; }
+    .contact { font-size: 0.95rem; font-weight: 600; }
+    .contact a { color: var(--color-btn); text-decoration: none; border-bottom: 2px solid var(--color-secondary); }
+    .contact a:hover { color: var(--color-primary); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="./LOGO_WEB.svg" alt="Biquiño" />
+    <h1>Página web en construcción</h1>
+    <p>Muy pronto estaremos con vosotros.</p>
+    <p class="contact">
+      Para pedidos, contacta por mail o teléfono:<br />
+      <a href="mailto:info@biquino.es">info@biquino.es</a> · <a href="tel:+34630536821">+34 630 53 68 21</a>
+    </p>
+  </div>
+</body>
+</html>
