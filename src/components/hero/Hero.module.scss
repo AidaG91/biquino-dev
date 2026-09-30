@@ -23,7 +23,6 @@
 .pill {
   display: inline-block;
   background-color: v.$color-white;
-  color: v.$color-primary;
   font-family: v.$font-body;
   font-size: v.$font-size-xs;
   font-weight: 700;
@@ -38,6 +37,7 @@
   font-family: v.$font-heading;
   font-weight: 800;
   font-size: 2rem;
+  color: v.$color-primary;
   line-height: 1.1;
   letter-spacing: -0.5px;
   margin: 0 auto v.$space-md;
