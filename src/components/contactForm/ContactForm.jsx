@@ -27,7 +27,6 @@ export default function ContactForm({
       <div className={styles.contact}>
         {showInfoColumn && (
           <div className={styles.cfLeft}>
-            <span className={styles.pill}>Hablemos</span>
             <h2 className={styles.contactTitle}>
               ¿Hablamos de tu proyecto?
             </h2>
