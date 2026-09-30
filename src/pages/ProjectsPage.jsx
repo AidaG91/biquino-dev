@@ -65,7 +65,7 @@ export default function ProjectsPage() {
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Proyectos</p>
           <h1 className={styles.heroTitle}>
-            Trabajos que hemos hecho realidad
+            Trabajos hechos realidad
           </h1>
           <p className={styles.lead}>
             Una muestra de proyectos recientes, de la papelería más pequeña a

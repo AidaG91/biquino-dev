@@ -35,6 +35,10 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   margin: 0 0 $margin-bottom;
+  display: inline-block;
+  background-color: $color-white;
+  padding: 0.45rem 1rem;
+  border-radius: $radius-pill;
 }
 
 @mixin link-arrow {
@@ -86,15 +90,16 @@
 
   .heroTitle {
     font-size: 1.75rem;
-    max-width: 640px;
+    max-width: 820px;
     margin: 0 auto $space-md;
+    color: $color-primary;
   }
 
   .lead {
     font-size: 1rem;
     line-height: 1.7;
     color: $color-text-secondary;
-    max-width: 520px;
+    max-width: 620px;
     margin: 0 auto;
   }
 

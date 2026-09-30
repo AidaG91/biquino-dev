@@ -9,6 +9,11 @@
   padding: v.$space-lg v.$space-lg v.$space-xl;
 }
 
+.heroTitle {
+  max-width: 820px;
+  color: v.$color-primary;
+}
+
 .row {
   display: flex;
   flex-direction: column;
@@ -46,7 +51,7 @@
     line-height: 1.75;
     color: v.$color-text-secondary;
     margin: 0 0 v.$space-md;
-    max-width: 560px;
+    text-align: justify;
   }
 }
 
@@ -57,7 +62,6 @@
   font-family: v.$font-body;
   font-weight: 700;
   font-size: v.$font-size-sm;
-  color: v.$color-primary;
 
   &:hover {
     color: v.$color-cta-hover;
