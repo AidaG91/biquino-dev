@@ -67,7 +67,7 @@
 
 .nav-link {
   position: relative;
-  font-family: v.$font-body;
+  font-family: v.$font-heading;
   font-weight: 700;
   font-size: 1.5rem;
   color: v.$color-primary;
@@ -181,6 +181,7 @@
   }
 
   .nav-link {
+    font-family: v.$font-body;
     font-size: 0.95rem;
     font-weight: 600;
     color: v.$color-dark;
