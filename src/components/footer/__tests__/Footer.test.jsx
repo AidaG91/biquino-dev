@@ -20,7 +20,7 @@ describe("Footer", () => {
 
   it("displays contact email", () => {
     renderFooter();
-    const matches = screen.getAllByText(/biquinostudio@gmail\.com/i);
+    const matches = screen.getAllByText(/info@biquino\.es/i);
     expect(matches.length).toBeGreaterThan(0);
   });
 

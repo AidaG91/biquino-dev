@@ -2,9 +2,9 @@ const addressLine1 = "Rúa Laureano Peláez, 43";
 const addressLine2 = "32600 Verín, Ourense";
 
 const contactInfo = {
-  email: "biquinostudio@gmail.com",
-  phoneDisplay: "+34 630 53 68 21",
-  phoneHref: "+34630536821",
+  email: "info@biquino.es",
+  phoneDisplay: "+34 694 92 96 81",
+  phoneHref: "+34694929681",
   addressLine1,
   addressLine2,
   mapsUrl: "https://maps.app.goo.gl/q5mYkTiRjjoQzruU8",
@@ -13,7 +13,7 @@ const contactInfo = {
   // Maps, se puede sustituir por el embed oficial con más opciones (zoom,
   // marcador personalizado, etc.).
   mapEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(
-    `${addressLine1}, ${addressLine2}`
+    `${addressLine1}, ${addressLine2}`,
   )}&output=embed`,
 };
 
