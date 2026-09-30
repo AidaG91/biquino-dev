@@ -11,19 +11,18 @@ export default function ContactPage() {
 
   useSeo(
     "Biquiño | Contacto",
-    "Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas."
+    "Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas.",
   );
 
   return (
     <article>
-
       <div className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Contacto</p>
           <h1 className={styles.heroTitle}>Cuéntanos tu proyecto</h1>
           <p className={styles.lead}>
-            Rellena el formulario o escríbenos directamente — te respondemos
-            en un máximo de 24–48 horas.
+            Rellena el formulario o escríbenos directamente. <br /> Te
+            respondemos en un máximo de 24–48 horas.
           </p>
         </div>
       </div>
@@ -37,11 +36,6 @@ export default function ContactPage() {
           <Check size={16} strokeWidth={2} aria-hidden="true" />
           Presupuesto sin compromiso
         </span>
-      </div>
-
-      <div className={styles.photoBand}>
-        <Image size={32} strokeWidth={1.5} aria-hidden="true" />
-        <span>Foto: taller o equipo de Biquiño</span>
       </div>
 
       <div className={styles.visitSection}>

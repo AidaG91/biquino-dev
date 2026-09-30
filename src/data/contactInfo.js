@@ -8,13 +8,7 @@ const contactInfo = {
   addressLine1,
   addressLine2,
   mapsUrl: "https://maps.app.goo.gl/q5mYkTiRjjoQzruU8",
-  // Embed sin API key: funciona con una búsqueda de Google Maps normal
-  // añadiendo output=embed. Si más adelante tenéis una API key de Google
-  // Maps, se puede sustituir por el embed oficial con más opciones (zoom,
-  // marcador personalizado, etc.).
-  mapEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(
-    `${addressLine1}, ${addressLine2}`,
-  )}&output=embed`,
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5935.848631369538!2d-7.439228023436284!3d41.93747766169373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3aea753fc86cc3%3A0xc9e94162f680e929!2zUsO6YSBMYXVyZWFubyBQZWzDoWV6LCA0MywgMzI2MDAgVmVyw61uLCBPdXJlbnNl!5e0!3m2!1ses!2ses!4v1790788309250!5m2!1ses!2ses",
 };
-
 export default contactInfo;

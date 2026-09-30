@@ -4,11 +4,11 @@
 @include m.page-hero;
 
 .heroTitle {
-  max-width: 560px;
+  max-width: 820px;
 }
 
 .lead {
-  max-width: 480px;
+  max-width: 620px;
 }
 
 .trustRow {
@@ -37,42 +37,19 @@
   }
 }
 
-.photoBand {
-  max-width: 1240px;
-  margin: v.$space-lg auto 0;
-  padding: 0 v.$space-lg;
-  height: 180px;
-  border-radius: v.$radius-lg;
-  background-color: v.$color-tile-bg;
-  color: v.$color-accent-mauve;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: v.$space-xs;
-
-  span {
-    font-size: v.$font-size-xs;
-    font-weight: 600;
-    color: v.$color-muted-pink;
-  }
-}
-
 .visitSection {
-  max-width: 1240px;
+  max-width: 1000px;
   margin: v.$space-lg auto 0;
   padding: 0 v.$space-lg v.$space-xl;
 
   display: flex;
   flex-direction: column;
-  border-radius: v.$radius-lg;
-  overflow: hidden;
 }
 
 .visitInfo {
   background-color: v.$color-background;
   padding: v.$space-xl;
+  border-radius: v.$radius-lg v.$radius-lg 0 0;
 
   display: flex;
   flex-direction: column;
@@ -127,6 +104,8 @@
   position: relative;
   min-height: 220px;
   background-color: v.$color-tile-bg;
+  border-radius: 0 0 v.$radius-lg v.$radius-lg;
+  overflow: hidden;
 
   iframe {
     position: absolute;
@@ -142,12 +121,6 @@
     padding: v.$space-xl 2.5rem 0;
   }
 
-  .photoBand {
-    margin: v.$space-xl auto 0;
-    padding: 0 2.5rem;
-    height: 220px;
-  }
-
   .visitSection {
     padding: 0 2.5rem v.$space-xl;
     flex-direction: row;
@@ -156,5 +129,13 @@
   .visitInfo,
   .visitMap {
     flex: 1;
+  }
+
+  .visitInfo {
+    border-radius: v.$radius-lg 0 0 v.$radius-lg;
+  }
+
+  .visitMap {
+    border-radius: 0 v.$radius-lg v.$radius-lg 0;
   }
 }
