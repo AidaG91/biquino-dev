@@ -50,7 +50,10 @@ export default function FaqAccordion({ items, openFirstByDefault = false }) {
         const triggerId = `faq-trigger-${item.id}`;
 
         return (
-          <section key={item.id} className={styles.item}>
+          <section
+            key={item.id}
+            className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}
+          >
             <h3 className={styles.heading}>
               <button
                 type="button"

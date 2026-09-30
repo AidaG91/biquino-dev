@@ -4,13 +4,27 @@
 .accordion {
   display: flex;
   flex-direction: column;
-  gap: v.$space-sm;
+  gap: v.$space-md;
 }
 
+// Sin overflow:hidden para que el aro de foco no se recorte.
 .item {
   background-color: v.$color-white;
-  border-radius: v.$radius-md;
-  overflow: hidden;
+  border: 1.5px solid v.$color-border-tint;
+  border-radius: v.$radius-lg;
+  transition:
+    border-color v.$transition-normal,
+    box-shadow v.$transition-normal;
+
+  // El aro de foco rodea la tarjeta entera (en vez de cortar la pregunta).
+  &:has(.trigger:focus-visible) {
+    @include m.focus-ring;
+  }
+}
+
+.itemOpen {
+  border-color: v.$color-input-border;
+  box-shadow: 0 6px 20px rgba(230, 37, 86, 0.08);
 }
 
 .heading {
@@ -26,21 +40,24 @@
 
   background: none;
   border: none;
+  border-radius: v.$radius-lg;
   cursor: pointer;
   text-align: left;
 
   padding: v.$space-md v.$space-lg;
-  font-family: v.$font-body;
-  font-weight: 600;
-  font-size: v.$font-size-body;
-  color: v.$color-black;
+  font-family: v.$font-heading;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: v.$color-dark;
 
   &:hover {
     color: v.$color-primary;
   }
 
+  // El aro lo pinta .item:has(...) alrededor de toda la tarjeta.
   &:focus-visible {
-    @include m.focus-ring;
+    outline: none;
   }
 }
 
@@ -50,14 +67,23 @@
 
 .icon {
   flex-shrink: 0;
-  width: 18px;
-  height: 18px;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: v.$color-background;
   color: v.$color-primary;
-  transition: transform v.$transition-normal;
+  transition:
+    transform v.$transition-normal,
+    background-color v.$transition-normal,
+    color v.$transition-normal;
 }
 
 .iconOpen {
   transform: rotate(45deg);
+  background-color: v.$color-primary;
+  color: v.$color-white;
 }
 
 .panel {
@@ -66,15 +92,17 @@
 
 .answer {
   margin: 0;
+  max-width: 62ch;
   font-family: v.$font-body;
   font-size: v.$font-size-body;
-  line-height: 1.6;
-  color: v.$color-black;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
 }
 
 @include m.desktop {
   .trigger {
     padding: v.$space-lg v.$space-xl;
+    font-size: 1.15rem;
   }
 
   .panel {
