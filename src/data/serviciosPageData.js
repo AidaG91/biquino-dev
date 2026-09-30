@@ -4,8 +4,20 @@ import personalizacionImg from "../assets/images/placeholders/servicios/personal
 import disenoTecnicoImg from "../assets/images/placeholders/servicios/diseno-tecnico.webp";
 import gestionProyectosImg from "../assets/images/placeholders/servicios/gestion-proyectos.webp";
 import webRrssImg from "../assets/images/placeholders/servicios/web-rrss.webp";
+// PLACEHOLDERS TEMPORALES: imágenes reutilizadas de la sección Proyectos hasta
+// tener fotos específicas de "Impresión digital" y "Rotulación".
+import impresionDigitalImg from "../assets/images/placeholders/proyectos/papeleria.webp";
+import rotulacionImg from "../assets/images/placeholders/proyectos/rotulos.webp";
 
 const serviciosPageData = [
+  {
+    id: "impresion-digital",
+    title: "Impresión digital",
+    description:
+      "Todo lo que tu negocio necesita impreso, con calidad profesional y en la tirada que necesites. Desde la papelería corporativa hasta pegatinas y etiquetas adhesivas, producimos cada pieza para que tu marca se vea igual de bien en una tarjeta que en un envase.",
+    photoCaption: "Foto: impresión de papelería y etiquetas",
+    image: impresionDigitalImg,
+  },
   {
     id: "personalizacion",
     title: "Personalización de prendas y objetos",
@@ -13,6 +25,14 @@ const serviciosPageData = [
       "Llevamos tu marca más allá del papel. Somos especialistas en personalización textil y de soportes físicos, combinando técnicas de marcaje de alta resistencia con un diseño adaptado a cada material. Ya sea para equipaciones deportivas, uniformes laborales o merchandising corporativo, convertimos productos cotidianos en herramientas de comunicación duraderas, resistentes y con acabados profesionales.",
     photoCaption: "Foto: marcaje textil en proceso",
     image: personalizacionImg,
+  },
+  {
+    id: "rotulacion",
+    title: "Rotulación",
+    description:
+      "Hacemos visible tu negocio allí donde está: en la fachada, en el escaparate y en la carretera. Diseñamos, fabricamos e instalamos rótulos, vinilos y rotulación de vehículos con materiales duraderos y un montaje cuidado.",
+    photoCaption: "Foto: instalación de rotulación",
+    image: rotulacionImg,
   },
   {
     id: "diseno-tecnico",

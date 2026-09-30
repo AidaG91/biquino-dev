@@ -1,8 +1,6 @@
 // Fotos placeholder generadas con IA (ver nota en projectsData.js) — a
 // sustituir por fotos reales de Biquiño.
-import ropaLaboralImg from "../assets/images/placeholders/subpaginas/personalizacion/ropa-laboral.jpg";
 import equipacionesImg from "../assets/images/placeholders/subpaginas/personalizacion/equipaciones.jpg";
-import gruposEventosImg from "../assets/images/placeholders/subpaginas/personalizacion/grupos-eventos.jpg";
 import merchandisingSubImg from "../assets/images/placeholders/subpaginas/personalizacion/merchandising.jpg";
 import identidadVisualImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/identidad-visual.jpg";
 import adaptacionArchivosImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/adaptacion-archivos.jpg";
@@ -14,32 +12,43 @@ import supervisionInstalacionImg from "../assets/images/placeholders/subpaginas/
 import menuDiarioImg from "../assets/images/placeholders/subpaginas/web-rrss/menu-diario.jpg";
 import gestionContenidoRrssImg from "../assets/images/placeholders/subpaginas/web-rrss/gestion-contenido-rrss.jpg";
 import desarrolloWebImg from "../assets/images/placeholders/subpaginas/web-rrss/desarrollo-web.jpg";
+// PLACEHOLDERS TEMPORALES: imágenes reutilizadas de otras secciones hasta tener
+// fotos específicas para las tarjetas nuevas de Impresión digital, Estampados
+// textiles y Rotulación.
+import papeleriaPlaceholderImg from "../assets/images/placeholders/proyectos/papeleria.webp";
+import rotulosPlaceholderImg from "../assets/images/placeholders/proyectos/rotulos.webp";
 
 const serviciosSubpagesData = {
+  "impresion-digital": {
+    title: "Impresión digital",
+    lead: "Papelería, pegatinas y etiquetas impresas con calidad profesional, en la tirada que necesites.",
+    cards: [
+      {
+        title: "Papelería corporativa",
+        description:
+          "Tarjetas de visita, folletos, sobres, carpetas y todo el material que representa a tu empresa. Diseñamos y producimos una papelería coherente con tu identidad visual, con papeles y acabados elegidos para que cada pieza transmita profesionalidad.",
+        photoCaption: "Foto: papelería corporativa",
+        image: papeleriaPlaceholderImg,
+      },
+      {
+        title: "Pegatinas y etiquetas",
+        description:
+          "Pegatinas y etiquetas adhesivas en la forma, el tamaño y el material que necesites, para productos, envases o promoción. Impresas con colores nítidos y acabados resistentes.",
+        photoCaption: "Foto: pegatinas y etiquetas impresas",
+        image: asesoramientoMaterialesImg,
+      },
+    ],
+  },
   personalizacion: {
     title: "Personalización de prendas y objetos",
     lead: "Técnicas de marcaje de alta resistencia y diseño adaptado a cada material, para equipaciones, uniformes, eventos y merchandising.",
     cards: [
       {
-        title: "Ropa laboral",
+        title: "Estampados textiles",
         description:
-          "Personalizamos uniformes y equipamiento técnico que combinan durabilidad con la identidad de tu empresa. Proyectamos una imagen profesional y cohesionada, adaptando tu marca a prendas resistentes diseñadas para el día a día.",
-        photoCaption: "Foto: uniforme personalizado",
-        image: ropaLaboralImg,
-      },
-      {
-        title: "Equipaciones",
-        description:
-          "Realizamos la estampación de dorsales, nombres y publicidad mediante técnicas de alta resistencia. Personalizamos cada prenda con precisión técnica para asegurar que los patrocinadores y la numeración mantengan una visibilidad máxima durante la actividad.",
-        photoCaption: "Foto: equipación con dorsal",
+          "Estampamos tu diseño en camisetas, sudaderas, uniformes y todo tipo de prendas, con técnicas de alta resistencia pensadas para el uso diario. Trabajamos para empresas (ropa laboral), clubes y deportistas (equipaciones con dorsales, nombres y patrocinadores) y para grupos, peñas y eventos, con tiradas ágiles y económicas que mantienen la uniformidad y el espíritu del grupo.",
+        photoCaption: "Foto: estampado textil",
         image: equipacionesImg,
-      },
-      {
-        title: "Grupos, peñas y eventos",
-        description:
-          "Gestionamos tiradas de prendas para eventos, fiestas y colectivos. Ofrecemos soluciones ágiles y económicas para estampar tu diseño o escudo, manteniendo la uniformidad y el espíritu del grupo.",
-        photoCaption: "Foto: grupo con camisetas",
-        image: gruposEventosImg,
       },
       {
         title: "Merchandising",
@@ -47,6 +56,26 @@ const serviciosSubpagesData = {
           "Transformamos objetos cotidianos en soportes promocionales mediante técnicas de marcaje precisas. Personalizamos una amplia gama de artículos y detalles corporativos, asegurando que tu marca acompañe al cliente con un acabado profesional y duradero.",
         photoCaption: "Foto: objetos con logo",
         image: merchandisingSubImg,
+      },
+    ],
+  },
+  rotulacion: {
+    title: "Rotulación",
+    lead: "Rótulos, vinilos, escaparates y vehículos: tu marca visible donde la ven tus clientes.",
+    cards: [
+      {
+        title: "Rotulación de locales y escaparates",
+        description:
+          "Fabricamos e instalamos rótulos de fachada, vinilos de puerta y cristal y cartelería interior. Diseñamos y montamos también tu escaparate para cada temporada o campaña, para que tu negocio llame la atención desde la calle.",
+        photoCaption: "Foto: rótulo y escaparate de local",
+        image: rotulosPlaceholderImg,
+      },
+      {
+        title: "Rotulación de vehículos",
+        description:
+          "Convertimos tu furgoneta, coche o flota en publicidad en movimiento. Diseñamos e instalamos vinilos y rotulación adaptados a cada vehículo, con materiales pensados para aguantar la carretera y el paso del tiempo.",
+        photoCaption: "Foto: vehículo rotulado",
+        image: supervisionInstalacionImg,
       },
     ],
   },

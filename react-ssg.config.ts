@@ -31,7 +31,9 @@ export default defineReactSsgConfig({
   paths: [
     "/",
     "/servicios",
+    "/servicios/impresion-digital",
     "/servicios/personalizacion",
+    "/servicios/rotulacion",
     "/servicios/diseno-tecnico",
     "/servicios/gestion-proyectos",
     "/servicios/web-rrss",

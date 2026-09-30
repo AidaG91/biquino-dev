@@ -13,9 +13,9 @@ export default function Hero() {
             Damos forma a tu marca, de la idea a la instalación.
           </h1>
           <p className={styles.lead}>
-            Papelería corporativa, merchandising, rótulos y escaparatismo —
-            diseño, producción e instalación en un solo equipo, en toda
-            España.
+            Papelería corporativa, merchandising, estampados, pegatinas,
+            etiquetas y rotulación — diseño, producción e instalación en un
+            solo equipo, en toda España.
           </p>
           <div className={styles.actions}>
             <Link to="/contacto" className={styles.ctaPrimary}>

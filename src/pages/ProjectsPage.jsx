@@ -11,7 +11,7 @@ const ALL = "Todos";
 export default function ProjectsPage() {
   useSeo(
     "Biquiño | Proyectos",
-    "Una muestra de proyectos recientes de Biquiño: papelería, equipaciones, rotulación y escaparatismo."
+    "Una muestra de proyectos recientes de Biquiño: impresión digital, personalización de prendas y objetos, y rotulación."
   );
   const categories = useMemo(() => {
     const unique = [...new Set(projects.map((project) => project.category))];
@@ -94,7 +94,7 @@ export default function ProjectsPage() {
         <div
           className={`${styles.grid} ${isBentoLayout ? styles.gridBento : ""}`}
         >
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <button
               key={project.id}
               type="button"
@@ -111,11 +111,6 @@ export default function ProjectsPage() {
               <div className={styles.overlay}>
                 <span className={styles.chipLabel}>{project.category}</span>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
-                {isBentoLayout && index === 0 && (
-                  <p className={styles.cardDescription}>
-                    {project.description}
-                  </p>
-                )}
               </div>
             </button>
           ))}

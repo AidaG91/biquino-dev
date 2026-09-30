@@ -8,7 +8,7 @@ import useSeo from "../hooks/useSeo";
 export default function LandingPage() {
   useSeo(
     "Biquiño | Diseño, papelería, rótulos y merchandising",
-    "Biquiño ofrece diseño, producción e instalación de papelería corporativa, merchandising, rótulos y escaparates en toda España."
+    "Biquiño ofrece impresión digital, estampados, merchandising, pegatinas, etiquetas, rotulación de locales y vehículos y papelería corporativa, con diseño, producción e instalación en toda España."
   );
 
   return (

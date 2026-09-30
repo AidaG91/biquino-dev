@@ -8,7 +8,7 @@ import styles from "./ServiciosPage.module.scss";
 export default function ServiciosPage() {
   useSeo(
     "Biquiño | Servicios",
-    "Personalización de prendas y objetos, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
+    "Impresión digital, personalización de prendas y objetos, rotulación, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
   );
 
   return (
@@ -21,7 +21,7 @@ export default function ServiciosPage() {
             Todo lo que necesita tu proyecto, en un mismo sitio
           </h1>
           <p className={styles.lead}>
-            De la idea al montaje final: cuatro formas en las que trabajamos
+            De la idea al montaje final: seis formas en las que trabajamos
             contigo para que tu marca llegue más lejos.
           </p>
         </div>
