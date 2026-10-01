@@ -38,7 +38,10 @@
   backdrop-filter: blur(8px);
 
   transform: translateY(-100%);
-  transition: transform 0.4s ease-in-out;
+  visibility: hidden;
+  transition:
+    transform 0.4s ease-in-out,
+    visibility 0s linear 0.4s;
 
   display: flex;
   justify-content: center;
@@ -48,6 +51,10 @@
 
   &.active {
     transform: translateY(0);
+    visibility: visible;
+    transition:
+      transform 0.4s ease-in-out,
+      visibility 0s;
   }
 }
 
@@ -101,13 +108,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 22px;
-  width: 28px;
+  height: 44px;
+  width: 44px;
+  padding: 11px 8px;
+  margin-right: -8px;
 
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
 
   z-index: 1002;
 
@@ -164,6 +172,8 @@
     position: static;
     height: auto;
     transform: none;
+    visibility: visible;
+    transition: none;
     background: transparent;
     backdrop-filter: none;
     display: block;

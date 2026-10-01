@@ -33,8 +33,10 @@ body {
   color: $color-black;
 }
 
-body.menu-open {
-  overflow: hidden;
+@media (max-width: #{$bp-desktop - 1px}) {
+  body.menu-open {
+    overflow: hidden;
+  }
 }
 
 h1,

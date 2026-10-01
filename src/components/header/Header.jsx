@@ -1,12 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
 
+const NAV_LINKS = [
+  { name: "Inicio", path: "/", end: true },
+  { name: "Servicios", path: "/servicios" },
+  { name: "Proyectos", path: "/proyectos" },
+  { name: "FAQ", path: "/faq" },
+  { name: "Contacto", path: "/contacto" },
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const toggleRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -21,34 +30,37 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    if (!isOpen) return undefined;
+
+    document.body.classList.add("menu-open");
+
     const handleKeyDown = (e) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === "Escape") {
         closeMenu();
+        toggleRef.current?.focus();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
 
-  const navLinks = [
-    { name: "Inicio", path: "/", end: true },
-    { name: "Servicios", path: "/servicios" },
-    { name: "Proyectos", path: "/proyectos" },
-    { name: "FAQ", path: "/faq" },
-    { name: "Contacto", path: "/contacto" },
-  ];
+    return () => {
+      document.body.classList.remove("menu-open");
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link to="/" className={styles["header-logo"]} onClick={closeMenu}>
-          <img src={logoBiquino} alt="Biquiño Logo" />
+          <img src={logoBiquino} alt="Biquiño, inicio" />
         </Link>
 
         <button
+          ref={toggleRef}
+          type="button"
           className={`${styles["menu-toggle"]} ${isOpen ? styles.open : ""}`}
           onClick={toggleMenu}
-          aria-label="Toggle navigation"
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
         >
@@ -63,7 +75,7 @@ export default function Header() {
           aria-label="Navegación principal"
         >
           <ul className={styles["nav-list"]}>
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <li key={link.name} className={styles["nav-item"]}>
                 <NavLink
                   to={link.path}
@@ -82,7 +94,7 @@ export default function Header() {
                 href="https://www.instagram.com/biquinostudio/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label="Instagram (se abre en una pestaña nueva)"
                 className={styles["nav-link"]}
               >
                 <img
