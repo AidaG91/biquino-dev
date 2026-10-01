@@ -7,12 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencias y build
 node_modules
 dist
-dist-ssr
 *.local
 
-# Editor directories and files
+# Editores y sistema
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -23,13 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
-# Variables de entorno locales
-.env.local
+# Variables de entorno
+.env
+.env.*
 
-# Spec-kit / speckit
-.specify/
-.agents.md
-speckit/
+# Netlify CLI
+.netlify
 
-# OpenCode integration
-.opencode/
+# Herramientas locales de desarrollo
+CLAUDE.md
+.claude/
+Claude outputs/
