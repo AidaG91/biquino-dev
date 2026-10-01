@@ -65,4 +65,16 @@ describe("FaqAccordion", () => {
     expect(second).toHaveAttribute("aria-expanded", "false");
     expect(screen.getByText("Respuesta uno.")).toBeVisible();
   });
+
+  it("renders questions as h3 by default and honours headingLevel", () => {
+    const { rerender } = render(<FaqAccordion items={items} />);
+    expect(
+      screen.getByRole("heading", { level: 3, name: /pregunta uno/i }),
+    ).toBeInTheDocument();
+
+    rerender(<FaqAccordion items={items} headingLevel={2} />);
+    expect(
+      screen.getByRole("heading", { level: 2, name: /pregunta uno/i }),
+    ).toBeInTheDocument();
+  });
 });

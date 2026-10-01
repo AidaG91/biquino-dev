@@ -25,7 +25,7 @@ export default function FaqPage() {
       </div>
 
       <div className={styles.container}>
-        <FaqAccordion items={faqData} openFirstByDefault />
+        <FaqAccordion items={faqData} openFirstByDefault headingLevel={2} />
       </div>
 
       <ContactForm />

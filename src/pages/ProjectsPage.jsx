@@ -39,6 +39,8 @@ export default function ProjectsPage() {
     if (!lightboxProject) return undefined;
 
     document.body.style.overflow = "hidden";
+    const app = document.getElementById("app");
+    if (app) app.inert = true;
     closeButtonRef.current?.focus();
 
     const handleKeyDown = (event) => {
@@ -53,6 +55,7 @@ export default function ProjectsPage() {
 
     return () => {
       document.body.style.overflow = "";
+      if (app) app.inert = false;
       document.removeEventListener("keydown", handleKeyDown);
       previousFocusRef.current?.focus();
     };
@@ -100,18 +103,18 @@ export default function ProjectsPage() {
               type="button"
               className={styles.card}
               onClick={(event) => openLightbox(project, event)}
-              aria-label={`Ver imagen ampliada: ${project.title}`}
             >
               <img
                 src={project.image}
-                alt={project.alt}
+                alt=""
                 className={styles.image}
                 loading="lazy"
               />
-              <div className={styles.overlay}>
-                <span className={styles.chipLabel}>{project.category}</span>
-                <h3 className={styles.cardTitle}>{project.title}</h3>
-              </div>
+              <span className={styles.overlay}>
+                <span className={styles.chipLabel}>{project.category}</span>{" "}
+                <span className={styles.cardTitle}>{project.title}</span>
+                <span className="visually-hidden">, ver imagen ampliada</span>
+              </span>
             </button>
           ))}
         </div>
@@ -147,9 +150,9 @@ export default function ProjectsPage() {
                 <span className={styles.chipLabel}>
                   {lightboxProject.category}
                 </span>
-                <h3 className={styles.lightboxTitle}>
+                <h2 className={styles.lightboxTitle}>
                   {lightboxProject.title}
-                </h3>
+                </h2>
                 <p className={styles.lightboxDescription}>
                   {lightboxProject.description}
                 </p>

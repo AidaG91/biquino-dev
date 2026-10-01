@@ -45,7 +45,7 @@ export default function ServicioDetailPage() {
                 />
               </div>
               <div className={styles.cardBody}>
-                <h3>{card.title}</h3>
+                <h2>{card.title}</h2>
                 <p>{card.description}</p>
               </div>
             </div>

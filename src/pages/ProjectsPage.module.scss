@@ -116,9 +116,12 @@
 }
 
 .cardTitle {
+  display: block;
   color: v.$color-white;
   font-family: v.$font-heading;
+  font-weight: 700;
   font-size: 1.1rem;
+  line-height: 1.2;
   margin: 0;
 }
 

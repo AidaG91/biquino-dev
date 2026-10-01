@@ -2,7 +2,12 @@ import { useRef, useState } from "react";
 import { Plus } from "lucide-react";
 import styles from "./FaqAccordion.module.scss";
 
-export default function FaqAccordion({ items, openFirstByDefault = false }) {
+export default function FaqAccordion({
+  items,
+  openFirstByDefault = false,
+  headingLevel = 3,
+}) {
+  const Heading = `h${headingLevel}`;
   const [openId, setOpenId] = useState(() =>
     openFirstByDefault && items.length > 0 ? items[0].id : null
   );
@@ -54,7 +59,7 @@ export default function FaqAccordion({ items, openFirstByDefault = false }) {
             key={item.id}
             className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}
           >
-            <h3 className={styles.heading}>
+            <Heading className={styles.heading}>
               <button
                 type="button"
                 id={triggerId}
@@ -72,7 +77,7 @@ export default function FaqAccordion({ items, openFirstByDefault = false }) {
                   aria-hidden="true"
                 />
               </button>
-            </h3>
+            </Heading>
             <div
               id={panelId}
               role="region"
