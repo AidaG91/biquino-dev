@@ -87,7 +87,6 @@ button {
     filter: brightness(1.15);
   }
 
-  &:focus,
   &:focus-visible {
     @include focus-ring;
   }
