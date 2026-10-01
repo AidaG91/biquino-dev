@@ -83,9 +83,54 @@ function rewriteSsgAssetUrls() {
   };
 }
 
+function generateSitemap({ origin, exclude = [] }) {
+  let root;
+  let outDir;
+  return {
+    name: "biquino-generate-sitemap",
+    apply: "build",
+    configResolved(config) {
+      root = config.root;
+      outDir = config.build.outDir;
+    },
+    async closeBundle() {
+      const distDir = path.resolve(root, outDir);
+      const routes = [];
+
+      function walk(dir) {
+        for (const d of fs.readdirSync(dir, { withFileTypes: true })) {
+          const p = path.join(dir, d.name);
+          if (d.isDirectory()) walk(p);
+          else if (d.name === "index.html") {
+            const rel = path.relative(distDir, path.dirname(p)).split(path.sep).join("/");
+            routes.push(rel ? `/${rel}` : "/");
+          }
+        }
+      }
+
+      walk(distDir);
+      const urls = routes
+        .filter((route) => !exclude.includes(route))
+        .sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)))
+        .map((route) => `  <url>\n    <loc>${origin}${route}</loc>\n  </url>`)
+        .join("\n");
+
+      fs.writeFileSync(
+        path.join(distDir, "sitemap.xml"),
+        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+      );
+    },
+  };
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), reactSsg(), rewriteSsgAssetUrls()],
+  plugins: [
+    react(),
+    reactSsg(),
+    rewriteSsgAssetUrls(),
+    generateSitemap({ origin: "https://biquino.es", exclude: ["/404"] }),
+  ],
   build: {
     manifest: true,
   },

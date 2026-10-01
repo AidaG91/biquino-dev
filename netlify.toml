@@ -5,11 +5,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA: todas las rutas devuelven index.html
+# Las páginas existen como HTML prerenderizado; cualquier otra URL
+# recibe la página 404 con estado 404
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404/index.html"
+  status = 404
 
 # Cache agresivo para assets con hash (imágenes, JS, CSS)
 [[headers]]

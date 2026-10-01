@@ -8,6 +8,7 @@ import ServiciosPage from "./src/pages/ServiciosPage";
 import ServicioDetailPage from "./src/pages/ServicioDetailPage";
 import FaqPage from "./src/pages/FaqPage";
 import NotFoundPage from "./src/pages/NotFoundPage";
+import serviciosSubpagesData from "./src/data/serviciosSubpagesData";
 
 const ssgRoutes = [
   {
@@ -31,12 +32,7 @@ export default defineReactSsgConfig({
   paths: [
     "/",
     "/servicios",
-    "/servicios/impresion-digital",
-    "/servicios/personalizacion",
-    "/servicios/rotulacion",
-    "/servicios/diseno-tecnico",
-    "/servicios/gestion-proyectos",
-    "/servicios/web-rrss",
+    ...Object.keys(serviciosSubpagesData).map((slug) => `/servicios/${slug}`),
     "/proyectos",
     "/faq",
     "/contacto",
