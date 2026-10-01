@@ -36,12 +36,6 @@ describe("Hero", () => {
     expect(cta).toHaveAttribute("href", "/contacto");
   });
 
-  it("renders secondary CTA linking to projects", () => {
-    renderHero();
-    const link = screen.getByText("Ver proyectos");
-    expect(link).toHaveAttribute("href", "/proyectos");
-  });
-
   it("renders hero image with descriptive alt text", () => {
     renderHero();
     const img = screen.getByRole("img", {

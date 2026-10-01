@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import heroImage from "../../assets/images/hero-bg.webp";
 import styles from "./Hero.module.scss";
 
@@ -20,10 +19,6 @@ export default function Hero() {
           <div className={styles.actions}>
             <Link to="/contacto" className={styles.ctaPrimary}>
               Solicita tu presupuesto gratis
-            </Link>
-            <Link to="/proyectos" className={styles.ctaSecondary}>
-              Ver proyectos
-              <ArrowRight size={14} strokeWidth={2.3} aria-hidden="true" />
             </Link>
           </div>
         </div>
