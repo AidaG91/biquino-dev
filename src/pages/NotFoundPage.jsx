@@ -5,7 +5,7 @@ import styles from "./NotFoundPage.module.scss";
 
 export default function NotFoundPage() {
   useSeo(
-    "Biquiño | Página no encontrada",
+    "Página no encontrada | Biquiño",
     "La página que buscas no existe. Vuelve al inicio de Biquiño.",
     { noindex: true }
   );

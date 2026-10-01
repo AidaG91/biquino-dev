@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
+import contactInfo from "../../data/contactInfo";
 
 const NAV_LINKS = [
   { name: "Inicio", path: "/", end: true },
@@ -91,7 +92,7 @@ export default function Header() {
             ))}
             <li className={styles["nav-item"]}>
               <a
-                href="https://www.instagram.com/biquinostudio/"
+                href={contactInfo.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram (se abre en una pestaña nueva)"

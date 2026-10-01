@@ -10,7 +10,7 @@ const ALL = "Todos";
 
 export default function ProjectsPage() {
   useSeo(
-    "Biquiño | Proyectos",
+    "Proyectos de rotulación, impresión y merchandising | Biquiño",
     "Una muestra de proyectos recientes de Biquiño: impresión digital, personalización de prendas y objetos, y rotulación."
   );
   const categories = useMemo(() => {

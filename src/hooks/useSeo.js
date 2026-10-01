@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 
 const SITE_URL = "https://biquino.es";
 const SITE_NAME = "Biquiño";
-const DEFAULT_TITLE = "Biquiño | Diseño, papelería, rótulos y merchandising";
+const DEFAULT_TITLE = "Rotulación, impresión y merchandising en toda España | Biquiño";
 const DEFAULT_DESCRIPTION =
-  "Biquiño ofrece diseño, producción e instalación de papelería corporativa, merchandising, rótulos y escaparates en toda España.";
+  "Rotulación de locales y vehículos, impresión digital, merchandising y papelería. Diseño, producción e instalación desde Verín (Ourense) a toda España.";
 
 export default function useSeo(title, description, { noindex = false } = {}) {
   const { pathname } = useLocation();

@@ -3,7 +3,7 @@ import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import contactInfo from "../../data/contactInfo";
 
 const instagramLink = {
-  href: "https://www.instagram.com/biquinostudio/",
+  href: contactInfo.instagramUrl,
   label: "Abrir Instagram en nueva pestaña",
   icon: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true" focusable="false">

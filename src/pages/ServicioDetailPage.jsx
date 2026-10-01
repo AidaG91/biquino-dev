@@ -9,7 +9,7 @@ export default function ServicioDetailPage() {
   const servicio = serviciosSubpagesData[slug];
 
   useSeo(
-    servicio ? `Biquiño | ${servicio.title}` : undefined,
+    servicio ? `${servicio.title} en toda España | Biquiño` : undefined,
     servicio?.lead
   );
 

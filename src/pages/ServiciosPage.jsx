@@ -7,8 +7,8 @@ import styles from "./ServiciosPage.module.scss";
 
 export default function ServiciosPage() {
   useSeo(
-    "Biquiño | Servicios",
-    "Impresión digital, personalización de prendas y objetos, rotulación, diseño técnico aplicado, gestión de proyectos gráficos y presencia web y en redes sociales."
+    "Servicios de rotulación, impresión y personalización | Biquiño",
+    "Impresión digital, personalización de prendas y objetos, rotulación, diseño técnico, gestión de proyectos gráficos y web y redes sociales, en toda España."
   );
 
   return (

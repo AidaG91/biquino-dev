@@ -3,6 +3,7 @@ import { Clock, Check, Image, MapPin, ExternalLink } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
 import contactInfo from "../data/contactInfo";
 import useSeo from "../hooks/useSeo";
+import useLocalBusinessSchema from "../hooks/useLocalBusinessSchema";
 import styles from "./ContactPage.module.scss";
 
 export default function ContactPage() {
@@ -10,9 +11,10 @@ export default function ContactPage() {
   const servicioInicial = searchParams.get("servicio") || "";
 
   useSeo(
-    "Biquiño | Contacto",
-    "Cuéntanos tu proyecto. Rellena el formulario o escríbenos directamente — te respondemos en un máximo de 24–48 horas.",
+    "Contacto y presupuesto | Biquiño",
+    "Pide presupuesto sin compromiso. Estamos en Verín (Ourense) y trabajamos en toda España; te respondemos en un máximo de 24–48 horas.",
   );
+  useLocalBusinessSchema();
 
   return (
     <article>

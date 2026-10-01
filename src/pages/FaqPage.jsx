@@ -6,7 +6,7 @@ import styles from "./FaqPage.module.scss";
 
 export default function FaqPage() {
   useSeo(
-    "Biquiño | Preguntas frecuentes",
+    "Preguntas frecuentes | Biquiño",
     "Resolvemos las dudas más habituales sobre plazos de entrega, envíos, formas de pago y presupuestos de Biquiño."
   );
 

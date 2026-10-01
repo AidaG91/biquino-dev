@@ -4,12 +4,14 @@ import ContactForm from "../components/contactForm/ContactForm";
 import ServicesSection from "../components/servicesSection/ServicesSection";
 import ProjectsTeaser from "../components/projectsTeaser/ProjectsTeaser";
 import useSeo from "../hooks/useSeo";
+import useLocalBusinessSchema from "../hooks/useLocalBusinessSchema";
 
 export default function LandingPage() {
   useSeo(
-    "Biquiño | Diseño, papelería, rótulos y merchandising",
-    "Biquiño ofrece impresión digital, estampados, merchandising, pegatinas, etiquetas, rotulación de locales y vehículos y papelería corporativa, con diseño, producción e instalación en toda España."
+    "Rotulación, impresión y merchandising en toda España | Biquiño",
+    "Rotulación de locales y vehículos, impresión digital, merchandising y papelería. Diseño, producción e instalación desde Verín (Ourense) a toda España."
   );
+  useLocalBusinessSchema();
 
   return (
     <article>
