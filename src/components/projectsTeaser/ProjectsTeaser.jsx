@@ -36,7 +36,6 @@ export default function ProjectsTeaser() {
             <div className={styles.overlay}>
               <span className={styles.chip}>{big.category}</span>
               <h3 className={styles.cardTitle}>{big.title}</h3>
-              <p className={styles.cardDescription}>{big.description}</p>
             </div>
           </Link>
 

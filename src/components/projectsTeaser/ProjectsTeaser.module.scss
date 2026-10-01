@@ -52,18 +52,15 @@
   }
 }
 
-.cardBig {
-  height: 280px;
-}
-
 .column {
   display: flex;
   flex-direction: column;
   gap: v.$space-md;
 }
 
+.cardBig,
 .cardSmall {
-  height: 160px;
+  height: 220px;
 }
 
 .image {
@@ -107,7 +104,7 @@
 .cardTitle {
   color: v.$color-white;
   font-family: v.$font-heading;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 
@@ -116,14 +113,6 @@
   font-family: v.$font-heading;
   font-size: 1.1rem;
   margin: 0;
-}
-
-.cardDescription {
-  color: rgba(255, 255, 255, 0.85);
-  font-family: v.$font-body;
-  font-size: v.$font-size-sm;
-  margin-top: v.$space-xs;
-  max-width: 320px;
 }
 
 @include m.tablet {
@@ -136,6 +125,11 @@
 
   .linkArrow {
     margin-top: 0;
+  }
+
+  .cardBig,
+  .cardSmall {
+    height: 260px;
   }
 }
 
@@ -152,6 +146,10 @@
   .cardBig {
     flex: 1.3;
     height: 420px;
+  }
+
+  .cardTitle {
+    font-size: 1.4rem;
   }
 
   .column {
