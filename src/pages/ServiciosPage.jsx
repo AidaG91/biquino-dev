@@ -32,7 +32,9 @@ export default function ServiciosPage() {
           <div key={servicio.id} className={styles.row}>
             <div className={styles.rowImage}>
               <img
-                src={servicio.image}
+                src={servicio.image.src}
+                srcSet={servicio.image.srcSet}
+                sizes="(min-width: 768px) 40vw, 100vw"
                 alt={servicio.photoCaption.replace(/^Foto:\s*/i, "")}
                 loading="lazy"
               />

@@ -1,6 +1,7 @@
 // TIPOGRAFÍAS
-$font-heading: "bogart", serif;
-$font-body: "Montserrat", sans-serif;
+// Georgia en negrita mide casi lo mismo que Bogart: evita saltos al cargar.
+$font-heading: "bogart", Georgia, serif;
+$font-body: "Montserrat", "Montserrat Fallback", sans-serif;
 
 // COLORES
 $color-white: #ffffff;

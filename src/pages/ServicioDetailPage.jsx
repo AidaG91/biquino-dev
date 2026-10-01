@@ -39,7 +39,9 @@ export default function ServicioDetailPage() {
             <div key={card.title} className={styles.card}>
               <div className={styles.cardTile}>
                 <img
-                  src={card.image}
+                  src={card.image.src}
+                  srcSet={card.image.srcSet}
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   alt={card.photoCaption.replace(/^Foto:\s*/i, "")}
                   loading="lazy"
                 />

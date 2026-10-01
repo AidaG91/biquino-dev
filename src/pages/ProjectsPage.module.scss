@@ -9,14 +9,20 @@
   padding: v.$space-lg v.$space-lg v.$space-xl;
 }
 
+// En móvil, una fila con scroll horizontal: su altura no depende de cuánto
+// ocupe cada fuente, así que no desplaza la galería al cargar (CLS).
 .filters {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: v.$space-sm;
-  margin-bottom: v.$space-lg;
+  margin: 0 (-1 * v.$space-lg) v.$space-lg;
+  padding: 4px v.$space-lg;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .chip {
+  flex-shrink: 0;
   border: 1.5px solid v.$color-border-tint;
   border-radius: v.$radius-pill;
   padding: 0.55rem 1.1rem;
@@ -120,7 +126,7 @@
   color: v.$color-white;
   font-family: v.$font-heading;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1.2;
   margin: 0;
 }
@@ -134,8 +140,19 @@
 }
 
 @include m.tablet {
+  .filters {
+    flex-wrap: wrap;
+    margin: 0 0 v.$space-lg;
+    padding: 0;
+    overflow-x: visible;
+  }
+
   .grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
   }
 }
 
@@ -147,6 +164,7 @@
   .gridBento {
     grid-template-columns: 1.1fr 1fr 1fr;
     grid-template-rows: 260px 260px;
+    grid-auto-rows: 260px;
     gap: 1.375rem;
 
     .card {
@@ -238,8 +256,24 @@
 .lightboxImage {
   display: block;
   width: 100%;
-  max-height: 60vh;
-  object-fit: cover;
+  max-height: 70vh;
+  object-fit: contain;
+  background-color: v.$color-dark;
+}
+
+.beforeAfterBadge {
+  position: absolute;
+  top: v.$space-sm;
+  right: v.$space-sm;
+  padding: 0.3rem 0.75rem;
+  border-radius: v.$radius-pill;
+  background-color: v.$color-white;
+  color: v.$color-cta;
+  font-family: v.$font-body;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .lightboxInfo {

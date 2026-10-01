@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import ContactForm from "../components/contactForm/ContactForm";
+import BeforeAfter from "../components/beforeAfter/BeforeAfter";
 import projects from "../data/projectsData";
 import useSeo from "../hooks/useSeo";
 import styles from "./ProjectsPage.module.scss";
@@ -22,6 +23,7 @@ export default function ProjectsPage() {
   const [lightboxProject, setLightboxProject] = useState(null);
   const previousFocusRef = useRef(null);
   const closeButtonRef = useRef(null);
+  const dialogRef = useRef(null);
 
   const isBentoLayout = activeFilter === ALL;
   const filteredProjects = isBentoLayout
@@ -47,8 +49,22 @@ export default function ProjectsPage() {
       if (event.key === "Escape") {
         closeLightbox();
       } else if (event.key === "Tab") {
-        event.preventDefault();
-        closeButtonRef.current?.focus();
+        const focusable = [
+          ...(dialogRef.current?.querySelectorAll("button, input") ?? []),
+        ];
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        } else if (!dialogRef.current?.contains(document.activeElement)) {
+          event.preventDefault();
+          first.focus();
+        }
       }
     };
     document.addEventListener("keydown", handleKeyDown);
@@ -105,15 +121,26 @@ export default function ProjectsPage() {
               onClick={(event) => openLightbox(project, event)}
             >
               <img
-                src={project.image}
+                src={project.image.src}
+                srcSet={project.image.srcSet}
+                sizes="(min-width: 768px) 33vw, 50vw"
                 alt=""
                 className={styles.image}
                 loading="lazy"
               />
+              {project.beforeAfter && (
+                <span className={styles.beforeAfterBadge} aria-hidden="true">
+                  Antes / Después
+                </span>
+              )}
               <span className={styles.overlay}>
                 <span className={styles.chipLabel}>{project.category}</span>{" "}
                 <span className={styles.cardTitle}>{project.title}</span>
-                <span className="visually-hidden">, ver imagen ampliada</span>
+                <span className="visually-hidden">
+                  {project.beforeAfter
+                    ? ", ver el antes y el después"
+                    : ", ver imagen ampliada"}
+                </span>
               </span>
             </button>
           ))}
@@ -127,6 +154,7 @@ export default function ProjectsPage() {
           <div className={styles.lightboxBackdrop} onClick={closeLightbox}>
             <div
               className={styles.lightboxContent}
+              ref={dialogRef}
               role="dialog"
               aria-modal="true"
               aria-label={lightboxProject.title}
@@ -141,11 +169,20 @@ export default function ProjectsPage() {
               >
                 <X size={20} aria-hidden="true" />
               </button>
-              <img
-                src={lightboxProject.image}
-                alt={lightboxProject.alt}
-                className={styles.lightboxImage}
-              />
+              {lightboxProject.beforeAfter ? (
+                <BeforeAfter
+                  before={lightboxProject.beforeAfter.before}
+                  after={lightboxProject.beforeAfter.after}
+                  beforeAlt={lightboxProject.beforeAlt}
+                  afterAlt={lightboxProject.alt}
+                />
+              ) : (
+                <img
+                  src={lightboxProject.full}
+                  alt={lightboxProject.alt}
+                  className={styles.lightboxImage}
+                />
+              )}
               <div className={styles.lightboxInfo}>
                 <span className={styles.chipLabel}>
                   {lightboxProject.category}

@@ -1,6 +1,17 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+// Arial ajustada a las medidas de Montserrat: mientras carga la fuente web el
+// texto ocupa lo mismo, y al cambiar no se desplaza el contenido (CLS).
+@font-face {
+  font-family: "Montserrat Fallback";
+  src: local("Arial");
+  size-adjust: 112.83%;
+  ascent-override: 85.79%;
+  descent-override: 22.25%;
+  line-gap-override: 0%;
+}
+
 :root {
   --font-heading: #{$font-heading};
   --font-body: #{$font-body};
