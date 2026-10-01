@@ -6,6 +6,8 @@ import styles from "./ProjectsTeaser.module.scss";
 export default function ProjectsTeaser() {
   const [big, ...small] = projects.slice(0, 3);
 
+  if (!big) return null;
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.inner}>

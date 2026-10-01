@@ -33,7 +33,9 @@ export default function Hero() {
             src={heroImage}
             alt="Trabajo de rotulación e impresión realizado por Biquiño"
             className={styles.artImage}
-            fetchpriority="high"
+            width={1407}
+            height={768}
+            fetchPriority="high"
           />
         </div>
       </div>
