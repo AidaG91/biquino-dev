@@ -26,8 +26,8 @@ const serviciosSubpagesData = {
         title: "Pegatinas y etiquetas",
         description:
           "Pegatinas y etiquetas adhesivas en la forma, el tamaño y el material que necesites, para productos, envases o promoción. Impresas con colores nítidos y acabados resistentes.",
-        photoCaption: "Foto: pegatinas personalizadas para una boda",
-        image: photo("pegatinas-boda"),
+        photoCaption: "Foto: pegatinas cuadradas impresas con un escudo heráldico",
+        image: photo("pegatinas-escudo"),
       },
     ],
   },
