@@ -2,7 +2,7 @@
 @use "../../styles/abstracts/mixins" as m;
 
 .footer {
-  background-color: v.$color-primary;
+  background-color: v.$color-cta;
   width: 100%;
 }
 
@@ -21,9 +21,6 @@
 .logo {
   height: 24px;
   width: auto;
-  // El SVG es de un solo color sólido (#e72d55) — de momento lo forzamos a
-  // blanco por CSS para que se lea sobre el fondo rosa. Sustituir por el
-  // filtro cuando tengamos la versión en blanco del logo como archivo.
   filter: brightness(0) invert(1);
 }
 
@@ -92,7 +89,7 @@
 }
 
 .copyright {
-  color: rgba(255, 255, 255, 0.7);
+  color: v.$color-white;
   font-family: v.$font-body;
   font-size: 0.7rem;
   margin: 0;

@@ -10,6 +10,8 @@
   --color-primary: #{$color-primary};
   --color-background: #{$color-background};
   --color-secondary: #{$color-secondary};
+  --color-success: #{$color-success};
+  --color-error: #{$color-error};
 
   --transition-normal: #{$transition-normal};
 
@@ -77,7 +79,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: $color-btn;
+  background-color: $color-cta;
   color: $color-white;
   cursor: pointer;
   transition: all $transition-normal;

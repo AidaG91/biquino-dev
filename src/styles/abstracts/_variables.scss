@@ -10,7 +10,6 @@ $color-black: #000000;
 $color-dark: #1c1410;
 $color-primary: #e62556;
 $color-background: #fce9ee;
-$color-btn: #eb5178;
 $color-secondary: #f07c9a;
 
 // COLORES — nuevo diseño (rediseño 2026)
@@ -23,6 +22,10 @@ $color-border-tint-alt: #f3d3dc; // borde del header
 $color-accent-mauve: #c96a86; // numeración de filas, iconos de placeholder
 $color-muted-pink: #9a6a76; // texto de caption sobre placeholders
 $color-input-border: #f0c3d0; // borde de inputs del formulario de contacto
+
+// COLORES — estados
+$color-success: #1e7e34;
+$color-error: #dc3545;
 
 // TIPOGRAFÍA ESCALA
 $font-size-base: 18px;

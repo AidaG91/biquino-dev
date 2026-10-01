@@ -198,11 +198,11 @@
     padding: 0.25rem 0;
 
     &:hover {
-      color: v.$color-primary;
+      color: v.$color-cta;
     }
 
     &.active {
-      color: v.$color-primary;
+      color: v.$color-cta;
     }
 
     &.active::after {

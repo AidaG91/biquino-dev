@@ -13,27 +13,26 @@ export default function SiteLayout() {
         reverseOrder={false}
         toastOptions={{
           style: {
-            border: "1px solid #713200",
             padding: "16px",
           },
           success: {
             style: {
-              background: "#28a745",
+              background: "var(--color-success)",
               color: "white",
             },
             iconTheme: {
               primary: "white",
-              secondary: "#28a745",
+              secondary: "var(--color-success)",
             },
           },
           error: {
             style: {
-              background: "#dc3545",
+              background: "var(--color-error)",
               color: "white",
             },
             iconTheme: {
               primary: "white",
-              secondary: "#dc3545",
+              secondary: "var(--color-error)",
             },
           },
         }}

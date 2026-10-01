@@ -66,7 +66,7 @@
   color: v.$color-dark;
 
   &:hover {
-    color: v.$color-primary;
+    color: v.$color-cta;
   }
 
   &:focus-visible {
@@ -169,13 +169,13 @@ textarea {
 }
 
 .errorMessage {
-  color: #dc3545;
+  color: v.$color-error;
   font-size: v.$font-size-sm;
   margin-top: v.$space-xxs;
 }
 
 .inputError {
-  border-color: #dc3545 !important;
+  border-color: v.$color-error !important;
 }
 
 .formSuccess {
