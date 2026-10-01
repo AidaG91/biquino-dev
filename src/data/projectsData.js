@@ -1,8 +1,19 @@
 import { photo, fullPhoto, beforeAfter } from "./photos";
 
-// El orden importa: los 3 primeros salen en la portada y los 5 primeros forman
-// el mosaico de /proyectos.
+// El orden importa: los 3 primeros salen en la portada (el primero en grande) y
+// los 5 primeros forman el mosaico de /proyectos. imagePosition (opcional) es
+// el object-position de la foto en las tarjetas, para no cortar lo importante.
 const projectsData = [
+  {
+    id: "marcan-huella",
+    title: "Marcan Huella, protectora canina",
+    description:
+      "Sudaderas, camisetas y mochilas personalizadas con el logotipo de la protectora.",
+    image: photo("sudadera-marcan-huella"),
+    full: fullPhoto("sudadera-marcan-huella"),
+    alt: "Sudadera blanca con el logotipo ilustrado de Marcan Huella",
+    category: "Personalización",
+  },
   {
     id: "cajero-ing-tienda",
     title: "Cajero automático ING",
@@ -20,19 +31,10 @@ const projectsData = [
     description:
       "Rotulación de una cabeza tractora con vinilo de corte: logotipo en la cabina y en los laterales.",
     image: photo("camion-ror"),
+    imagePosition: "50% 25%",
     full: fullPhoto("camion-ror"),
     alt: "Cabeza tractora blanca con el logotipo de ROR Operador Logístico en la cabina y el lateral",
     category: "Rotulación",
-  },
-  {
-    id: "marcan-huella",
-    title: "Marcan Huella, protectora canina",
-    description:
-      "Sudaderas, camisetas y mochilas personalizadas con el logotipo de la protectora.",
-    image: photo("sudadera-marcan-huella"),
-    full: fullPhoto("sudadera-marcan-huella"),
-    alt: "Sudadera blanca con el logotipo ilustrado de Marcan Huella",
-    category: "Personalización",
   },
   {
     id: "oficina-vinilo-acido",

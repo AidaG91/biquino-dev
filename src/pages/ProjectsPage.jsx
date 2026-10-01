@@ -123,6 +123,7 @@ export default function ProjectsPage() {
               <img
                 src={project.image.src}
                 srcSet={project.image.srcSet}
+                style={{ objectPosition: project.imagePosition }}
                 sizes="(min-width: 768px) 33vw, 50vw"
                 alt=""
                 className={styles.image}

@@ -32,6 +32,7 @@ export default function ProjectsTeaser() {
             <img
               src={big.image.src}
               srcSet={big.image.srcSet}
+              style={{ objectPosition: big.imagePosition }}
               sizes="(min-width: 1024px) 50vw, 100vw"
               alt={big.alt}
               className={styles.image}
@@ -53,6 +54,7 @@ export default function ProjectsTeaser() {
                 <img
                   src={project.image.src}
                   srcSet={project.image.srcSet}
+                  style={{ objectPosition: project.imagePosition }}
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   alt={project.alt}
                   className={styles.image}
