@@ -1,14 +1,14 @@
 import { photo } from "./photos";
 // Fotos placeholder generadas con IA, a sustituir por fotos reales de Biquiño.
-import identidadVisualImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/identidad-visual.jpg";
-import adaptacionArchivosImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/adaptacion-archivos.jpg";
-import fotografiaProductoImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/fotografia-producto.jpg";
-import aperturaNegociosImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/apertura-negocios.jpg";
-import produccionFabricacionImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/produccion-fabricacion.jpg";
-import supervisionInstalacionImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/supervision-instalacion.jpg";
-import menuDiarioImg from "../assets/images/placeholders/subpaginas/web-rrss/menu-diario.jpg";
-import gestionContenidoRrssImg from "../assets/images/placeholders/subpaginas/web-rrss/gestion-contenido-rrss.jpg";
-import desarrolloWebImg from "../assets/images/placeholders/subpaginas/web-rrss/desarrollo-web.jpg";
+import identidadVisualImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/identidad-visual.webp";
+import adaptacionArchivosImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/adaptacion-archivos.webp";
+import fotografiaProductoImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/fotografia-producto.webp";
+import aperturaNegociosImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/apertura-negocios.webp";
+import produccionFabricacionImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/produccion-fabricacion.webp";
+import supervisionInstalacionImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/supervision-instalacion.webp";
+import menuDiarioImg from "../assets/images/placeholders/subpaginas/web-rrss/menu-diario.webp";
+import gestionContenidoRrssImg from "../assets/images/placeholders/subpaginas/web-rrss/gestion-contenido-rrss.webp";
+import desarrolloWebImg from "../assets/images/placeholders/subpaginas/web-rrss/desarrollo-web.webp";
 
 const serviciosSubpagesData = {
   "impresion-digital": {

@@ -98,11 +98,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: v.$space-md;
+  padding: v.$space-sm;
   background: linear-gradient(
     to top,
     rgba(28, 20, 16, 0.75),
-    rgba(28, 20, 16, 0)
+    rgba(28, 20, 16, 0) 60%
   );
 }
 
@@ -126,8 +126,8 @@
   color: v.$color-white;
   font-family: v.$font-heading;
   font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1.2;
+  font-size: 0.8rem;
+  line-height: 1.15;
   margin: 0;
 }
 
@@ -263,17 +263,24 @@
 
 .beforeAfterBadge {
   position: absolute;
-  top: v.$space-sm;
-  right: v.$space-sm;
-  padding: 0.3rem 0.75rem;
+  top: 6px;
+  right: 6px;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
   border-radius: v.$radius-pill;
   background-color: v.$color-white;
   color: v.$color-cta;
   font-family: v.$font-body;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+// En móvil la tarjeta es pequeña: solo el título; la categoría se ve en el
+// filtro y en el lightbox.
+.overlay .chipLabel {
+  display: none;
 }
 
 .lightboxInfo {
@@ -295,4 +302,21 @@
   line-height: 1.7;
   color: v.$color-text-secondary;
   margin: 0;
+}
+
+@include m.tablet {
+  .overlay {
+    padding: v.$space-md;
+  }
+
+  .overlay .chipLabel {
+    display: inline-block;
+  }
+
+  .beforeAfterBadge {
+    top: v.$space-sm;
+    right: v.$space-sm;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+  }
 }
