@@ -1,15 +1,18 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
+const VALIDATED_FIELDS = ["name", "email", "message"];
+
 export function useContactForm(onSuccess, initialData = {}) {
-  const [formData, setFormData] = useState({
+  const [initialFormData] = useState(() => ({
     name: "",
     email: "",
     phone: "",
     servicio: "",
     message: "",
     ...initialData,
-  });
+  }));
+  const [formData, setFormData] = useState(initialFormData);
 
   const [errors, setErrors] = useState({});
   const [isSending, setIsSending] = useState(false);
@@ -35,9 +38,8 @@ export function useContactForm(onSuccess, initialData = {}) {
 
   const validateForm = () => {
     const newErrors = {};
-    const fieldsToValidate = ["name", "email", "message"];
 
-    fieldsToValidate.forEach((field) => {
+    VALIDATED_FIELDS.forEach((field) => {
       const error = validateField(field, formData[field]);
       if (error) newErrors[field] = error;
     });
@@ -47,25 +49,28 @@ export function useContactForm(onSuccess, initialData = {}) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (errors[name]) {
-      setErrors({ ...errors, [name]: null });
+      setErrors((prev) => ({ ...prev, [name]: null }));
     }
   };
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
     const error = validateField(name, value);
-    setErrors({ ...errors, [name]: error });
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.target;
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      const firstInvalid = VALIDATED_FIELDS.find((f) => validationErrors[f]);
+      form.elements[firstInvalid]?.focus();
       toast.error("Por favor, corrige los errores del formulario.");
       return;
     }
@@ -73,18 +78,17 @@ export function useContactForm(onSuccess, initialData = {}) {
     setIsSending(true);
 
     try {
-      const form = e.target;
-      const formData = new FormData(form);
-
       const response = await fetch("/", {
         method: "POST",
-        body: formData,
+        body: new FormData(form),
       });
 
       if (!response.ok) {
         throw new Error(`Form submission failed with status ${response.status}`);
       }
 
+      setFormData(initialFormData);
+      setErrors({});
       onSuccess();
     } catch {
       toast.error("No hemos podido enviar el mensaje. Inténtalo de nuevo.");

@@ -70,14 +70,14 @@ export default function ContactForm({
         )}
 
         <div className={styles.cfRight}>
+          {/* Netlify detecta el formulario por la copia estática de index.html;
+              si cambias algún campo aquí, cámbialo también allí. */}
           <form
             name="contact"
             method="POST"
-            data-netlify="true"
-            data-netlify-recaptcha="true"
-            netlify-honeypot="bot-field"
             className={styles.form}
             onSubmit={handleSubmit}
+            noValidate
           >
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
@@ -175,22 +175,22 @@ export default function ContactForm({
               )}
             </div>
 
-            <div
-              className={styles.recaptcha}
-              data-netlify-recaptcha="true"
-            ></div>
-
             <button type="submit" className={styles.submitButton} disabled={isSending}>
               {isSending ? "Enviando..." : "Enviar mensaje"}
               <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
             </button>
 
-            {showThanks && (
-              <div className={styles.formSuccess} role="status">
-                <Check size={16} strokeWidth={2.4} aria-hidden="true" />
-                Mensaje enviado. Te responderemos en un máximo de 24–48 horas.
-              </div>
-            )}
+            <div
+              className={showThanks ? styles.formSuccess : undefined}
+              role="status"
+            >
+              {showThanks && (
+                <>
+                  <Check size={16} strokeWidth={2.4} aria-hidden="true" />
+                  Mensaje enviado. Te responderemos en un máximo de 24–48 horas.
+                </>
+              )}
+            </div>
           </form>
         </div>
       </div>
