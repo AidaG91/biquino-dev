@@ -17,18 +17,18 @@ const services = [
     id: "servicio-integral",
     title: "Servicio integral",
     teaser:
-      "Ofrecemos un servicio 360º que incluye asesoramiento, diseño, producción, instalación y post‑venta.",
+      "Asesoramiento, diseño, producción e instalación en un mismo sitio, con trato directo de principio a fin.",
     fullDescription:
-      "No solo fabricamos. Te acompañamos durante todo el proceso: desde el asesoramiento inicial y el diseño creativo, pasando por la producción y la instalación, hasta el seguimiento post‑venta. Todo lo que necesitas, en un solo lugar.",
+      "No solo fabricamos. Te acompañamos durante todo el proceso: desde el asesoramiento inicial y el diseño, pasando por la producción, hasta la instalación. Todo lo que necesitas, en un solo lugar y tratando siempre directamente con nosotros.",
     icon: servicioIntegralIcon,
   },
   {
     id: "envios-peninsula",
-    title: "Envíos a península",
+    title: "Instalación en toda España",
     teaser:
-      "Trabajamos con una red de colaboradores, la cual nos permite poder enviar e instalar en toda la península.",
+      "Enviamos a toda España e instalamos nosotros mismos donde nos necesites, también fuera de España.",
     fullDescription:
-      "Gracias a nuestra red de colaboradores repartidos por toda la península, podemos enviar e instalar tus proyectos en cualquier punto de España. Sin importar la distancia, garantizamos la misma calidad y cercanía en cada entrega.",
+      "Estamos en Verín (Ourense), pero enviamos a toda España e instalamos nosotros mismos en cualquier punto, también fuera de España. El envío y el desplazamiento vienen incluidos en el presupuesto.",
     icon: envioIcon,
   },
   {

@@ -13,7 +13,7 @@ import desarrolloWebImg from "../assets/images/placeholders/subpaginas/web-rrss/
 const serviciosSubpagesData = {
   "impresion-digital": {
     title: "Impresión digital",
-    lead: "Papelería, pegatinas y etiquetas impresas con calidad profesional, en la tirada que necesites.",
+    lead: "Papelería, cartelería, pegatinas y etiquetas impresas con calidad profesional, en la tirada que necesites y sin pedido mínimo.",
     cards: [
       {
         title: "Papelería corporativa",
@@ -25,7 +25,7 @@ const serviciosSubpagesData = {
       {
         title: "Pegatinas y etiquetas",
         description:
-          "Pegatinas y etiquetas adhesivas en la forma, el tamaño y el material que necesites, para productos, envases o promoción. Impresas con colores nítidos y acabados resistentes.",
+          "Pegatinas y etiquetas adhesivas con la forma, el tamaño y el material que necesites, para productos, envases, eventos o promoción. Las producimos en nuestro propio taller, con colores nítidos y acabados resistentes.",
         photoCaption: "Foto: pegatinas cuadradas impresas con un escudo heráldico",
         image: photo("pegatinas-escudo"),
       },
@@ -33,19 +33,19 @@ const serviciosSubpagesData = {
   },
   personalizacion: {
     title: "Personalización de prendas y objetos",
-    lead: "Técnicas de marcaje de alta resistencia y diseño adaptado a cada material, para equipaciones, uniformes, eventos y merchandising.",
+    lead: "DTF, vinilo textil y serigrafía para equipaciones, uniformes, eventos y merchandising, con un diseño adaptado a cada prenda y material.",
     cards: [
       {
         title: "Estampados textiles",
         description:
-          "Estampamos tu diseño en camisetas, sudaderas, uniformes y todo tipo de prendas, con técnicas de alta resistencia pensadas para el uso diario. Trabajamos para empresas (ropa laboral), clubes y deportistas (equipaciones con dorsales, nombres y patrocinadores) y para grupos, peñas y eventos, con tiradas ágiles y económicas que mantienen la uniformidad y el espíritu del grupo.",
+          "Estampamos tu diseño en camisetas, sudaderas, uniformes y todo tipo de prendas con DTF, vinilo textil o serigrafía, según la prenda, la cantidad y el uso que vaya a tener. Trabajamos para empresas (ropa laboral), clubes y deportistas (equipaciones con dorsales, nombres y patrocinadores) y para grupos, peñas y eventos.",
         photoCaption: "Foto: equipación deportiva personalizada",
         image: photo("equipaciones"),
       },
       {
         title: "Merchandising",
         description:
-          "Transformamos objetos cotidianos en soportes promocionales mediante técnicas de marcaje precisas. Personalizamos una amplia gama de artículos y detalles corporativos, asegurando que tu marca acompañe al cliente con un acabado profesional y duradero.",
+          "Mochilas, bolsas y todo tipo de artículos promocionales con tu logotipo. Si un artículo necesita una técnica que no hacemos en el taller, la conseguimos con talleres colaboradores y nos encargamos nosotros del diseño, el seguimiento y la entrega: tú solo tratas con nosotros.",
         photoCaption: "Foto: mochila personalizada con logotipo",
         image: photo("mochila-personalizada"),
       },
@@ -53,19 +53,19 @@ const serviciosSubpagesData = {
   },
   rotulacion: {
     title: "Rotulación",
-    lead: "Rótulos, vinilos, escaparates y vehículos: tu marca visible donde la ven tus clientes.",
+    lead: "Vinilos, rótulos, escaparates, lonas, señalética y vehículos, instalados por nosotros mismos en cualquier punto de España.",
     cards: [
       {
         title: "Rotulación de locales y escaparates",
         description:
-          "Fabricamos e instalamos rótulos de fachada, vinilos de puerta y cristal y cartelería interior. Diseñamos y montamos también tu escaparate para cada temporada o campaña, para que tu negocio llame la atención desde la calle.",
+          "Rótulos de fachada en dibond, metacrilato o PVC, rótulos luminosos, vinilos de puerta y cristal, vinilo ácido para dar privacidad, lonas y señalética. Producimos el vinilo y la cartelería en nuestro taller e instalamos en la franja horaria que menos interfiera con tu negocio.",
         photoCaption: "Foto: escaparate con vinilo de corte",
         image: photo("escaparate-vinilo-corte"),
       },
       {
         title: "Rotulación de vehículos",
         description:
-          "Convertimos tu furgoneta, coche o flota en publicidad en movimiento. Diseñamos e instalamos vinilos y rotulación adaptados a cada vehículo, con materiales pensados para aguantar la carretera y el paso del tiempo.",
+          "Convertimos tu furgoneta, coche, camión o flota en publicidad en movimiento. Diseñamos, producimos e instalamos el vinilo adaptado a cada vehículo, con materiales pensados para aguantar la carretera y el paso del tiempo.",
         photoCaption: "Foto: furgoneta rotulada con vinilo de corte",
         image: photo("furgoneta-reformas-chus"),
       },
@@ -73,7 +73,7 @@ const serviciosSubpagesData = {
   },
   "diseno-tecnico": {
     title: "Diseño técnico aplicado",
-    lead: "El puente entre una idea visual y su ejecución perfecta en el mundo real, con soluciones gráficas optimizadas para fabricación.",
+    lead: "Formación en preimpresión, diseño gráfico y audiovisual para que cada idea se pueda imprimir, cortar o instalar sin sorpresas.",
     cards: [
       {
         title: "Identidad visual",
@@ -85,21 +85,21 @@ const serviciosSubpagesData = {
       {
         title: "Adaptación de archivos",
         description:
-          "Preparamos tus diseños para un rendimiento óptimo en cualquier medio. Desde la optimización técnica para plataformas digitales hasta la configuración de artes finales para impresión profesional sin errores.",
+          "Si ya tienes tu diseño, lo revisamos y lo preparamos para imprimir, cortar o publicar sin errores: tamaños, sangrados, colores y formatos. La preimpresión es la base de nuestra formación.",
         photoCaption: "Foto: preparación de archivo técnico",
         image: { src: adaptacionArchivosImg },
       },
       {
         title: "Asesoramiento en materiales y proyectos",
         description:
-          "Consultoría técnica sobre soportes, acabados y visibilidad de producción. Te guiamos en la selección de los materiales idóneos para que cada proyecto visual logre el máximo impacto.",
+          "Te ayudamos a elegir el soporte y el acabado adecuados (vinilo, dibond, metacrilato, PVC, lona…) según dónde va a ir cada pieza y cuánto tiene que durar, para que tu proyecto logre el máximo impacto.",
         photoCaption: "Foto: carteles en dibond con vinilo impreso laminado",
         image: photo("cartel-abejas"),
       },
       {
         title: "Fotografía de producto y proyecto",
         description:
-          "Reportaje fotográfico de tus prendas, espacios y proyectos terminados, pensado para catálogo, redes sociales y comunicación de marca. Imágenes cuidadas que muestran el resultado final con la mejor luz.",
+          "Reportaje fotográfico de tus prendas, espacios y proyectos terminados, pensado para catálogo, redes sociales y comunicación de marca. Contamos con experiencia en fotografía de bodas, eventos, conciertos y naturaleza.",
         photoCaption: "Foto: sesión fotográfica de producto",
         image: { src: fotografiaProductoImg },
       },
@@ -107,7 +107,7 @@ const serviciosSubpagesData = {
   },
   "gestion-proyectos": {
     title: "Gestión de proyectos gráficos completos",
-    lead: "Coordinamos todas las fases de producción, desde la conceptualización técnica hasta la entrega final del producto.",
+    lead: "Del primer contacto a la instalación: asesoramiento, diseño, producción e instalación en un mismo sitio.",
     cards: [
       {
         title: "Imagen para apertura de negocios",
@@ -119,14 +119,14 @@ const serviciosSubpagesData = {
       {
         title: "Producción y fabricación propia",
         description:
-          "Contamos con infraestructura propia para materializar tus proyectos sin intermediarios. Al controlar directamente el proceso de fabricación, garantizamos una agilidad superior, costes optimizados y un control de calidad riguroso en cada acabado.",
+          "Producimos en nuestro taller todo lo relacionado con vinilo, cartelería, pegatinas y DTF, lo que nos da agilidad y control sobre el acabado. Cuando un trabajo necesita otra técnica, lo realizamos con talleres colaboradores de confianza y seguimos al frente: preparamos los archivos, supervisamos la producción y revisamos el resultado antes de entregarlo.",
         photoCaption: "Foto: taller de producción",
         image: { src: produccionFabricacionImg },
       },
       {
         title: "Supervisión e instalación final",
         description:
-          "Ejecutamos personalmente el montaje de vinilos, rotulación y elementos visuales en tus instalaciones. Nos aseguramos de que el proyecto culmine con una colocación técnica impecable, cuidando cada detalle para que el resultado final sea perfecto.",
+          "Instalamos nosotros mismos vinilos, rótulos y elementos visuales, en cualquier punto de España o fuera y en la franja horaria que mejor te venga. El envío y el desplazamiento vienen incluidos en el presupuesto, para que sepas el coste total desde el principio.",
         photoCaption: "Foto: equipo coordinando instalación",
         image: { src: supervisionInstalacionImg },
       },
@@ -134,7 +134,7 @@ const serviciosSubpagesData = {
   },
   "web-rrss": {
     title: "Web y RRSS",
-    lead: "Soporte continuo para negocios que necesitan dinamismo y actualización constante — tu departamento creativo externo.",
+    lead: "Webs y contenido para redes sociales con un estilo gráfico coherente: tu departamento creativo externo.",
     cards: [
       {
         title: "Gestión de menú diario para hostelería",
@@ -146,14 +146,14 @@ const serviciosSubpagesData = {
       {
         title: "Gestión de contenido y RRSS",
         description:
-          "Mantenemos tus perfiles activos y profesionales. Nos encargamos de la creación de contenido visual estratégico y de su publicación periódica, asegurando una comunicación constante con tu comunidad sin que tú tengas que dedicarle tiempo.",
+          "Creamos tus publicaciones con un mismo estilo gráfico para que tu marca sea reconocible en todas ellas, y te preparamos un calendario de publicaciones. También podemos crear vídeo para tus redes.",
         photoCaption: "Foto: gestión de redes sociales",
         image: { src: gestionContenidoRrssImg },
       },
       {
         title: "Desarrollo y Programación Web",
         description:
-          "Creamos sitios web a medida, priorizando la velocidad, la seguridad y la experiencia de usuario. Diseñamos plataformas totalmente responsive que se adaptan a cualquier dispositivo, garantizando que tu escaparate digital sea eficiente y visualmente impactante.",
+          "Diseñamos y programamos tu web a medida, adaptada a móvil, y la mantenemos al día: actualizaciones mensuales, trimestrales o cuando necesites un cambio.",
         photoCaption: "Foto: diseño web",
         image: { src: desarrolloWebImg },
       },

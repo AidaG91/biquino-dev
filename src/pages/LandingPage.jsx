@@ -3,6 +3,7 @@ import TrustStrip from "../components/trustStrip/TrustStrip";
 import ContactForm from "../components/contactForm/ContactForm";
 import ServicesSection from "../components/servicesSection/ServicesSection";
 import ProjectsTeaser from "../components/projectsTeaser/ProjectsTeaser";
+import AboutSection from "../components/aboutSection/AboutSection";
 import useSeo from "../hooks/useSeo";
 import useLocalBusinessSchema from "../hooks/useLocalBusinessSchema";
 
@@ -23,6 +24,8 @@ export default function LandingPage() {
       <ServicesSection />
 
       <ProjectsTeaser />
+
+      <AboutSection />
 
       <ContactForm />
     </article>

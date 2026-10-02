@@ -7,14 +7,16 @@ export default function Hero() {
     <section className={styles.hero} aria-label="Presentación">
       <div className={styles.inner}>
         <div className={styles.content}>
-          <span className={styles.pill}>Impresión digital en España</span>
+          <span className={styles.pill}>
+            Rotulación · Impresión · Personalización
+          </span>
           <h1 className={styles.title}>
             Damos forma a tu marca, de la idea a la instalación.
           </h1>
           <p className={styles.lead}>
-            Papelería corporativa, merchandising, estampados, pegatinas,
-            etiquetas y rotulación — diseño, producción e instalación en un
-            solo equipo, en toda España.
+            Rotulación de locales y vehículos, impresión digital y
+            personalización de prendas y objetos: diseño, producción e
+            instalación en un mismo sitio, en toda España.
           </p>
           <div className={styles.actions}>
             <Link to="/contacto" className={styles.ctaPrimary}>

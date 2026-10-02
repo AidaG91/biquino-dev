@@ -14,12 +14,12 @@ const items = [
   },
   {
     id: "envios",
-    label: "Envíos a toda España",
+    label: "Instalación en toda España",
     icon: <Globe size={16} strokeWidth={2} aria-hidden="true" />,
   },
   {
     id: "diseno",
-    label: "Diseño gráfico incluido",
+    label: "Diseño gráfico a medida",
     icon: <FileText size={16} strokeWidth={2} aria-hidden="true" />,
   },
 ];

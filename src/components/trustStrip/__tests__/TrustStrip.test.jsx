@@ -13,8 +13,8 @@ describe("TrustStrip", () => {
     render(<TrustStrip />);
     expect(screen.getByText("Respuesta en 24–48h")).toBeInTheDocument();
     expect(screen.getByText("Sin pedido mínimo")).toBeInTheDocument();
-    expect(screen.getByText("Envíos a toda España")).toBeInTheDocument();
-    expect(screen.getByText("Diseño gráfico incluido")).toBeInTheDocument();
+    expect(screen.getByText("Instalación en toda España")).toBeInTheDocument();
+    expect(screen.getByText("Diseño gráfico a medida")).toBeInTheDocument();
   });
 
   it("renders as a list", () => {
