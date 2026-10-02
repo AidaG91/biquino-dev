@@ -3,7 +3,16 @@ import contactInfo from "../data/contactInfo";
 
 const SITE_URL = "https://biquino.es";
 
-// Datos estructurados para Google (schema.org/LocalBusiness)
+const toSpecs = (slots) =>
+  slots.map(({ dayCodes, opens, closes }) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: dayCodes.map((day) => `https://schema.org/${day}`),
+    opens,
+    closes,
+  }));
+
+// Datos estructurados para Google (schema.org/LocalBusiness). Pendiente: image
+// cuando haya una foto del local o de trabajos.
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -22,6 +31,14 @@ const schema = {
     addressCountry: contactInfo.address.country,
   },
   areaServed: { "@type": "Country", name: "España" },
+  openingHoursSpecification: toSpecs(contactInfo.hours.local),
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: contactInfo.phoneHref,
+    availableLanguage: ["es", "gl"],
+    hoursAvailable: toSpecs(contactInfo.hours.phone),
+  },
   hasMap: contactInfo.mapsUrl,
   sameAs: [contactInfo.instagramUrl],
 };

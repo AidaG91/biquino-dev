@@ -82,6 +82,60 @@
   color: v.$color-text-secondary;
 }
 
+.hours {
+  margin-bottom: v.$space-md;
+  padding-top: v.$space-md;
+  border-top: 1px solid v.$color-input-border;
+}
+
+.hoursTitle {
+  font-size: 1.05rem;
+  margin: 0 0 v.$space-sm;
+}
+
+.hoursGroups {
+  display: grid;
+  gap: v.$space-md;
+}
+
+.hoursLabel {
+  margin: 0 0 v.$space-xxs;
+  font-size: v.$font-size-xs;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: v.$color-dark;
+}
+
+.hoursList {
+  margin: 0;
+}
+
+.hoursRow {
+  font-size: v.$font-size-sm;
+  line-height: 1.4;
+
+  & + & {
+    margin-top: v.$space-xs;
+  }
+
+  dt {
+    color: v.$color-text-secondary;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 600;
+  }
+}
+
+@include m.tablet {
+  .hoursGroups {
+    grid-template-columns: 1fr 1fr;
+    gap: v.$space-lg;
+  }
+}
+
 .mapsLink {
   display: inline-flex;
   align-items: center;

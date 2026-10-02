@@ -6,6 +6,11 @@ import useSeo from "../hooks/useSeo";
 import useLocalBusinessSchema from "../hooks/useLocalBusinessSchema";
 import styles from "./ContactPage.module.scss";
 
+const HOURS = [
+  { label: "En el local", slots: contactInfo.hours.local },
+  { label: "Por teléfono", slots: contactInfo.hours.phone },
+];
+
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
   const servicioInicial = searchParams.get("servicio") || "";
@@ -56,6 +61,28 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+
+          <div className={styles.hours}>
+            <h3 className={styles.hoursTitle}>Horario</h3>
+            <div className={styles.hoursGroups}>
+              {HOURS.map(({ label, slots }) => (
+                <div key={label}>
+                  <p className={styles.hoursLabel}>{label}</p>
+                  <dl className={styles.hoursList}>
+                    {slots.map((slot) => (
+                      <div key={slot.days} className={styles.hoursRow}>
+                        <dt>{slot.days}</dt>
+                        <dd>
+                          {slot.opens} – {slot.closes}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <a
             href={contactInfo.mapsUrl}
             target="_blank"

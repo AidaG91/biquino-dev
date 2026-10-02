@@ -1,12 +1,21 @@
 import styles from "./Footer.module.scss";
-import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
+import logoBiquino from "../../assets/icons/LOGO_BLANCO.svg";
 import contactInfo from "../../data/contactInfo";
 
 const instagramLink = {
   href: contactInfo.instagramUrl,
   label: "Abrir Instagram en nueva pestaña",
   icon: (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true" focusable="false">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      aria-hidden="true"
+      focusable="false"
+    >
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.3" cy="6.7" r="1" />
@@ -18,7 +27,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
-        <img src={logoBiquino} alt="Biquiño Logo" className={styles.logo} />
+        <img src={logoBiquino} alt="Biquiño Studio" className={styles.logo} />
 
         <ul className={styles.contactList}>
           <li>
