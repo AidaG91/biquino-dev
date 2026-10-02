@@ -20,9 +20,7 @@ describe("Hero", () => {
 
   it("renders the eyebrow pill", () => {
     renderHero();
-    expect(
-      screen.getByText("Rotulación · Impresión · Personalización"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Impresión digital en España")).toBeInTheDocument();
   });
 
   it("renders the lead paragraph", () => {

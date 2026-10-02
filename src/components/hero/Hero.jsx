@@ -7,9 +7,7 @@ export default function Hero() {
     <section className={styles.hero} aria-label="Presentación">
       <div className={styles.inner}>
         <div className={styles.content}>
-          <span className={styles.pill}>
-            Rotulación · Impresión · Personalización
-          </span>
+          <span className={styles.pill}>Impresión digital en España</span>
           <h1 className={styles.title}>
             Damos forma a tu marca, de la idea a la instalación.
           </h1>
