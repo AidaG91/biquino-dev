@@ -7,6 +7,8 @@ const address = {
 };
 
 const contactInfo = {
+  // Lema de la marca, igual que en el vinilo del local.
+  tagline: "Solucións Gráficas e Publicidade",
   email: "info@biquino.es",
   phoneDisplay: "+34 694 92 96 81",
   phoneHref: "+34694929681",

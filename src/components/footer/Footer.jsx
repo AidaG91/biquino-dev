@@ -27,7 +27,12 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.top}>
-        <img src={logoBiquino} alt="Biquiño Studio" className={styles.logo} />
+        <div className={styles.brand}>
+          <img src={logoBiquino} alt="Biquiño Studio" className={styles.logo} />
+          <p className={styles.tagline} lang="gl">
+            {contactInfo.tagline}
+          </p>
+        </div>
 
         <ul className={styles.contactList}>
           <li>
