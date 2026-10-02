@@ -28,8 +28,7 @@ export default function ContactPage() {
           <p className={styles.eyebrow}>Contacto</p>
           <h1 className={styles.heroTitle}>Cuéntanos tu proyecto</h1>
           <p className={styles.lead}>
-            Rellena el formulario o escríbenos directamente. <br /> Te
-            respondemos en un máximo de 24–48 horas.
+            Rellena el formulario o escríbenos directamente.
           </p>
         </div>
       </div>
