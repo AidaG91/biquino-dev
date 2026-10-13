@@ -47,6 +47,17 @@ describe("Footer", () => {
     });
   });
 
+  it("links to the legal notice and the privacy policy", () => {
+    renderFooter();
+    expect(screen.getByRole("link", { name: "Aviso legal" })).toHaveAttribute(
+      "href",
+      "/aviso-legal",
+    );
+    expect(
+      screen.getByRole("link", { name: "Política de privacidad" }),
+    ).toHaveAttribute("href", "/politica-de-privacidad");
+  });
+
   it("displays copyright with current year", () => {
     renderFooter();
     const year = new Date().getFullYear().toString();

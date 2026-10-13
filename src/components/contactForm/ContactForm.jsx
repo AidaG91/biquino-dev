@@ -27,9 +27,7 @@ export default function ContactForm({
       <div className={styles.contact}>
         {showInfoColumn && (
           <div className={styles.cfLeft}>
-            <h2 className={styles.contactTitle}>
-              ¿Hablamos de tu proyecto?
-            </h2>
+            <h2 className={styles.contactTitle}>¿Hablamos de tu proyecto?</h2>
             <p className={styles.contactLead}>
               Cuéntanos qué necesitas — sin compromiso. Te respondemos en un
               máximo de 24–48 horas.
@@ -98,7 +96,9 @@ export default function ContactForm({
                 aria-describedby={errors.name ? "name-error" : undefined}
               />
               {errors.name && (
-                <p id="name-error" className={styles.errorMessage}>{errors.name}</p>
+                <p id="name-error" className={styles.errorMessage}>
+                  {errors.name}
+                </p>
               )}
             </div>
 
@@ -119,7 +119,9 @@ export default function ContactForm({
                   aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <p id="email-error" className={styles.errorMessage}>{errors.email}</p>
+                  <p id="email-error" className={styles.errorMessage}>
+                    {errors.email}
+                  </p>
                 )}
               </div>
 
@@ -171,11 +173,56 @@ export default function ContactForm({
                 aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <p id="message-error" className={styles.errorMessage}>{errors.message}</p>
+                <p id="message-error" className={styles.errorMessage}>
+                  {errors.message}
+                </p>
               )}
             </div>
 
-            <button type="submit" className={styles.submitButton} disabled={isSending}>
+            <div className={styles.privacy}>
+              <div className={styles.checkRow}>
+                <input
+                  className={styles.checkbox}
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  value="Acepta la política de privacidad"
+                  checked={formData.privacy}
+                  onChange={handleChange}
+                  required
+                  aria-invalid={!!errors.privacy}
+                  aria-describedby={
+                    errors.privacy ? "privacy-error" : undefined
+                  }
+                />
+                <label htmlFor="privacy">
+                  He leído y acepto la{" "}
+                  <a
+                    href="/politica-de-privacidad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    política de privacidad
+                    <span className={styles.srOnly}>
+                      {" "}
+                      (se abre en una pestaña nueva)
+                    </span>
+                  </a>{" "}
+                  *
+                </label>
+              </div>
+              {errors.privacy && (
+                <p id="privacy-error" className={styles.errorMessage}>
+                  {errors.privacy}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSending}
+            >
               {isSending ? "Enviando..." : "Enviar mensaje"}
               <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
             </button>

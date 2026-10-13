@@ -29,6 +29,7 @@ function fillValidForm() {
   fireEvent.change(screen.getByLabelText(/sobre tu proyecto/i), {
     target: { value: "Quiero rotular mi local." },
   });
+  fireEvent.click(screen.getByLabelText(/política de privacidad/i));
 }
 
 afterEach(() => {
@@ -60,6 +61,32 @@ describe("ContactForm", () => {
     expect(await screen.findByText(/el nombre es obligatorio/i)).toBeTruthy();
     expect(screen.getByText(/el email es obligatorio/i)).toBeTruthy();
     expect(screen.getByText(/el mensaje no puede estar vacío/i)).toBeTruthy();
+    expect(
+      screen.getByText(/debes aceptar la política de privacidad/i),
+    ).toBeTruthy();
+  });
+
+  it("renders the privacy checkbox unchecked with a link to the policy", () => {
+    renderContactForm();
+    expect(screen.getByLabelText(/política de privacidad/i)).not.toBeChecked();
+    expect(
+      screen.getByRole("link", { name: /política de privacidad/i }),
+    ).toHaveAttribute("href", "/politica-de-privacidad");
+  });
+
+  it("does not send the form until the privacy policy is accepted", () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    const { container } = renderContactForm();
+    fillValidForm();
+    fireEvent.click(screen.getByLabelText(/política de privacidad/i));
+    fireEvent.submit(container.querySelector("form"));
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(
+      screen.getByText(/debes aceptar la política de privacidad/i),
+    ).toBeTruthy();
+    expect(screen.getByLabelText(/política de privacidad/i)).toHaveFocus();
   });
 
   it("moves focus to the first invalid field on submit", () => {
@@ -129,9 +156,11 @@ describe("ContactForm", () => {
     expect(options.body.get("form-name")).toBe("contact");
     expect(options.body.get("email")).toBe("ana@ejemplo.com");
     expect(options.body.has("bot-field")).toBe(true);
+    expect(options.body.has("privacy")).toBe(true);
 
     expect(screen.getByLabelText(/nombre completo/i)).toHaveValue("");
     expect(screen.getByLabelText(/sobre tu proyecto/i)).toHaveValue("");
+    expect(screen.getByLabelText(/política de privacidad/i)).not.toBeChecked();
     expect(screen.getByLabelText(/servicio de interés/i)).toHaveValue(
       "rotulacion",
     );

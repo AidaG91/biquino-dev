@@ -99,8 +99,20 @@
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$space-xs;
   text-align: center;
+}
+
+.legalList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: v.$space-xs v.$space-md;
 }
 
 .copyright {
@@ -133,6 +145,8 @@
   }
 
   .bottom {
+    flex-direction: row;
+    justify-content: space-between;
     padding: v.$space-xs v.$space-lg;
   }
 }

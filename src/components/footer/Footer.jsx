@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_BLANCO.svg";
 import contactInfo from "../../data/contactInfo";
@@ -63,6 +64,20 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} Biquiño. Todos los derechos
           reservados.
         </p>
+        <nav aria-label="Información legal">
+          <ul className={styles.legalList}>
+            <li>
+              <Link to="/aviso-legal" className={styles.link}>
+                Aviso legal
+              </Link>
+            </li>
+            <li>
+              <Link to="/politica-de-privacidad" className={styles.link}>
+                Política de privacidad
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );

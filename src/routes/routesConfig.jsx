@@ -12,6 +12,12 @@ const ServicioDetailPage = () =>
   import("../pages/ServicioDetailPage").then((m) => ({ Component: m.default }));
 const FaqPage = () =>
   import("../pages/FaqPage").then((m) => ({ Component: m.default }));
+const PoliticaPrivacidadPage = () =>
+  import("../pages/PoliticaPrivacidadPage").then((m) => ({
+    Component: m.default,
+  }));
+const AvisoLegalPage = () =>
+  import("../pages/AvisoLegalPage").then((m) => ({ Component: m.default }));
 const NotFoundPage = () =>
   import("../pages/NotFoundPage").then((m) => ({ Component: m.default }));
 
@@ -26,6 +32,8 @@ export const routes = [
       { path: "/servicios", lazy: ServiciosPage },
       { path: "/servicios/:slug", lazy: ServicioDetailPage },
       { path: "/proyectos", lazy: ProjectsPage },
+      { path: "/politica-de-privacidad", lazy: PoliticaPrivacidadPage },
+      { path: "/aviso-legal", lazy: AvisoLegalPage },
       { path: "/404", lazy: NotFoundPage },
       { path: "*", lazy: NotFoundPage },
     ],

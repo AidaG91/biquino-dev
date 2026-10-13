@@ -1,7 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-const VALIDATED_FIELDS = ["name", "email", "message"];
+const VALIDATED_FIELDS = ["name", "email", "message", "privacy"];
 
 export function useContactForm(onSuccess, initialData = {}) {
   const [initialFormData] = useState(() => ({
@@ -10,6 +10,7 @@ export function useContactForm(onSuccess, initialData = {}) {
     phone: "",
     servicio: "",
     message: "",
+    privacy: false,
     ...initialData,
   }));
   const [formData, setFormData] = useState(initialFormData);
@@ -30,6 +31,10 @@ export function useContactForm(onSuccess, initialData = {}) {
       case "message":
         if (!value.trim()) return "El mensaje no puede estar vacío.";
         break;
+      case "privacy":
+        if (!value)
+          return "Debes aceptar la política de privacidad para enviar el mensaje.";
+        break;
       default:
         break;
     }
@@ -48,8 +53,9 @@ export function useContactForm(onSuccess, initialData = {}) {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    const fieldValue = type === "checkbox" ? checked : value;
+    setFormData((prev) => ({ ...prev, [name]: fieldValue }));
 
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: null }));
@@ -57,8 +63,8 @@ export function useContactForm(onSuccess, initialData = {}) {
   };
 
   const handleBlur = (e) => {
-    const { name, value } = e.target;
-    const error = validateField(name, value);
+    const { name, value, type, checked } = e.target;
+    const error = validateField(name, type === "checkbox" ? checked : value);
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 

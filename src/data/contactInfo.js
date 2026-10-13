@@ -7,6 +7,12 @@ const address = {
 };
 
 const contactInfo = {
+  // Titular de la actividad (autónoma). Se usa en el aviso legal y en la
+  // política de privacidad.
+  owner: {
+    name: "Xenia García Musté",
+    nif: "47191227B",
+  },
   // Lema de la marca, igual que en el vinilo del local.
   tagline: "Solucións Gráficas e Publicidade",
   email: "info@biquino.es",

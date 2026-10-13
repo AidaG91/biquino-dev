@@ -7,6 +7,8 @@ import ProjectsPage from "./src/pages/ProjectsPage";
 import ServiciosPage from "./src/pages/ServiciosPage";
 import ServicioDetailPage from "./src/pages/ServicioDetailPage";
 import FaqPage from "./src/pages/FaqPage";
+import PoliticaPrivacidadPage from "./src/pages/PoliticaPrivacidadPage";
+import AvisoLegalPage from "./src/pages/AvisoLegalPage";
 import NotFoundPage from "./src/pages/NotFoundPage";
 import serviciosSubpagesData from "./src/data/serviciosSubpagesData";
 
@@ -20,6 +22,11 @@ const ssgRoutes = [
       { path: "/servicios", element: createElement(ServiciosPage) },
       { path: "/servicios/:slug", element: createElement(ServicioDetailPage) },
       { path: "/proyectos", element: createElement(ProjectsPage) },
+      {
+        path: "/politica-de-privacidad",
+        element: createElement(PoliticaPrivacidadPage),
+      },
+      { path: "/aviso-legal", element: createElement(AvisoLegalPage) },
       { path: "/404", element: createElement(NotFoundPage) },
     ],
   },
@@ -36,6 +43,8 @@ export default defineReactSsgConfig({
     "/proyectos",
     "/faq",
     "/contacto",
+    "/politica-de-privacidad",
+    "/aviso-legal",
   ],
   logLevel: "normal",
 });
