@@ -1,18 +1,17 @@
-import FaqAccordion from "../components/faqAccordion/FaqAccordion";
-import ContactForm from "../components/contactForm/ContactForm";
-import faqData from "../data/faqData";
-import useSeo from "../hooks/useSeo";
+import FaqAccordion from "../../components/faqAccordion/FaqAccordion";
+import ContactForm from "../../components/contactForm/ContactForm";
+import faqData from "../../data/faqData";
+import useSeo from "../../hooks/useSeo";
 import styles from "./FaqPage.module.scss";
 
 export default function FaqPage() {
   useSeo(
     "Preguntas frecuentes | Biquiño",
-    "Resolvemos las dudas más habituales sobre plazos de entrega, envíos, formas de pago y presupuestos de Biquiño."
+    "Resolvemos las dudas más habituales sobre plazos de entrega, envíos, formas de pago y presupuestos de Biquiño.",
   );
 
   return (
     <article>
-
       <div className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>FAQ</p>

@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-import ScrollToTop from "../components/ScrollToTop";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 export default function SiteLayout() {
   return (

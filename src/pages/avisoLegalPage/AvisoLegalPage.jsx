@@ -1,6 +1,6 @@
-import LegalDocument from "../components/legalDocument/LegalDocument";
-import avisoLegalData, { avisoLegalUpdated } from "../data/avisoLegalData";
-import useSeo from "../hooks/useSeo";
+import LegalDocument from "../../components/legalDocument/LegalDocument";
+import avisoLegalData, { avisoLegalUpdated } from "../../data/avisoLegalData";
+import useSeo from "../../hooks/useSeo";
 
 export default function AvisoLegalPage() {
   useSeo(

@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import ContactForm from "../components/contactForm/ContactForm";
-import servicios from "../data/serviciosPageData";
-import useSeo from "../hooks/useSeo";
+import ContactForm from "../../components/contactForm/ContactForm";
+import servicios from "../../data/serviciosPageData";
+import useSeo from "../../hooks/useSeo";
 import styles from "./ServiciosPage.module.scss";
 
 export default function ServiciosPage() {
   useSeo(
     "Servicios de rotulación, impresión y personalización | Biquiño",
-    "Impresión digital, personalización de prendas y objetos, rotulación, diseño técnico, gestión de proyectos gráficos y web y redes sociales, en toda España."
+    "Impresión digital, personalización de prendas y objetos, rotulación, diseño técnico, gestión de proyectos gráficos y web y redes sociales, en toda España.",
   );
 
   return (
     <article>
-
       <div className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Servicios</p>

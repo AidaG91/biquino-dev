@@ -1,6 +1,6 @@
-import LegalDocument from "../components/legalDocument/LegalDocument";
-import privacidadData, { privacidadUpdated } from "../data/privacidadData";
-import useSeo from "../hooks/useSeo";
+import LegalDocument from "../../components/legalDocument/LegalDocument";
+import privacidadData, { privacidadUpdated } from "../../data/privacidadData";
+import useSeo from "../../hooks/useSeo";
 
 export default function PoliticaPrivacidadPage() {
   useSeo(

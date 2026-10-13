@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
-import ContactForm from "../components/contactForm/ContactForm";
-import BeforeAfter from "../components/beforeAfter/BeforeAfter";
-import projects from "../data/projectsData";
-import useSeo from "../hooks/useSeo";
+import ContactForm from "../../components/contactForm/ContactForm";
+import BeforeAfter from "../../components/beforeAfter/BeforeAfter";
+import projects from "../../data/projectsData";
+import useSeo from "../../hooks/useSeo";
 import styles from "./ProjectsPage.module.scss";
 
 const ALL = "Todos";
@@ -12,7 +12,7 @@ const ALL = "Todos";
 export default function ProjectsPage() {
   useSeo(
     "Proyectos de rotulación, impresión y merchandising | Biquiño",
-    "Una muestra de proyectos recientes de Biquiño: impresión digital, personalización de prendas y objetos, y rotulación."
+    "Una muestra de proyectos recientes de Biquiño: impresión digital, personalización de prendas y objetos, y rotulación.",
   );
   const categories = useMemo(() => {
     const unique = [...new Set(projects.map((project) => project.category))];
@@ -79,16 +79,13 @@ export default function ProjectsPage() {
 
   return (
     <article>
-
       <div className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Proyectos</p>
-          <h1 className={styles.heroTitle}>
-            Trabajos hechos realidad
-          </h1>
+          <h1 className={styles.heroTitle}>Trabajos hechos realidad</h1>
           <p className={styles.lead}>
-            Una muestra de proyectos recientes, de la papelería más pequeña a
-            la rotulación de fachadas completas.
+            Una muestra de proyectos recientes, de la papelería más pequeña a la
+            rotulación de fachadas completas.
           </p>
         </div>
       </div>
@@ -197,7 +194,7 @@ export default function ProjectsPage() {
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </article>
   );

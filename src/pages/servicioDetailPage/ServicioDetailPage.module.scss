@@ -1,5 +1,5 @@
-@use "../styles/abstracts/variables" as v;
-@use "../styles/abstracts/mixins" as m;
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
 
 @include m.page-hero;
 
@@ -43,7 +43,9 @@
   border-radius: v.$radius-lg;
   overflow: hidden;
   background-color: v.$color-white;
-  transition: transform v.$transition-normal, box-shadow v.$transition-normal;
+  transition:
+    transform v.$transition-normal,
+    box-shadow v.$transition-normal;
 
   &:hover {
     transform: translateY(-4px);

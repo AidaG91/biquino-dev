@@ -1,15 +1,15 @@
 import { createElement } from "react";
 import { defineReactSsgConfig } from "vite-plugin-react-ssg";
 import SiteLayout from "./src/routes/SiteLayout";
-import LandingPage from "./src/pages/LandingPage";
-import ContactPage from "./src/pages/ContactPage";
-import ProjectsPage from "./src/pages/ProjectsPage";
-import ServiciosPage from "./src/pages/ServiciosPage";
-import ServicioDetailPage from "./src/pages/ServicioDetailPage";
-import FaqPage from "./src/pages/FaqPage";
-import PoliticaPrivacidadPage from "./src/pages/PoliticaPrivacidadPage";
-import AvisoLegalPage from "./src/pages/AvisoLegalPage";
-import NotFoundPage from "./src/pages/NotFoundPage";
+import LandingPage from "./src/pages/landingPage/LandingPage";
+import ContactPage from "./src/pages/contactPage/ContactPage";
+import ProjectsPage from "./src/pages/projectsPage/ProjectsPage";
+import ServiciosPage from "./src/pages/serviciosPage/ServiciosPage";
+import ServicioDetailPage from "./src/pages/servicioDetailPage/ServicioDetailPage";
+import FaqPage from "./src/pages/faqPage/FaqPage";
+import PoliticaPrivacidadPage from "./src/pages/politicaPrivacidadPage/PoliticaPrivacidadPage";
+import AvisoLegalPage from "./src/pages/avisoLegalPage/AvisoLegalPage";
+import NotFoundPage from "./src/pages/notFoundPage/NotFoundPage";
 import serviciosSubpagesData from "./src/data/serviciosSubpagesData";
 
 const ssgRoutes = [

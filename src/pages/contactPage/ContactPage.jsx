@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router-dom";
 import { Clock, Check, Image, MapPin, ExternalLink } from "lucide-react";
-import ContactForm from "../components/contactForm/ContactForm";
-import contactInfo from "../data/contactInfo";
-import useSeo from "../hooks/useSeo";
-import useLocalBusinessSchema from "../hooks/useLocalBusinessSchema";
+import ContactForm from "../../components/contactForm/ContactForm";
+import contactInfo from "../../data/contactInfo";
+import useSeo from "../../hooks/useSeo";
+import useLocalBusinessSchema from "../../hooks/useLocalBusinessSchema";
 import styles from "./ContactPage.module.scss";
 
 const HOURS = [

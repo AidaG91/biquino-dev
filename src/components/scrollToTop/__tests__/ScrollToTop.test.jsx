@@ -71,7 +71,9 @@ describe("ScrollToTop", () => {
   it("moves focus to the new page h1 after navigating", () => {
     renderWithRoutes();
     fireEvent.click(screen.getByRole("link", { name: "FAQ" }));
-    const heading = screen.getByRole("heading", { name: "Preguntas frecuentes" });
+    const heading = screen.getByRole("heading", {
+      name: "Preguntas frecuentes",
+    });
     expect(heading).toHaveFocus();
     expect(heading).toHaveAttribute("tabindex", "-1");
   });

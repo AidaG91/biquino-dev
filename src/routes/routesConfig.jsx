@@ -1,25 +1,39 @@
 /* eslint-disable react-refresh/only-export-components */
-import LandingPage from "../pages/LandingPage";
+import LandingPage from "../pages/landingPage/LandingPage";
 import SiteLayout from "./SiteLayout";
 
 const ContactPage = () =>
-  import("../pages/ContactPage").then((m) => ({ Component: m.default }));
-const ProjectsPage = () =>
-  import("../pages/ProjectsPage").then((m) => ({ Component: m.default }));
-const ServiciosPage = () =>
-  import("../pages/ServiciosPage").then((m) => ({ Component: m.default }));
-const ServicioDetailPage = () =>
-  import("../pages/ServicioDetailPage").then((m) => ({ Component: m.default }));
-const FaqPage = () =>
-  import("../pages/FaqPage").then((m) => ({ Component: m.default }));
-const PoliticaPrivacidadPage = () =>
-  import("../pages/PoliticaPrivacidadPage").then((m) => ({
+  import("../pages/contactPage/ContactPage").then((m) => ({
     Component: m.default,
   }));
+const ProjectsPage = () =>
+  import("../pages/projectsPage/ProjectsPage").then((m) => ({
+    Component: m.default,
+  }));
+const ServiciosPage = () =>
+  import("../pages/serviciosPage/ServiciosPage").then((m) => ({
+    Component: m.default,
+  }));
+const ServicioDetailPage = () =>
+  import("../pages/servicioDetailPage/ServicioDetailPage").then((m) => ({
+    Component: m.default,
+  }));
+const FaqPage = () =>
+  import("../pages/faqPage/FaqPage").then((m) => ({ Component: m.default }));
+const PoliticaPrivacidadPage = () =>
+  import("../pages/politicaPrivacidadPage/PoliticaPrivacidadPage").then(
+    (m) => ({
+      Component: m.default,
+    }),
+  );
 const AvisoLegalPage = () =>
-  import("../pages/AvisoLegalPage").then((m) => ({ Component: m.default }));
+  import("../pages/avisoLegalPage/AvisoLegalPage").then((m) => ({
+    Component: m.default,
+  }));
 const NotFoundPage = () =>
-  import("../pages/NotFoundPage").then((m) => ({ Component: m.default }));
+  import("../pages/notFoundPage/NotFoundPage").then((m) => ({
+    Component: m.default,
+  }));
 
 export const routes = [
   {

@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import serviciosSubpagesData from "../data/serviciosSubpagesData";
-import useSeo from "../hooks/useSeo";
+import serviciosSubpagesData from "../../data/serviciosSubpagesData";
+import useSeo from "../../hooks/useSeo";
 import styles from "./ServicioDetailPage.module.scss";
 
 export default function ServicioDetailPage() {
@@ -10,7 +10,7 @@ export default function ServicioDetailPage() {
 
   useSeo(
     servicio ? `${servicio.title} en toda España | Biquiño` : undefined,
-    servicio?.lead
+    servicio?.lead,
   );
 
   if (!servicio) {
@@ -19,7 +19,6 @@ export default function ServicioDetailPage() {
 
   return (
     <article>
-
       <div className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.eyebrow}>Servicios</p>
@@ -56,13 +55,10 @@ export default function ServicioDetailPage() {
 
         <div className={styles.ctaBand}>
           <p className={styles.ctaText}>
-            ¿Te interesa este servicio? Cuéntanos tu proyecto y te
-            preparamos un presupuesto sin compromiso.
+            ¿Te interesa este servicio? Cuéntanos tu proyecto y te preparamos un
+            presupuesto sin compromiso.
           </p>
-          <Link
-            to={`/contacto?servicio=${slug}`}
-            className={styles.ctaButton}
-          >
+          <Link to={`/contacto?servicio=${slug}`} className={styles.ctaButton}>
             Solicitar presupuesto
             <ArrowRight size={15} strokeWidth={2.3} aria-hidden="true" />
           </Link>
