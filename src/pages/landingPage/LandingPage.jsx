@@ -6,6 +6,7 @@ import ProjectsTeaser from "../../components/projectsTeaser/ProjectsTeaser";
 import AboutSection from "../../components/aboutSection/AboutSection";
 import useSeo from "../../hooks/useSeo";
 import useLocalBusinessSchema from "../../hooks/useLocalBusinessSchema";
+import styles from "./LandingPage.module.scss";
 
 export default function LandingPage() {
   useSeo(
@@ -16,9 +17,10 @@ export default function LandingPage() {
 
   return (
     <article>
-      <Hero />
-
-      <TrustStrip />
+      <div className={styles.firstScreen}>
+        <Hero />
+        <TrustStrip />
+      </div>
 
       <ServicesSection />
 

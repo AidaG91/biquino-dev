@@ -12,15 +12,18 @@
   max-width: 1240px;
   margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
+  // 2×2 en móvil: ocupa la mitad de alto que una columna y cabe en la primera
+  // pantalla junto al hero.
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: v.$space-sm;
+  gap: v.$space-sm v.$space-md;
 }
 
 .item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: v.$space-xs;
   color: v.$color-white;
   font-family: v.$font-body;
@@ -35,7 +38,7 @@
 
 @include m.tablet {
   .list {
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: v.$space-md v.$space-xl;

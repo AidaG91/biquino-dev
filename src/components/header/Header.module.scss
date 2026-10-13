@@ -13,7 +13,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 v.$space-lg;
-  height: 52px;
+  height: v.$header-height;
 
   display: flex;
   justify-content: space-between;
@@ -145,7 +145,7 @@
 
 @include m.tablet {
   .container {
-    height: 56px;
+    height: v.$header-height-tablet;
   }
 
   .nav-link {
@@ -156,7 +156,7 @@
 @include m.desktop {
   .container {
     max-width: 1240px;
-    height: 64px;
+    height: v.$header-height-desktop;
     padding: 0 2rem;
   }
 

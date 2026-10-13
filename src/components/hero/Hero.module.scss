@@ -4,9 +4,15 @@
 .hero {
   background-color: v.$color-background;
   overflow: hidden;
+  // Dentro de la primera pantalla de la portada ocupa el hueco que deja la
+  // franja y centra el contenido en vertical.
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .inner {
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: v.$space-xl v.$space-lg;
@@ -89,7 +95,7 @@
 .artImage {
   width: 100%;
   max-width: 480px;
-  height: 260px;
+  height: clamp(120px, 22svh, 260px);
   object-fit: cover;
   border-radius: v.$radius-lg;
   box-shadow: 0 20px 40px rgba(28, 20, 16, 0.14);
@@ -110,7 +116,7 @@
   .inner {
     flex-direction: row;
     align-items: center;
-    padding: 5.5rem 2.5rem 6rem;
+    padding: clamp(2rem, 7svh, 5.5rem) 2.5rem;
     gap: v.$space-xl;
   }
 
@@ -127,7 +133,7 @@
   }
 
   .title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 6.5svh, 3.5rem);
   }
 
   .lead {
@@ -144,7 +150,7 @@
   }
 
   .artImage {
-    height: 420px;
+    height: clamp(280px, 46svh, 420px);
     max-width: none;
     width: 100%;
   }

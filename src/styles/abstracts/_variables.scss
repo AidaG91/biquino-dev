@@ -58,5 +58,11 @@ $bp-desktop: 1024px;
 $bp-wide: 1440px;
 $bp-ultrawide: 2560px;
 
+// ALTURA DE LA CABECERA (sin el borde de 1px). La usa la primera pantalla de
+// la portada para que la franja quede justo al borde inferior de la ventana.
+$header-height: 52px;
+$header-height-tablet: 56px;
+$header-height-desktop: 64px;
+
 // TRANSICIONES
 $transition-normal: 0.3s ease-in-out;
