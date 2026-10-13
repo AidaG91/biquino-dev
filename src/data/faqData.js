@@ -47,6 +47,12 @@ const faqData = [
     answer:
       "Puedes pedir un presupuesto sin compromiso a través del formulario de contacto, por email o por teléfono. Cuéntanos tu proyecto y te responderemos en un máximo de 24–48 horas.",
   },
+  {
+    id: "faq-9",
+    question: "¿Cómo debo lavar una prenda estampada con DTF?",
+    answer:
+      "Para que el estampado dure al máximo, lava la prenda del revés y con agua fría, a no más de 30 °C. Evita la lejía, los productos fuertes y los tintes. No uses secadora y, si necesitas planchar, plancha siempre del revés, nunca directamente sobre el estampado.",
+  },
 ];
 
 export default faqData;
