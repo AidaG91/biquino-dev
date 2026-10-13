@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
+import InaugurationModal from "../components/inaugurationModal/InaugurationModal";
 
 export default function SiteLayout() {
   return (
@@ -45,6 +46,7 @@ export default function SiteLayout() {
       </main>
 
       <Footer />
+      <InaugurationModal />
     </>
   );
 }
