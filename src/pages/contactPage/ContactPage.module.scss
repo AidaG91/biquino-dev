@@ -145,7 +145,7 @@
   font-size: v.$font-size-sm;
   color: v.$color-cta;
 
-  &:hover {
+  @include m.hover {
     color: v.$color-cta-hover;
   }
 

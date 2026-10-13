@@ -51,7 +51,7 @@
   line-height: 1.35;
   color: v.$color-dark;
 
-  &:hover {
+  @include m.hover {
     color: v.$color-primary;
   }
 

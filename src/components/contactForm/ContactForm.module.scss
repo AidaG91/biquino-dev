@@ -65,7 +65,7 @@
   font-size: v.$font-size-sm;
   color: v.$color-dark;
 
-  &:hover {
+  @include m.hover {
     color: v.$color-cta;
   }
 
@@ -153,7 +153,7 @@ textarea {
   box-shadow: 0 6px 16px rgba(230, 37, 86, 0.25);
   transition: background-color v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     background-color: v.$color-cta-hover;
   }
 

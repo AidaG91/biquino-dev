@@ -13,7 +13,7 @@
   color: v.$color-cta;
   margin-top: v.$space-lg;
 
-  &:hover {
+  @include m.hover {
     color: v.$color-cta-hover;
   }
 

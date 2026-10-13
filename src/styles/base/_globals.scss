@@ -96,7 +96,7 @@ button {
   transition: all $transition-normal;
   text-decoration: none;
 
-  &:hover {
+  @include hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     filter: brightness(1.15);

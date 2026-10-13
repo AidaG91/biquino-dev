@@ -72,7 +72,7 @@
   box-shadow: 0 10px 24px rgba(230, 37, 86, 0.3);
   transition: background-color v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     background-color: v.$color-cta-hover;
   }
 

@@ -43,7 +43,7 @@
   overflow: hidden;
   transition: transform 0.18s ease;
 
-  &:hover {
+  @include m.hover {
     transform: translateY(-3px);
   }
 

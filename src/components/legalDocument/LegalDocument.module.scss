@@ -42,7 +42,7 @@
     color: v.$color-cta;
     font-weight: 700;
 
-    &:hover {
+    @include m.hover {
       text-decoration: underline;
     }
 

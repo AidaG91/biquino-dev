@@ -28,6 +28,16 @@
   }
 }
 
+// Hover solo en dispositivos con puntero: en táctil :hover se queda "pegado"
+// tras pulsar.
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
 @mixin eyebrow($margin-bottom: $space-xs) {
   font-family: $font-body;
   font-size: $font-size-xs;
@@ -51,7 +61,7 @@
   color: $color-dark;
   margin-top: $space-md;
 
-  &:hover {
+  @include hover {
     color: $color-cta;
   }
 

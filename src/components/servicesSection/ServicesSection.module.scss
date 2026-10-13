@@ -39,7 +39,7 @@
     transform 0.18s ease,
     box-shadow 0.18s ease;
 
-  &:hover {
+  @include m.hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 30px rgba(28, 20, 16, 0.1);
   }

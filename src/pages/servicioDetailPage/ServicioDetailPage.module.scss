@@ -23,7 +23,7 @@
   color: v.$color-dark;
   margin-bottom: v.$space-xl;
 
-  &:hover {
+  @include m.hover {
     color: v.$color-cta;
   }
 
@@ -47,7 +47,7 @@
     transform v.$transition-normal,
     box-shadow v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 30px rgba(28, 20, 16, 0.1);
   }
@@ -116,7 +116,7 @@
   box-shadow: 0 6px 16px rgba(230, 37, 86, 0.25);
   transition: background-color v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     background-color: v.$color-cta-hover;
   }
 

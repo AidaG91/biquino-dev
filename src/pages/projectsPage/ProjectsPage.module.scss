@@ -37,7 +37,7 @@
     border-color v.$transition-normal,
     color v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     border-color: v.$color-dark;
   }
 
@@ -73,7 +73,7 @@
   cursor: pointer;
   text-align: left;
 
-  &:hover {
+  @include m.hover {
     transform: none;
     box-shadow: none;
     filter: none;
@@ -221,7 +221,9 @@
   max-height: 90vh;
   overflow-y: auto;
   border-radius: v.$radius-lg;
-  background-color: v.$color-white;
+  // Mismo fondo que la imagen: con blanco, el antialiasing de las esquinas
+  // redondeadas deja ver un filo claro alrededor de la foto.
+  background-color: v.$color-dark;
 }
 
 .lightboxClose {
@@ -241,7 +243,7 @@
   align-items: center;
   justify-content: center;
 
-  &:hover {
+  @include m.hover {
     background-color: rgba(28, 20, 16, 0.8);
     transform: none;
     box-shadow: none;
@@ -285,6 +287,7 @@
 
 .lightboxInfo {
   padding: v.$space-lg;
+  background-color: v.$color-white;
 
   .chipLabel {
     background-color: v.$color-tile-bg;

@@ -55,7 +55,7 @@
   font-size: v.$font-size-xs;
   transition: opacity v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     opacity: 0.8;
   }
 
@@ -81,7 +81,7 @@
     border-color v.$transition-normal,
     background-color v.$transition-normal;
 
-  &:hover {
+  @include m.hover {
     border-color: v.$color-white;
     background-color: rgba(255, 255, 255, 0.08);
   }

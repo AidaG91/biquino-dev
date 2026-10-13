@@ -63,7 +63,7 @@
   font-weight: 700;
   font-size: v.$font-size-sm;
 
-  &:hover {
+  @include m.hover {
     color: v.$color-cta-hover;
   }
 
