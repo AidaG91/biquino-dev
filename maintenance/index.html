@@ -39,6 +39,31 @@
       color: var(--color-primary);
     }
     p { font-size: 1rem; line-height: 1.5; margin: 0 0 20px; }
+    .countdown { margin: 0 0 24px; }
+    .countdown__label { font-size: 0.95rem; font-weight: 600; margin: 0 0 12px; }
+    .countdown__list {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .countdown__item {
+      min-width: 64px;
+      padding: 10px 6px;
+      border: 2px solid var(--color-secondary);
+      border-radius: 12px;
+    }
+    .countdown__num {
+      display: block;
+      font-size: clamp(1.5rem, 7vw, 2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .countdown__unit { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
     .contact { font-size: 0.95rem; font-weight: 600; }
     .contact a { color: var(--color-btn); text-decoration: none; border-bottom: 2px solid var(--color-secondary); }
     .contact a:hover { color: var(--color-primary); }
@@ -49,10 +74,52 @@
     <img class="logo" src="./LOGO_WEB.svg" alt="Biquiño" />
     <h1>Página web en construcción</h1>
     <p>Muy pronto estaremos con vosotros.</p>
+    <section class="countdown" id="countdown" aria-labelledby="countdown-label" hidden>
+      <p class="countdown__label" id="countdown-label">Inauguración el 7 de noviembre a las 12:00</p>
+      <ul class="countdown__list" role="timer" aria-label="Cuenta atrás para la inauguración">
+        <li class="countdown__item"><span class="countdown__num" data-unit="days">0</span><span class="countdown__unit">días</span></li>
+        <li class="countdown__item"><span class="countdown__num" data-unit="hours">00</span><span class="countdown__unit">horas</span></li>
+        <li class="countdown__item"><span class="countdown__num" data-unit="minutes">00</span><span class="countdown__unit">min</span></li>
+        <li class="countdown__item"><span class="countdown__num" data-unit="seconds">00</span><span class="countdown__unit">seg</span></li>
+      </ul>
+    </section>
     <p class="contact">
       Para pedidos, contacta por mail o teléfono:<br />
       <a href="mailto:info@biquino.es">info@biquino.es</a> · <a href="tel:+34694929681">+34 694 92 96 81</a>
     </p>
   </div>
+  <script>
+    // Inauguración: 7 nov 2026, 12:00 hora de Madrid (CET, UTC+1). Cambiar aquí si se mueve la fecha.
+    (function () {
+      var target = new Date("2026-11-07T12:00:00+01:00").getTime();
+      var box = document.getElementById("countdown");
+      var label = document.getElementById("countdown-label");
+      var list = box.querySelector(".countdown__list");
+      var nums = {};
+      box.querySelectorAll("[data-unit]").forEach(function (el) { nums[el.dataset.unit] = el; });
+      var timer;
+
+      function pad(n) { return String(n).padStart(2, "0"); }
+
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) {
+          label.textContent = "¡Ya hemos inaugurado!";
+          list.hidden = true;
+          clearInterval(timer);
+          return;
+        }
+        var s = Math.floor(diff / 1000);
+        nums.days.textContent = Math.floor(s / 86400);
+        nums.hours.textContent = pad(Math.floor((s % 86400) / 3600));
+        nums.minutes.textContent = pad(Math.floor((s % 3600) / 60));
+        nums.seconds.textContent = pad(s % 60);
+      }
+
+      tick();
+      box.hidden = false;
+      if (target > Date.now()) timer = setInterval(tick, 1000);
+    })();
+  </script>
 </body>
 </html>
