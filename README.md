@@ -44,7 +44,7 @@ Antes de cada commit: `npm run lint`, `npm test` y `npm run build` sin errores.
 
 ```text
 src/
-├── components/     Componentes reutilizables (cabecera, pie, formulario, comparador antes/después…)
+├── components/     Componentes reutilizables (cabecera, pie, formulario, opciones de contacto, comparador antes/después…)
 ├── data/           Contenido de la web: servicios, proyectos, FAQ, datos de contacto y fotos
 ├── hooks/          useSeo, useContactForm, useLocalBusinessSchema
 ├── pages/          Una página por ruta
@@ -57,7 +57,7 @@ src/
 
 Los textos están en `src/data/`, no en los componentes:
 
-- `contactInfo.js`: nombre, dirección, teléfono, email e Instagram. Es la única fuente de estos datos; la web y los datos estructurados de Google salen de aquí.
+- `contactInfo.js`: nombre, dirección, teléfono, WhatsApp (el mismo número), email, Instagram y horario. Es la única fuente de estos datos; la web (pie, `/contacto`, aviso de inauguración) y los datos estructurados de Google salen de aquí.
 - `serviciosPageData.js` y `serviciosSubpagesData.js`: página de servicios y subpáginas `/servicios/<slug>`.
 - `projectsData.js`: proyectos de la galería. El orden importa: los 3 primeros salen en la portada y los 5 primeros forman el mosaico de `/proyectos`.
 - `servicesData.js`: tarjetas de ventajas de la portada (respuesta rápida, servicio integral…).
@@ -73,9 +73,18 @@ Las fotos optimizadas están en `src/assets/images/trabajos/` y se cargan con `s
 
 En los datos se usan con `photo("<slug>")`, `fullPhoto("<slug>")` y `beforeAfter("<slug>")`. Los originales sin optimizar se guardan en `fotos-originales/`, que no se sube al repositorio.
 
+### Imagen para compartir (Open Graph)
+
+Al compartir un enlace en WhatsApp, Instagram o redes sale `public/og-image.jpg` (1200×630: logo a la izquierda y foto del local a la derecha). `useSeo` añade las etiquetas `og:image` y `twitter:image` con la URL `https://biquino.es/og-image.jpg`. Si cambias la foto del local o el logo, hay que regenerar la imagen a mano; las redes guardan la previsualización en caché y tardan en actualizarla.
+
 ### Añadir un servicio
 
 Añade la entrada en `serviciosSubpagesData.js` (la clave es el slug) y en `serviciosPageData.js`. La ruta, el HTML generado y el sitemap se crean solos.
+
+Campos opcionales:
+
+- `seoTitle` (en `serviciosSubpagesData.js`): título corto para la pestaña y Google. El título de la página es `<seoTitle o title> en toda España | Biquiño`; úsalo si el nombre del servicio hace que el título pase de unos 60 caracteres.
+- `illustrative: true` (en el objeto `image`, por ejemplo `{ src, illustrative: true }`): marca una imagen generada con IA y muestra la etiqueta «Imagen ilustrativa». Quítalo al sustituirla por una foto real.
 
 ### Añadir una página
 
@@ -87,8 +96,12 @@ Funciona con Netlify Forms. Netlify detecta el formulario por la copia oculta qu
 
 ## Despliegue
 
-Netlify construye y publica automáticamente la rama `main` según `netlify.toml`, que también define:
+Las ramas de trabajo salen de `main` y se integran en `main`. Netlify construye y publica automáticamente la rama `main` según `netlify.toml`, que también define:
 
 - Una página 404 real (estado 404) para cualquier URL que no exista.
 - Caché larga para `/assets/*` y cabeceras de seguridad.
 - La **Content-Security-Policy**. `script-src` no permite scripts en línea salvo los autorizados por hash. Si el build falla con «Inline scripts not allowed by the CSP», añade a `script-src` el hash que indica el mensaje, o evita el script en línea. Si la web empieza a cargar recursos de otro dominio (fuentes, mapas, iframes), hay que añadirlo a la directiva correspondiente.
+
+## Modal de inauguración
+
+Hasta el 7 de noviembre de 2026 a las 12:00 la web muestra un aviso con cuenta atrás (`src/components/inaugurationModal/`, textos y fecha en `src/data/inaugurationData.js`). Se abre una vez por navegador y deja de abrirse solo pasada la fecha. Después de la inauguración se puede retirar: quita `<InaugurationModal />` de `src/routes/SiteLayout.jsx` y borra el componente, `inaugurationData.js` y `src/utils/getTimeLeft.js`.
