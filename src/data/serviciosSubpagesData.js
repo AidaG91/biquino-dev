@@ -83,14 +83,14 @@ const serviciosSubpagesData = {
         description:
           "Diseñamos un sistema gráfico coherente que proyecta la esencia y valores de tu marca, garantizando su correcta aplicación en todos tus recursos visuales.",
         photoCaption: "Foto: identidad de marca",
-        image: { src: identidadVisualImg },
+        image: { src: identidadVisualImg, illustrative: true },
       },
       {
         title: "Adaptación de archivos",
         description:
           "Si ya tienes tu diseño, lo revisamos y lo preparamos para imprimir, cortar o publicar sin errores: tamaños, sangrados, colores y formatos. La preimpresión es la base de nuestra formación.",
         photoCaption: "Foto: preparación de archivo técnico",
-        image: { src: adaptacionArchivosImg },
+        image: { src: adaptacionArchivosImg, illustrative: true },
       },
       {
         title: "Asesoramiento en materiales y proyectos",
@@ -104,7 +104,7 @@ const serviciosSubpagesData = {
         description:
           "Reportaje fotográfico de tus prendas, espacios y proyectos terminados, pensado para catálogo, redes sociales y comunicación de marca. Contamos con experiencia en fotografía de bodas, eventos, conciertos y naturaleza.",
         photoCaption: "Foto: sesión fotográfica de producto",
-        image: { src: fotografiaProductoImg },
+        image: { src: fotografiaProductoImg, illustrative: true },
       },
     ],
   },
@@ -118,21 +118,21 @@ const serviciosSubpagesData = {
         description:
           "Ofrecemos una cobertura gráfica integral para el lanzamiento de tu actividad, desde la identidad y rotulación hasta el merchandising promocional. Nos encargamos de cada solución visual que tu negocio necesite, garantizando una puesta en marcha profesional, coherente y sin preocupaciones.",
         photoCaption: "Foto: apertura de negocio",
-        image: { src: aperturaNegociosImg },
+        image: { src: aperturaNegociosImg, illustrative: true },
       },
       {
         title: "Producción y fabricación propia",
         description:
           "Producimos en nuestro taller todo lo relacionado con vinilo, cartelería, pegatinas y DTF, lo que nos da agilidad y control sobre el acabado. Cuando un trabajo necesita otra técnica, lo realizamos con talleres colaboradores de confianza y seguimos al frente: preparamos los archivos, supervisamos la producción y revisamos el resultado antes de entregarlo.",
         photoCaption: "Foto: taller de producción",
-        image: { src: produccionFabricacionImg },
+        image: { src: produccionFabricacionImg, illustrative: true },
       },
       {
         title: "Supervisión e instalación final",
         description:
           "Instalamos nosotros mismos vinilos, rótulos y elementos visuales, en cualquier punto de España o fuera y en la franja horaria que mejor te venga. El envío y el desplazamiento se detallan en el presupuesto, para que sepas el coste total desde el principio.",
         photoCaption: "Foto: equipo coordinando instalación",
-        image: { src: supervisionInstalacionImg },
+        image: { src: supervisionInstalacionImg, illustrative: true },
       },
     ],
   },
@@ -145,21 +145,21 @@ const serviciosSubpagesData = {
         description:
           "Diseñamos tu oferta gastronómica diaria asegurando una presentación impecable y profesional. Nos encargamos de que la carta física o digital de tu establecimiento sea clara, atractiva y esté siempre alineada con tu identidad visual.",
         photoCaption: "Foto: carta de hostelería",
-        image: { src: menuDiarioImg },
+        image: { src: menuDiarioImg, illustrative: true },
       },
       {
         title: "Gestión de contenido y redes sociales",
         description:
           "Creamos tus publicaciones con un mismo estilo gráfico para que tu marca sea reconocible en todas ellas, y te preparamos un calendario de publicaciones. También podemos crear vídeo para tus redes.",
         photoCaption: "Foto: gestión de redes sociales",
-        image: { src: gestionContenidoRrssImg },
+        image: { src: gestionContenidoRrssImg, illustrative: true },
       },
       {
         title: "Desarrollo y programación web",
         description:
           "Diseñamos y programamos tu web a medida, adaptada a móvil, y la mantenemos al día: actualizaciones mensuales, trimestrales o cuando necesites un cambio.",
         photoCaption: "Foto: diseño web",
-        image: { src: desarrolloWebImg },
+        image: { src: desarrolloWebImg, illustrative: true },
       },
     ],
   },

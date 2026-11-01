@@ -43,7 +43,7 @@ const serviciosPageData = [
     description:
       "Asesoramiento, diseño, producción, coordinación con proveedores e instalación en un mismo sitio. Tratas directamente con quien diseña y produce tu proyecto, de principio a fin, sin intermediarios.",
     photoCaption: "Foto: equipo coordinando instalación",
-    image: { src: gestionProyectosImg },
+    image: { src: gestionProyectosImg, illustrative: true },
   },
   {
     id: "web-rrss",
@@ -51,7 +51,7 @@ const serviciosPageData = [
     description:
       "Diseño, programación y mantenimiento de webs, con actualizaciones mensuales, trimestrales o cuando las necesites. En redes sociales creamos tus publicaciones con un estilo gráfico coherente y te preparamos un calendario de publicaciones.",
     photoCaption: "Foto: gestión de redes sociales",
-    image: { src: webRrssImg },
+    image: { src: webRrssImg, illustrative: true },
   },
 ];
 

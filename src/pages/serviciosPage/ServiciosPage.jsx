@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ContactForm from "../../components/contactForm/ContactForm";
+import IllustrativeLabel from "../../components/illustrativeLabel/IllustrativeLabel";
 import servicios from "../../data/serviciosPageData";
 import useSeo from "../../hooks/useSeo";
 import styles from "./ServiciosPage.module.scss";
@@ -37,6 +38,7 @@ export default function ServiciosPage() {
                 alt={servicio.photoCaption.replace(/^Foto:\s*/i, "")}
                 loading="lazy"
               />
+              {servicio.image.illustrative && <IllustrativeLabel />}
             </div>
 
             <div className={styles.rowContent}>

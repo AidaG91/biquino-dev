@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import serviciosSubpagesData from "../../data/serviciosSubpagesData";
+import IllustrativeLabel from "../../components/illustrativeLabel/IllustrativeLabel";
 import useSeo from "../../hooks/useSeo";
 import styles from "./ServicioDetailPage.module.scss";
 
@@ -46,6 +47,7 @@ export default function ServicioDetailPage() {
                   alt={card.photoCaption.replace(/^Foto:\s*/i, "")}
                   loading="lazy"
                 />
+                {card.image.illustrative && <IllustrativeLabel />}
               </div>
               <div className={styles.cardBody}>
                 <h2>{card.title}</h2>

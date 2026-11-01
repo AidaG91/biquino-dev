@@ -27,6 +27,7 @@
 }
 
 .rowImage {
+  position: relative;
   flex-shrink: 0;
   border-radius: v.$radius-lg;
   background-color: v.$color-tile-bg;
