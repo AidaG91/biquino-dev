@@ -16,7 +16,7 @@ const serviciosPageData = [
     id: "personalizacion",
     title: "Personalización de prendas y objetos",
     description:
-      "Camisetas, sudaderas, uniformes, equipaciones y merchandising con tu marca. Trabajamos con DTF, vinilo textil y serigrafía; el DTF lo producimos nosotros, con tiradas ágiles incluso de pocas unidades. Y si tu proyecto necesita otra técnica, la conseguimos con talleres colaboradores y nos encargamos de todo el proceso.",
+      "Camisetas, sudaderas, uniformes, equipaciones y merchandising con tu marca. Trabajamos con DTF y vinilo textil, y el DTF lo producimos nosotros, con tiradas ágiles incluso de pocas unidades. Y si tu proyecto necesita otra técnica, la conseguimos con talleres colaboradores y nos encargamos de todo el proceso.",
     photoCaption: "Foto: sudadera personalizada para una protectora canina",
     image: photo("sudadera-marcan-huella"),
   },

@@ -34,12 +34,12 @@ const serviciosSubpagesData = {
   },
   personalizacion: {
     title: "Personalización de prendas y objetos",
-    lead: "Estampado DTF (a todo color), vinilo textil y serigrafía para equipaciones, uniformes, eventos y merchandising, con un diseño adaptado a cada prenda y material.",
+    lead: "Estampado DTF (a todo color) y vinilo textil para equipaciones, uniformes, eventos y merchandising, con un diseño adaptado a cada prenda y material.",
     cards: [
       {
         title: "Estampados textiles",
         description:
-          "Estampamos tu diseño en camisetas, sudaderas, uniformes y todo tipo de prendas con DTF, vinilo textil o serigrafía, según la prenda, la cantidad y el uso que vaya a tener. Trabajamos para empresas (ropa laboral), clubes y deportistas (equipaciones con dorsales, nombres y patrocinadores) y para grupos, peñas y eventos.",
+          "Estampamos tu diseño en camisetas, sudaderas, uniformes y todo tipo de prendas con DTF o vinilo textil, según la prenda, la cantidad y el uso que vaya a tener. Trabajamos para empresas (ropa laboral), clubes y deportistas (equipaciones con dorsales, nombres y patrocinadores) y para grupos, peñas y eventos.",
         photoCaption: "Foto: equipación deportiva personalizada",
         image: photo("equipaciones"),
       },
