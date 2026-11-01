@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { Clock, Check, Image, MapPin, ExternalLink } from "lucide-react";
+import { Clock, Check, MapPin, ExternalLink } from "lucide-react";
 import ContactForm from "../../components/contactForm/ContactForm";
+import ContactOptions from "../../components/contactOptions/ContactOptions";
 import contactInfo from "../../data/contactInfo";
 import useSeo from "../../hooks/useSeo";
 import useLocalBusinessSchema from "../../hooks/useLocalBusinessSchema";
@@ -28,7 +29,7 @@ export default function ContactPage() {
           <p className={styles.eyebrow}>Contacto</p>
           <h1 className={styles.heroTitle}>Cuéntanos tu proyecto</h1>
           <p className={styles.lead}>
-            Rellena el formulario o escríbenos directamente.
+            Elige la forma que prefieras para hablar con nosotros.
           </p>
         </div>
       </div>
@@ -44,67 +45,74 @@ export default function ContactPage() {
         </span>
       </div>
 
-      <div className={styles.visitSection}>
-        <div className={styles.visitInfo}>
-          <h2 className={styles.visitTitle}>Visítanos</h2>
-          <div className={styles.visitAddress}>
-            <span className={styles.badge}>
-              <MapPin size={17} strokeWidth={1.8} aria-hidden="true" />
-            </span>
-            <div>
-              <div className={styles.addressLine1}>
-                {contactInfo.addressLine1}
-              </div>
-              <div className={styles.addressLine2}>
-                {contactInfo.addressLine2}
-              </div>
-            </div>
-          </div>
+      <ContactOptions />
 
-          <div className={styles.hours}>
-            <h3 className={styles.hoursTitle}>Horario</h3>
-            <div className={styles.hoursGroups}>
-              {HOURS.map(({ label, slots }) => (
-                <div key={label}>
-                  <p className={styles.hoursLabel}>{label}</p>
-                  <dl className={styles.hoursList}>
-                    {slots.map((slot) => (
-                      <div key={slot.days} className={styles.hoursRow}>
-                        <dt>{slot.days}</dt>
-                        <dd>
-                          {slot.opens} – {slot.closes}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
+      <div className={styles.visit}>
+        <section className={styles.visitCard} aria-labelledby="visit-title">
+          <div className={styles.visitInfo}>
+            <h2 id="visit-title" className={styles.cardTitle}>
+              Visítanos
+            </h2>
+            <div className={styles.visitAddress}>
+              <span className={styles.badge}>
+                <MapPin size={17} strokeWidth={1.8} aria-hidden="true" />
+              </span>
+              <div>
+                <div className={styles.addressLine1}>
+                  {contactInfo.addressLine1}
                 </div>
-              ))}
+                <div className={styles.addressLine2}>
+                  {contactInfo.addressLine2}
+                </div>
+              </div>
             </div>
+            <a
+              href={contactInfo.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mapsLink}
+            >
+              Cómo llegar (Google Maps)
+              <ExternalLink size={13} strokeWidth={2.2} aria-hidden="true" />
+            </a>
           </div>
 
-          <a
-            href={contactInfo.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.mapsLink}
-          >
-            Cómo llegar (Google Maps)
-            <ExternalLink size={13} strokeWidth={2.2} aria-hidden="true" />
-          </a>
-        </div>
+          <div className={styles.visitMap}>
+            <iframe
+              src={contactInfo.mapEmbedUrl}
+              title={`Mapa de ubicación: ${contactInfo.addressLine1}, ${contactInfo.addressLine2}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+        </section>
 
-        <div className={styles.visitMap}>
-          <iframe
-            src={contactInfo.mapEmbedUrl}
-            title={`Mapa de ubicación: ${contactInfo.addressLine1}, ${contactInfo.addressLine2}`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-        </div>
+        <section className={styles.hoursCard} aria-labelledby="hours-title">
+          <h2 id="hours-title" className={styles.cardTitle}>
+            Horario
+          </h2>
+          <div className={styles.hoursGroups}>
+            {HOURS.map(({ label, slots }) => (
+              <div key={label}>
+                <h3 className={styles.hoursLabel}>{label}</h3>
+                <dl className={styles.hoursList}>
+                  {slots.map((slot) => (
+                    <div key={slot.days} className={styles.hoursRow}>
+                      <dt>{slot.days}</dt>
+                      <dd>
+                        {slot.opens} – {slot.closes}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
 
-      <ContactForm initialServicio={servicioInicial} />
+      <ContactForm initialServicio={servicioInicial} showInfoColumn={false} />
     </article>
   );
 }

@@ -37,35 +37,42 @@
   }
 }
 
-.visitSection {
+.visit {
   max-width: 1000px;
   margin: v.$space-lg auto 0;
   padding: 0 v.$space-lg v.$space-xl;
 
   display: flex;
   flex-direction: column;
+  gap: v.$space-md;
+}
+
+.visitCard {
+  display: flex;
+  flex-direction: column;
+  background-color: v.$color-background;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
 }
 
 .visitInfo {
-  background-color: v.$color-background;
   padding: v.$space-xl;
-  border-radius: v.$radius-lg v.$radius-lg 0 0;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: v.$space-md;
 }
 
-.visitTitle {
+.cardTitle {
   font-size: 1.35rem;
-  margin: 0 0 v.$space-md;
+  margin: 0;
 }
 
 .visitAddress {
   display: flex;
   align-items: flex-start;
   gap: v.$space-sm;
-  margin-bottom: v.$space-md;
 }
 
 .badge {
@@ -82,15 +89,47 @@
   color: v.$color-text-secondary;
 }
 
-.hours {
-  margin-bottom: v.$space-md;
-  padding-top: v.$space-md;
-  border-top: 1px solid v.$color-input-border;
+.mapsLink {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-xs;
+  font-family: v.$font-body;
+  font-weight: 700;
+  font-size: v.$font-size-sm;
+  color: v.$color-cta;
+
+  @include m.hover {
+    color: v.$color-cta-hover;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
 }
 
-.hoursTitle {
-  font-size: 1.05rem;
-  margin: 0 0 v.$space-sm;
+.visitMap {
+  position: relative;
+  min-height: 320px;
+  background-color: v.$color-tile-bg;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.hoursCard {
+  background-color: v.$color-background;
+  border-radius: v.$radius-lg;
+  padding: v.$space-xl;
+
+  .cardTitle {
+    margin-bottom: v.$space-md;
+  }
 }
 
 .hoursGroups {
@@ -100,6 +139,7 @@
 
 .hoursLabel {
   margin: 0 0 v.$space-xxs;
+  font-family: v.$font-body;
   font-size: v.$font-size-xs;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -136,60 +176,25 @@
   }
 }
 
-.mapsLink {
-  display: inline-flex;
-  align-items: center;
-  gap: v.$space-xs;
-  font-family: v.$font-body;
-  font-weight: 700;
-  font-size: v.$font-size-sm;
-  color: v.$color-cta;
-
-  @include m.hover {
-    color: v.$color-cta-hover;
-  }
-
-  &:focus-visible {
-    @include m.focus-ring;
-  }
-}
-
-.visitMap {
-  position: relative;
-  min-height: 220px;
-  background-color: v.$color-tile-bg;
-  border-radius: 0 0 v.$radius-lg v.$radius-lg;
-  overflow: hidden;
-
-  iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-}
-
 @include m.desktop {
   .trustRow {
     padding: v.$space-xl 2.5rem 0;
   }
 
-  .visitSection {
+  .visit {
     padding: 0 2.5rem v.$space-xl;
+  }
+
+  .visitCard {
     flex-direction: row;
   }
 
-  .visitInfo,
-  .visitMap {
+  .visitInfo {
     flex: 1;
   }
 
-  .visitInfo {
-    border-radius: v.$radius-lg 0 0 v.$radius-lg;
-  }
-
   .visitMap {
-    border-radius: 0 v.$radius-lg v.$radius-lg 0;
+    flex: 1.5;
+    min-height: 380px;
   }
 }

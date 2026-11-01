@@ -3,6 +3,8 @@
 @use "../../styles/abstracts/mixins" as m;
 
 .contactWrapper {
+  // Con el header fijo arriba, el ancla #formulario no debe quedar tapada.
+  scroll-margin-top: calc(v.$header-height-desktop + v.$space-md);
   background-color: v.$color-background;
   padding: v.$space-xl v.$space-md;
 }
@@ -19,6 +21,11 @@
     align-items: flex-start;
     gap: 4rem;
   }
+}
+
+// Sin la columna de datos (página de contacto): formulario centrado y legible.
+.contactSolo {
+  max-width: 720px;
 }
 
 .cfLeft,
@@ -39,6 +46,12 @@
   @include m.desktop {
     font-size: 2.25rem;
   }
+}
+
+// Sin la columna de datos (página de contacto) el título va solo, centrado.
+.soloTitle {
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .contactLead {

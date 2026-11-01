@@ -23,8 +23,15 @@ export default function ContactForm({
   });
 
   return (
-    <section className={styles.contactWrapper}>
-      <div className={styles.contact}>
+    <section id="formulario" className={styles.contactWrapper}>
+      <div
+        className={`${styles.contact} ${showInfoColumn ? "" : styles.contactSolo}`}
+      >
+        {!showInfoColumn && (
+          <h2 className={`${styles.contactTitle} ${styles.soloTitle}`}>
+            Envíanos tu consulta
+          </h2>
+        )}
         {showInfoColumn && (
           <div className={styles.cfLeft}>
             <h2 className={styles.contactTitle}>¿Hablamos de tu proyecto?</h2>
