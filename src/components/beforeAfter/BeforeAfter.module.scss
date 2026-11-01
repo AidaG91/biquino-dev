@@ -1,0 +1,109 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+.wrapper {
+  position: relative;
+  width: min(100%, calc(70vh * 3 / 4));
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: v.$color-dark;
+  user-select: none;
+
+  &:has(.range:focus-visible) {
+    @include m.focus-ring;
+    outline-offset: -3px;
+  }
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.before {
+  clip-path: inset(0 calc(100% - var(--position)) 0 0);
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+  width: 3px;
+  margin-left: -1.5px;
+  background-color: v.$color-white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: v.$color-white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    border: 7px solid transparent;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: 6px;
+    border-right-color: v.$color-cta;
+  }
+
+  &::after {
+    right: 6px;
+    border-left-color: v.$color-cta;
+  }
+}
+
+.label {
+  position: absolute;
+  bottom: v.$space-sm;
+  padding: 0.3rem 0.75rem;
+  border-radius: v.$radius-pill;
+  background-color: rgba(28, 20, 16, 0.75);
+  color: v.$color-white;
+  font-family: v.$font-body;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.labelBefore {
+  left: v.$space-sm;
+}
+
+.labelAfter {
+  right: v.$space-sm;
+}
+
+// El input ocupa toda la imagen y es invisible: arrastrar en cualquier punto
+// mueve el divisor, y con teclado funciona con las flechas.
+.range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}

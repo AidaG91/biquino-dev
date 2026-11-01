@@ -1,0 +1,26 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+// Hero + franja ocupan justo la ventana (menos la cabecera sticky y su borde de
+// 1px): la franja queda pegada al borde inferior en cualquier resolución. Si el
+// contenido es más alto que la ventana, crece y se hace scroll con normalidad.
+.firstScreen {
+  --header-total: #{v.$header-height + 1px};
+
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-total));
+  min-height: calc(100svh - var(--header-total));
+}
+
+@include m.tablet {
+  .firstScreen {
+    --header-total: #{v.$header-height-tablet + 1px};
+  }
+}
+
+@include m.desktop {
+  .firstScreen {
+    --header-total: #{v.$header-height-desktop + 1px};
+  }
+}

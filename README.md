@@ -1,74 +1,107 @@
-# Biquiño Studio — Marketing Website
+# Biquiño Studio — web
 
-A Spanish-language marketing site built with React and Vite for **Biquiño Studio**, a printing and signage business (vinyl graphics, custom materials, full-service design-to-installation). The original visual design and copy come from the business owner; this repo is the front-end implementation.
+Web de [Biquiño Studio](https://biquino.es), estudio de rotulación, impresión digital y personalización con sede en Verín (Ourense) que trabaja en toda España.
 
-This is a real client project (built for a family member's business) that I'm also using as a portfolio piece, so the notes below cover both "how to run this" and "how it's built and why."
+Sitio en español, hecho con React y Vite, prerenderizado como HTML estático y desplegado en Netlify.
 
-## Tech stack
+## Requisitos
 
-- **React 19** + **Vite 7**
-- **SCSS** (`sass-embedded`), organized as global abstracts/base partials plus component-scoped `.module.scss` files colocated with their components
-- **react-router-dom v7** for routing
-- **react-hot-toast** for form feedback, **react-icons** for iconography
-- **ESLint 9** + **Prettier** for linting/formatting
-- **Netlify Forms** for the contact form backend (no custom API, no cookies, no analytics — deliberate choice to avoid needing a privacy policy)
-- Deployed as a static SPA on **Netlify** (see `public/_redirects`)
+- Node.js 20.19 o superior (o 22.12+)
+- npm
 
-## Getting started
-
-Requires Node.js (built and tested on Node 22).
+## Puesta en marcha
 
 ```bash
 npm install
-npm run dev       # start the dev server with HMR
-npm run build     # production build to dist/
-npm run preview   # preview the production build locally
-npm run lint       # ESLint
-npm run format     # Prettier --write
+npm run dev
 ```
 
-No environment variables are currently required to run the project locally.
+## Scripts
 
-## Project structure
+| Comando              | Qué hace                                                                                  |
+| -------------------- | ----------------------------------------------------------------------------------------- |
+| `npm run dev`        | Servidor de desarrollo                                                                    |
+| `npm run build`      | Genera `dist/` con una página HTML por ruta, el `sitemap.xml` y la comprobación de la CSP |
+| `npm run preview`    | Sirve `dist/` en local (abre las páginas con barra final: `/servicios/`)                  |
+| `npm run lint`       | ESLint                                                                                    |
+| `npm run format`     | Prettier                                                                                  |
+| `npm test`           | Tests con Vitest                                                                          |
+| `npm run test:watch` | Tests en modo observación                                                                 |
 
-```
+Antes de cada commit: `npm run lint`, `npm test` y `npm run build` sin errores.
+
+## Tecnología
+
+- **React 19** con **react-router-dom 7** (rutas con carga diferida)
+- **Vite 8** con **vite-plugin-react-ssg**: cada ruta se genera como HTML estático y luego React la hidrata
+- **@unhead/react** para título, descripción, Open Graph, canonical y datos estructurados en el HTML generado
+- **SCSS Modules**, con variables y mixins compartidos en `src/styles/abstracts/`
+- **lucide-react** (iconos) y **react-hot-toast** (avisos)
+- **Vitest** y **Testing Library**
+- **Netlify** (hosting y formularios)
+
+## Estructura
+
+```text
 src/
-├── assets/          # images, icons, and static data colocated with the landing sections
-├── components/      # header, hero, services, projects, contact form, footer
-├── data/            # content for the materials pages
-├── hooks/           # e.g. useContactForm
-├── pages/           # one component per route
-├── routes/          # AppRouter.jsx — route definitions
-└── styles/          # global SCSS: abstracts (variables/mixins), base (reset/globals)
+├── components/     Componentes reutilizables (cabecera, pie, formulario, opciones de contacto, comparador antes/después…)
+├── data/           Contenido de la web: servicios, proyectos, FAQ, datos de contacto y fotos
+├── hooks/          useSeo, useContactForm, useLocalBusinessSchema
+├── pages/          Una página por ruta
+├── routes/         Rutas del navegador y layout común
+├── styles/         Variables, mixins, reset y estilos globales
+└── assets/         Iconos e imágenes
 ```
 
-## Routes
+## Contenido
 
-| Path              | Page                | Notes                              |
-| ----------------- | -------------------- | ----------------------------------- |
-| `/`                | `LandingPage`         | Hero, services, projects, contact form |
-| `/proyectos`       | `ProjectsPage`        | Project gallery                     |
-| `/contacto`        | `ContactPage`         | Contact form                        |
-| `/faq`             | —                     | Placeholder, not yet implemented    |
+Los textos están en `src/data/`, no en los componentes:
 
-`/materiales` and `/materiales/:id` still exist in the router and codebase but are **out of scope** for the current version and pending removal — don't treat them as active functionality.
+- `contactInfo.js`: nombre, dirección, teléfono, WhatsApp (el mismo número), email, Instagram y horario. Es la única fuente de estos datos; la web (pie, `/contacto`, aviso de inauguración) y los datos estructurados de Google salen de aquí.
+- `serviciosPageData.js` y `serviciosSubpagesData.js`: página de servicios y subpáginas `/servicios/<slug>`.
+- `projectsData.js`: proyectos de la galería. El orden importa: los 3 primeros salen en la portada y los 5 primeros forman el mosaico de `/proyectos`.
+- `servicesData.js`: tarjetas de ventajas de la portada (respuesta rápida, servicio integral…).
+- `faqData.js`: preguntas frecuentes.
 
-## Current status / known limitations
+### Fotos de trabajos
 
-- The "Proyectos" section on the landing page currently renders placeholder/mock content, not real Biquiño Studio work — pending real project photos and copy.
-- `/faq` is a stub route, not yet built out.
-- `/materiales` routes and pages are legacy and scheduled for removal (see above).
+Las fotos optimizadas están en `src/assets/images/trabajos/` y se cargan con `src/data/photos.js`. Cada foto `<slug>` tiene:
 
-## Development notes
+- `<slug>-480.webp` y `<slug>-960.webp`: recorte 4:3 para tarjetas (se usan con `srcset`).
+- `<slug>-full.webp`: foto completa para el lightbox.
+- Para un antes/después: `<slug>-antes-full.webp` y `<slug>-despues-full.webp`, del mismo tamaño y alineadas.
 
-This project was built iteratively using a spec-driven workflow (spec → plan → tasks → implementation) with AI-assisted tooling. A few conventions worth knowing if you're reading the code:
+En los datos se usan con `photo("<slug>")`, `fullPhoto("<slug>")` y `beforeAfter("<slug>")`. Los originales sin optimizar se guardan en `fotos-originales/`, que no se sube al repositorio.
 
-- Five explicit responsive breakpoints (320 / 768 / 1024 / 1440 / 2560px) defined in `src/styles/abstracts/_variables.scss` — layout uses SCSS variables, not CSS custom properties.
-- Component-level styles live next to their component (`Component.module.scss`), not centralized in `src/styles/`.
-- Code comments, where present, are in English.
+### Imagen para compartir (Open Graph)
 
-The `.opencode/` and `.specify/` directories (AI tooling / spec-kit workflow artifacts) are intentionally excluded from version control via `.gitignore` — they're local development scaffolding, not part of the shipped application.
+Al compartir un enlace en WhatsApp, Instagram o redes sale `public/og-image.jpg` (1200×630: logo a la izquierda y foto del local a la derecha). `useSeo` añade las etiquetas `og:image` y `twitter:image` con la URL `https://biquino.es/og-image.jpg`. Si cambias la foto del local o el logo, hay que regenerar la imagen a mano; las redes guardan la previsualización en caché y tardan en actualizarla.
 
-## License
+### Añadir un servicio
 
-Private project built for Biquiño Studio. Shared publicly for portfolio purposes; not licensed for reuse.
+Añade la entrada en `serviciosSubpagesData.js` (la clave es el slug) y en `serviciosPageData.js`. La ruta, el HTML generado y el sitemap se crean solos.
+
+Campos opcionales:
+
+- `seoTitle` (en `serviciosSubpagesData.js`): título corto para la pestaña y Google. El título de la página es `<seoTitle o title> en toda España | Biquiño`; úsalo si el nombre del servicio hace que el título pase de unos 60 caracteres.
+- `illustrative: true` (en el objeto `image`, por ejemplo `{ src, illustrative: true }`): marca una imagen generada con IA y muestra la etiqueta «Imagen ilustrativa». Quítalo al sustituirla por una foto real.
+
+### Añadir una página
+
+Añade la ruta en `src/routes/routesConfig.jsx` y en `react-ssg.config.ts` (en `routes` y en `paths`), y llama a `useSeo(título, descripción)` en la página.
+
+## Formulario de contacto
+
+Funciona con Netlify Forms. Netlify detecta el formulario por la copia oculta que hay en `index.html`; si añades o cambias un campo en `ContactForm`, cámbialo también allí. La protección antispam es un campo trampa (`bot-field`) más el filtro de Netlify.
+
+## Despliegue
+
+Las ramas de trabajo salen de `main` y se integran en `main`. Netlify construye y publica automáticamente la rama `main` según `netlify.toml`, que también define:
+
+- Una página 404 real (estado 404) para cualquier URL que no exista.
+- Caché larga para `/assets/*` y cabeceras de seguridad.
+- La **Content-Security-Policy**. `script-src` no permite scripts en línea salvo los autorizados por hash. Si el build falla con «Inline scripts not allowed by the CSP», añade a `script-src` el hash que indica el mensaje, o evita el script en línea. Si la web empieza a cargar recursos de otro dominio (fuentes, mapas, iframes), hay que añadirlo a la directiva correspondiente.
+
+## Modal de inauguración
+
+Hasta el 7 de noviembre de 2026 a las 12:00 la web muestra un aviso con cuenta atrás (`src/components/inaugurationModal/`, textos y fecha en `src/data/inaugurationData.js`). Se abre una vez por navegador y deja de abrirse solo pasada la fecha. Después de la inauguración se puede retirar: quita `<InaugurationModal />` de `src/routes/SiteLayout.jsx` y borra el componente, `inaugurationData.js` y `src/utils/getTimeLeft.js`.

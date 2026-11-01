@@ -1,29 +1,15 @@
-import { useState, useRef, useEffect } from "react";
-import { useContactForm } from "@/hooks/useContactForm";
+import { useState } from "react";
+import { Mail, Phone, MapPin, ArrowRight, Check } from "lucide-react";
+import { useContactForm } from "../../hooks/useContactForm";
+import contactInfo from "../../data/contactInfo";
+import servicios from "../../data/serviciosPageData";
 import styles from "./ContactForm.module.scss";
 
-export default function ContactForm({ showInfoColumn = true }) {
+export default function ContactForm({
+  showInfoColumn = true,
+  initialServicio = "",
+}) {
   const [showThanks, setShowThanks] = useState(false);
-  const modalRef = useRef(null);
-
-  useEffect(() => {
-    if (showThanks && modalRef.current) {
-      modalRef.current.focus();
-    }
-  }, [showThanks]);
-
-  useEffect(() => {
-    if (!showThanks) return;
-
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        setShowThanks(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [showThanks]);
 
   const {
     formData,
@@ -32,34 +18,73 @@ export default function ContactForm({ showInfoColumn = true }) {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useContactForm(() => setShowThanks(true));
+  } = useContactForm(() => setShowThanks(true), {
+    servicio: initialServicio,
+  });
 
   return (
-    <section className={styles.contactWrapper}>
-      <div className={styles.contact}>
+    <section id="formulario" className={styles.contactWrapper}>
+      <div
+        className={`${styles.contact} ${showInfoColumn ? "" : styles.contactSolo}`}
+      >
+        {!showInfoColumn && (
+          <h2 className={`${styles.contactTitle} ${styles.soloTitle}`}>
+            Envíanos tu consulta
+          </h2>
+        )}
         {showInfoColumn && (
           <div className={styles.cfLeft}>
             <h2 className={styles.contactTitle}>¿Hablamos de tu proyecto?</h2>
-            <h2 className={styles.contactTitle}>Te escuchamos</h2>
-            <p>Impresión digital en España</p>
-            <h3>Datos de contacto</h3>
-            <p>
-              biquinostudio@gmail.com <br /> +34 630 53 68 21
+            <p className={styles.contactLead}>
+              Cuéntanos qué necesitas — sin compromiso. Te respondemos en un
+              máximo de 24–48 horas.
             </p>
+
+            <div className={styles.contactLinks}>
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className={styles.contactLink}
+              >
+                <span className={styles.badge}>
+                  <Mail size={17} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                {contactInfo.email}
+              </a>
+              <a
+                href={`tel:${contactInfo.phoneHref}`}
+                className={styles.contactLink}
+              >
+                <span className={styles.badge}>
+                  <Phone size={17} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                {contactInfo.phoneDisplay}
+              </a>
+              <a
+                href={contactInfo.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <span className={styles.badge}>
+                  <MapPin size={17} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                {contactInfo.addressLine1}, {contactInfo.addressLine2}
+              </a>
+            </div>
           </div>
         )}
 
         <div className={styles.cfRight}>
+          {/* Netlify detecta el formulario por la copia estática de index.html;
+              si cambias algún campo aquí, cámbialo también allí. */}
           <form
             name="contact"
             method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
             className={styles.form}
             onSubmit={handleSubmit}
+            noValidate
           >
             <input type="hidden" name="form-name" value="contact" />
-
             <input type="hidden" name="bot-field" />
 
             <div className={styles.formGroup}>
@@ -74,9 +99,13 @@ export default function ContactForm({ showInfoColumn = true }) {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 required
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? "name-error" : undefined}
               />
               {errors.name && (
-                <p className={styles.errorMessage}>{errors.name}</p>
+                <p id="name-error" className={styles.errorMessage}>
+                  {errors.name}
+                </p>
               )}
             </div>
 
@@ -93,9 +122,13 @@ export default function ContactForm({ showInfoColumn = true }) {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   required
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <p className={styles.errorMessage}>{errors.email}</p>
+                  <p id="email-error" className={styles.errorMessage}>
+                    {errors.email}
+                  </p>
                 )}
               </div>
 
@@ -114,6 +147,24 @@ export default function ContactForm({ showInfoColumn = true }) {
             </div>
 
             <div className={styles.formGroup}>
+              <label htmlFor="servicio">Servicio de interés</label>
+              <select
+                className={styles.input}
+                id="servicio"
+                name="servicio"
+                value={formData.servicio}
+                onChange={handleChange}
+              >
+                <option value="">Consulta general / no lo tengo claro</option>
+                {servicios.map((servicio) => (
+                  <option key={servicio.id} value={servicio.id}>
+                    {servicio.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className={styles.formGroup}>
               <label htmlFor="message">Sobre tu proyecto *</label>
               <textarea
                 className={`${styles.input} ${errors.message ? styles.inputError : ""}`}
@@ -125,52 +176,76 @@ export default function ContactForm({ showInfoColumn = true }) {
                 rows={5}
                 placeholder="Cuéntanos tu proyecto…"
                 required
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <p className={styles.errorMessage}>{errors.message}</p>
+                <p id="message-error" className={styles.errorMessage}>
+                  {errors.message}
+                </p>
               )}
             </div>
 
-            <button type="submit" disabled={isSending}>
-              {isSending ? "Enviando..." : "Enviar"}
-            </button>
-          </form>
-          {showThanks && (
-            <div className={styles.modalOverlay}>
-              <div
-                className={styles.modal}
-                ref={modalRef}
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="modal-title"
-                tabIndex="-1"
-              >
-                <div className={styles.iconWrapper}>
-                  <svg
-                    className={styles.checkIcon}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+            <div className={styles.privacy}>
+              <div className={styles.checkRow}>
+                <input
+                  className={styles.checkbox}
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  value="Acepta la política de privacidad"
+                  checked={formData.privacy}
+                  onChange={handleChange}
+                  required
+                  aria-invalid={!!errors.privacy}
+                  aria-describedby={
+                    errors.privacy ? "privacy-error" : undefined
+                  }
+                />
+                <label htmlFor="privacy">
+                  He leído y acepto la{" "}
+                  <a
+                    href="/politica-de-privacidad"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                </div>
-
-                <h2 id="modal-title">¡Gracias!</h2>
-                <p>Tu mensaje ha sido enviado correctamente.</p>
-
-                <button
-                  className={styles.closeButton}
-                  onClick={() => setShowThanks(false)}
-                >
-                  Cerrar
-                </button>
+                    política de privacidad
+                    <span className={styles.srOnly}>
+                      {" "}
+                      (se abre en una pestaña nueva)
+                    </span>
+                  </a>{" "}
+                  *
+                </label>
               </div>
+              {errors.privacy && (
+                <p id="privacy-error" className={styles.errorMessage}>
+                  {errors.privacy}
+                </p>
+              )}
             </div>
-          )}
+
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSending}
+            >
+              {isSending ? "Enviando..." : "Enviar mensaje"}
+              <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
+            </button>
+
+            <div
+              className={showThanks ? styles.formSuccess : undefined}
+              role="status"
+            >
+              {showThanks && (
+                <>
+                  <Check size={16} strokeWidth={2.4} aria-hidden="true" />
+                  Mensaje enviado. Te responderemos en un máximo de 24–48 horas.
+                </>
+              )}
+            </div>
+          </form>
         </div>
       </div>
     </section>

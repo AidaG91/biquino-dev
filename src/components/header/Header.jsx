@@ -1,71 +1,101 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "../header/Header.module.scss";
+import { useState, useEffect, useRef } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import styles from "./Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
+import contactInfo from "../../data/contactInfo";
+
+const NAV_LINKS = [
+  { name: "Inicio", path: "/", end: true },
+  { name: "Servicios", path: "/servicios" },
+  { name: "Proyectos", path: "/proyectos" },
+  { name: "FAQ", path: "/faq" },
+  { name: "Contacto", path: "/contacto" },
+];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
+  const toggleRef = useRef(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-
-    document.body.classList.toggle("menu-open", !isOpen);
+    setIsOpen((prev) => !prev);
   };
 
-  const navLinks = [
-    { name: "FAQ", path: "/faq" },
-    { name: "Materiales", path: "/materiales" },
-    { name: "Proyectos", path: "/proyectos" },
-    { name: "Contacto", path: "/contacto" },
-  ];
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    document.body.classList.add("menu-open");
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        closeMenu();
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link
-          to="/"
-          className={styles["header-logo"]}
-          onClick={() => {
-            setIsOpen(false);
-            document.body.classList.remove("menu-open");
-          }}
-        >
-          <img src={logoBiquino} alt="Biquiño Logo" />
+        <Link to="/" className={styles["header-logo"]} onClick={closeMenu}>
+          <img src={logoBiquino} alt="Biquiño, inicio" />
         </Link>
+
         <button
+          ref={toggleRef}
+          type="button"
           className={`${styles["menu-toggle"]} ${isOpen ? styles.open : ""}`}
           onClick={toggleMenu}
-          aria-label="Toggle navigation"
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isOpen}
-          aria-controls="main-nav"
+          aria-controls="mobile-nav"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
+
         <nav
-          id="main-nav"
+          id="mobile-nav"
           className={`${styles["header-nav"]} ${isOpen ? styles.active : ""}`}
+          aria-label="Navegación principal"
         >
           <ul className={styles["nav-list"]}>
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <li key={link.name} className={styles["nav-item"]}>
-                <Link
+                <NavLink
                   to={link.path}
-                  className={styles["nav-link"]}
-                  onClick={toggleMenu}
+                  end={link.end}
+                  className={({ isActive }) =>
+                    `${styles["nav-link"]} ${isActive ? styles.active : ""}`
+                  }
+                  onClick={closeMenu}
                 >
                   {link.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
             <li className={styles["nav-item"]}>
               <a
-                href="https://www.instagram.com/biquinostudio/"
+                href={contactInfo.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label="Instagram (se abre en una pestaña nueva)"
                 className={styles["nav-link"]}
               >
                 <img

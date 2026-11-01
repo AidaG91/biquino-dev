@@ -1,13 +1,9 @@
 @use "../../styles/abstracts/variables" as v;
 @use "../../styles/abstracts/mixins" as m;
 
-/* -------------------------------------- */
-/* MOBILE FIRST                           */
-/* -------------------------------------- */
-
 .header {
   background-color: v.$color-white;
-  border-bottom: 1px solid v.$color-background;
+  border-bottom: 1px solid v.$color-border-tint-alt;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -17,23 +13,21 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 v.$space-lg;
-  height: 60px;
+  height: v.$header-height;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
 .header-logo {
   img {
-    height: 40px;
+    height: 30px;
     width: auto;
     display: block;
   }
 }
 
-/* NAV (oculto en móvil) */
 .header-nav {
   position: fixed;
   inset: 0;
@@ -44,7 +38,10 @@
   backdrop-filter: blur(8px);
 
   transform: translateY(-100%);
-  transition: transform 0.4s ease-in-out;
+  visibility: hidden;
+  transition:
+    transform 0.4s ease-in-out,
+    visibility 0s linear 0.4s;
 
   display: flex;
   justify-content: center;
@@ -54,10 +51,13 @@
 
   &.active {
     transform: translateY(0);
+    visibility: visible;
+    transition:
+      transform 0.4s ease-in-out,
+      visibility 0s;
   }
 }
 
-/* Lista móvil */
 .nav-list {
   list-style: none;
   padding: 0;
@@ -73,41 +73,49 @@
 }
 
 .nav-link {
+  position: relative;
   font-family: v.$font-heading;
   font-weight: 700;
   font-size: 1.5rem;
   color: v.$color-primary;
   text-decoration: none;
   padding: 0.5rem 1rem;
-}
 
-/* Icono Instagram */
-.instagram-icon {
-  width: 22px;
-  height: 22px;
-  display: block;
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.7;
+  &.active::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0;
+    height: 2px;
+    background-color: v.$color-primary;
+    border-radius: v.$radius-sm;
   }
 }
 
-/* -------------------------------------- */
-/* HAMBURGUESA                            */
-/* -------------------------------------- */
+.instagram-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: opacity 0.2s ease;
+
+  @include m.hover {
+    opacity: 0.7;
+  }
+}
 
 .menu-toggle {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 22px;
-  width: 28px;
+  height: 44px;
+  width: 44px;
+  padding: 11px 8px;
+  margin-right: -8px;
 
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
 
   z-index: 1002;
 
@@ -121,7 +129,6 @@
   }
 }
 
-/* Animación a X */
 .open {
   span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
@@ -136,13 +143,9 @@
   }
 }
 
-/* -------------------------------------- */
-/* TABLET                                 */
-/* -------------------------------------- */
-
 @include m.tablet {
   .container {
-    height: 70px;
+    height: v.$header-height-tablet;
   }
 
   .nav-link {
@@ -150,11 +153,17 @@
   }
 }
 
-/* -------------------------------------- */
-/* DESKTOP                                */
-/* -------------------------------------- */
-
 @include m.desktop {
+  .container {
+    max-width: 1240px;
+    height: v.$header-height-desktop;
+    padding: 0 2rem;
+  }
+
+  .header-logo img {
+    height: 32px;
+  }
+
   .menu-toggle {
     display: none;
   }
@@ -163,6 +172,8 @@
     position: static;
     height: auto;
     transform: none;
+    visibility: visible;
+    transition: none;
     background: transparent;
     backdrop-filter: none;
     display: block;
@@ -172,14 +183,32 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    gap: 1.75rem;
   }
 
   .nav-item {
-    margin: 0 0 0 1.5rem;
+    margin: 0;
   }
 
   .nav-link {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+    font-family: v.$font-body;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: v.$color-dark;
+    padding: 0.25rem 0;
+
+    @include m.hover {
+      color: v.$color-cta;
+    }
+
+    &.active {
+      color: v.$color-cta;
+    }
+
+    &.active::after {
+      left: 0;
+      right: 0;
+      bottom: -2px;
+    }
   }
 }

@@ -30,6 +30,9 @@ dist
 # Netlify CLI
 .netlify
 
+# Fotos originales sin optimizar (las optimizadas van en src/assets/)
+fotos-originales/
+
 # Herramientas locales de desarrollo
 CLAUDE.md
 .claude/

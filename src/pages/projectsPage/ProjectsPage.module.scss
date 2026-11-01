@@ -1,0 +1,325 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+@include m.page-hero;
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: v.$space-lg v.$space-lg v.$space-xl;
+}
+
+// En móvil, una fila con scroll horizontal: su altura no depende de cuánto
+// ocupe cada fuente, así que no desplaza la galería al cargar (CLS).
+.filters {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: v.$space-sm;
+  margin: 0 (-1 * v.$space-lg) v.$space-lg;
+  padding: 4px v.$space-lg;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chip {
+  flex-shrink: 0;
+  border: 1.5px solid v.$color-border-tint;
+  border-radius: v.$radius-pill;
+  padding: 0.55rem 1.1rem;
+  font-family: v.$font-body;
+  font-size: v.$font-size-sm;
+  font-weight: 600;
+  color: v.$color-text-secondary;
+  background: none;
+  cursor: pointer;
+  transition:
+    background-color v.$transition-normal,
+    border-color v.$transition-normal,
+    color v.$transition-normal;
+
+  @include m.hover {
+    border-color: v.$color-dark;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.chipActive {
+  background-color: v.$color-dark;
+  border-color: v.$color-dark;
+  color: v.$color-white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: v.$space-md;
+}
+
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 220px;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+  text-align: left;
+
+  @include m.hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: v.$space-sm;
+  background: linear-gradient(
+    to top,
+    rgba(28, 20, 16, 0.75),
+    rgba(28, 20, 16, 0) 60%
+  );
+}
+
+.chipLabel {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: v.$color-white;
+  font-family: v.$font-body;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: v.$radius-pill;
+  margin-bottom: v.$space-xs;
+}
+
+.cardTitle {
+  display: block;
+  color: v.$color-white;
+  font-family: v.$font-heading;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.cardDescription {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: v.$font-body;
+  font-size: v.$font-size-sm;
+  margin-top: v.$space-xs;
+  max-width: 340px;
+}
+
+@include m.tablet {
+  .filters {
+    flex-wrap: wrap;
+    margin: 0 0 v.$space-lg;
+    padding: 0;
+    overflow-x: visible;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+}
+
+@include m.desktop {
+  .container {
+    padding: v.$space-xl 2.5rem 5rem;
+  }
+
+  .gridBento {
+    grid-template-columns: 1.1fr 1fr 1fr;
+    grid-template-rows: 260px 260px;
+    grid-auto-rows: 260px;
+    gap: 1.375rem;
+
+    .card {
+      height: auto;
+    }
+
+    .card:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    .card:nth-child(1) .cardTitle {
+      font-size: 1.4rem;
+    }
+
+    .card:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .card:nth-child(3) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .card:nth-child(4) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .card:nth-child(5) {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+}
+
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(28, 20, 16, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: v.$space-md;
+}
+
+.lightboxContent {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: v.$radius-lg;
+  // Mismo fondo que la imagen: con blanco, el antialiasing de las esquinas
+  // redondeadas deja ver un filo claro alrededor de la foto.
+  background-color: v.$color-dark;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: v.$space-sm;
+  right: v.$space-sm;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(28, 20, 16, 0.55);
+  color: v.$color-white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include m.hover {
+    background-color: rgba(28, 20, 16, 0.8);
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.lightboxImage {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background-color: v.$color-dark;
+}
+
+.beforeAfterBadge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+  border-radius: v.$radius-pill;
+  background-color: v.$color-white;
+  color: v.$color-cta;
+  font-family: v.$font-body;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+// En móvil la tarjeta es pequeña: solo el título; la categoría se ve en el
+// filtro y en el lightbox.
+.overlay .chipLabel {
+  display: none;
+}
+
+.lightboxInfo {
+  padding: v.$space-lg;
+  background-color: v.$color-white;
+
+  .chipLabel {
+    background-color: v.$color-tile-bg;
+    color: v.$color-cta;
+  }
+}
+
+.lightboxTitle {
+  font-size: 1.35rem;
+  margin: 0 0 v.$space-xs;
+}
+
+.lightboxDescription {
+  font-size: v.$font-size-sm;
+  line-height: 1.7;
+  color: v.$color-text-secondary;
+  margin: 0;
+}
+
+@include m.tablet {
+  .overlay {
+    padding: v.$space-md;
+  }
+
+  .overlay .chipLabel {
+    display: inline-block;
+  }
+
+  .beforeAfterBadge {
+    top: v.$space-sm;
+    right: v.$space-sm;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+  }
+}

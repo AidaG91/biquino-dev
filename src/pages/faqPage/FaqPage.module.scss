@@ -1,0 +1,16 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+@include m.page-hero;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: v.$space-xl v.$space-md;
+}
+
+@include m.tablet {
+  .container {
+    padding: v.$space-xl;
+  }
+}

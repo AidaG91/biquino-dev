@@ -1,0 +1,54 @@
+import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import Hero from "../Hero";
+
+function renderHero() {
+  return render(
+    <MemoryRouter>
+      <Hero />
+    </MemoryRouter>,
+  );
+}
+
+describe("Hero", () => {
+  it("renders the main heading", () => {
+    renderHero();
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toHaveTextContent("Damos forma a tu marca");
+  });
+
+  it("renders the eyebrow pill", () => {
+    renderHero();
+    expect(
+      screen.getByText("Rotulación e impresión en toda España"),
+    ).toBeInTheDocument();
+  });
+
+  it("renders the lead paragraph", () => {
+    renderHero();
+    expect(
+      screen.getByText(/rotulamos tu local y tus vehículos/i),
+    ).toBeInTheDocument();
+  });
+
+  it("renders CTA linking to contact page", () => {
+    renderHero();
+    const cta = screen.getByText("Solicita tu presupuesto gratis");
+    expect(cta).toHaveAttribute("href", "/contacto");
+  });
+
+  it("renders hero image with descriptive alt text", () => {
+    renderHero();
+    const img = screen.getByRole("img", {
+      name: /fachada del local de biquiño/i,
+    });
+    expect(img).toBeInTheDocument();
+  });
+
+  it("has accessible section label", () => {
+    const { container } = renderHero();
+    const section = container.querySelector("section");
+    expect(section).toHaveAttribute("aria-label", "Presentación");
+  });
+});

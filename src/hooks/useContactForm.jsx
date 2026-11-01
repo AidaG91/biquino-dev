@@ -1,13 +1,19 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-export function useContactForm(onSuccess) {
-  const [formData, setFormData] = useState({
+const VALIDATED_FIELDS = ["name", "email", "message", "privacy"];
+
+export function useContactForm(onSuccess, initialData = {}) {
+  const [initialFormData] = useState(() => ({
     name: "",
     email: "",
     phone: "",
+    servicio: "",
     message: "",
-  });
+    privacy: false,
+    ...initialData,
+  }));
+  const [formData, setFormData] = useState(initialFormData);
 
   const [errors, setErrors] = useState({});
   const [isSending, setIsSending] = useState(false);
@@ -25,6 +31,10 @@ export function useContactForm(onSuccess) {
       case "message":
         if (!value.trim()) return "El mensaje no puede estar vacío.";
         break;
+      case "privacy":
+        if (!value)
+          return "Debes aceptar la política de privacidad para enviar el mensaje.";
+        break;
       default:
         break;
     }
@@ -33,9 +43,8 @@ export function useContactForm(onSuccess) {
 
   const validateForm = () => {
     const newErrors = {};
-    const fieldsToValidate = ["name", "email", "message"];
 
-    fieldsToValidate.forEach((field) => {
+    VALIDATED_FIELDS.forEach((field) => {
       const error = validateField(field, formData[field]);
       if (error) newErrors[field] = error;
     });
@@ -44,26 +53,30 @@ export function useContactForm(onSuccess) {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    const fieldValue = type === "checkbox" ? checked : value;
+    setFormData((prev) => ({ ...prev, [name]: fieldValue }));
 
     if (errors[name]) {
-      setErrors({ ...errors, [name]: null });
+      setErrors((prev) => ({ ...prev, [name]: null }));
     }
   };
 
   const handleBlur = (e) => {
-    const { name, value } = e.target;
-    const error = validateField(name, value);
-    setErrors({ ...errors, [name]: error });
+    const { name, value, type, checked } = e.target;
+    const error = validateField(name, type === "checkbox" ? checked : value);
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.target;
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      const firstInvalid = VALIDATED_FIELDS.find((f) => validationErrors[f]);
+      form.elements[firstInvalid]?.focus();
       toast.error("Por favor, corrige los errores del formulario.");
       return;
     }
@@ -71,21 +84,20 @@ export function useContactForm(onSuccess) {
     setIsSending(true);
 
     try {
-      const form = e.target;
-      const netlifyData = new FormData(form);
-
       const response = await fetch("/", {
         method: "POST",
-        body: netlifyData,
+        body: new FormData(form),
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`Form submission failed with status ${response.status}`);
       }
 
+      setFormData(initialFormData);
+      setErrors({});
       onSuccess();
     } catch {
-      toast.error("No se ha podido enviar el mensaje. Inténtalo de nuevo.");
+      toast.error("No hemos podido enviar el mensaje. Inténtalo de nuevo.");
     } finally {
       setIsSending(false);
     }
