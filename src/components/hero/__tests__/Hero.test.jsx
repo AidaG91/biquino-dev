@@ -20,13 +20,15 @@ describe("Hero", () => {
 
   it("renders the eyebrow pill", () => {
     renderHero();
-    expect(screen.getByText("Impresión digital en España")).toBeInTheDocument();
+    expect(
+      screen.getByText("Rotulación e impresión en toda España"),
+    ).toBeInTheDocument();
   });
 
   it("renders the lead paragraph", () => {
     renderHero();
     expect(
-      screen.getByText(/rotulación de locales y vehículos/i),
+      screen.getByText(/rotulamos tu local y tus vehículos/i),
     ).toBeInTheDocument();
   });
 
@@ -39,7 +41,7 @@ describe("Hero", () => {
   it("renders hero image with descriptive alt text", () => {
     renderHero();
     const img = screen.getByRole("img", {
-      name: /rotulación e impresión/i,
+      name: /fachada del local de biquiño/i,
     });
     expect(img).toBeInTheDocument();
   });

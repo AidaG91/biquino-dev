@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import heroImage from "../../assets/images/hero-bg.webp";
+import heroImage480 from "../../assets/images/hero-local-480.webp";
+import heroImage960 from "../../assets/images/hero-local-960.webp";
 import styles from "./Hero.module.scss";
 
 export default function Hero() {
@@ -7,14 +8,16 @@ export default function Hero() {
     <section className={styles.hero} aria-label="Presentación">
       <div className={styles.inner}>
         <div className={styles.content}>
-          <span className={styles.pill}>Impresión digital en España</span>
+          <span className={styles.pill}>
+            Rotulación e impresión en toda España
+          </span>
           <h1 className={styles.title}>
             Damos forma a tu marca, de la idea a la instalación.
           </h1>
           <p className={styles.lead}>
-            Rotulación de locales y vehículos, impresión digital y
-            personalización de prendas y objetos: diseño, producción e
-            instalación en un mismo sitio, en toda España.
+            Rotulamos tu local y tus vehículos, imprimimos y personalizamos
+            prendas. Diseñamos, producimos e instalamos nosotros, sin
+            intermediarios.
           </p>
           <div className={styles.actions}>
             <Link to="/contacto" className={styles.ctaPrimary}>
@@ -25,11 +28,13 @@ export default function Hero() {
 
         <div className={styles.art}>
           <img
-            src={heroImage}
-            alt="Trabajo de rotulación e impresión realizado por Biquiño"
+            src={heroImage960}
+            srcSet={`${heroImage480} 480w, ${heroImage960} 960w`}
+            sizes="(min-width: 1024px) 45vw, 480px"
+            alt="Fachada del local de Biquiño en Verín, con el escaparate rotulado con vinilo"
             className={styles.artImage}
-            width={1407}
-            height={768}
+            width={960}
+            height={600}
             fetchPriority="high"
           />
         </div>
