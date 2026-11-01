@@ -22,6 +22,8 @@ const contactInfo = {
   addressLine1: address.street,
   addressLine2: `${address.postalCode} ${address.locality}, ${address.region}`,
   instagramUrl: "https://www.instagram.com/biquinostudio/",
+  // Mismo número que el teléfono; wa.me no admite el "+".
+  whatsappUrl: "https://wa.me/34694929681",
   // Horario. days es el texto que se muestra; dayCodes, los días en inglés
   // para los datos estructurados de Google (schema.org).
   hours: {

@@ -7,7 +7,7 @@ function renderFooter() {
   return render(
     <MemoryRouter>
       <Footer />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -32,16 +32,32 @@ describe("Footer", () => {
 
   it("renders social links with rel='noopener noreferrer'", () => {
     const { container } = renderFooter();
-    const externalLinks = container.querySelectorAll('a[rel="noopener noreferrer"]');
+    const externalLinks = container.querySelectorAll(
+      'a[rel="noopener noreferrer"]',
+    );
     expect(externalLinks.length).toBeGreaterThan(0);
     externalLinks.forEach((link) => {
       expect(link.getAttribute("target")).toBe("_blank");
     });
   });
 
+  it("links to WhatsApp and Instagram", () => {
+    renderFooter();
+    expect(screen.getByRole("link", { name: /whatsapp/i })).toHaveAttribute(
+      "href",
+      "https://wa.me/34694929681",
+    );
+    expect(screen.getByRole("link", { name: /instagram/i })).toHaveAttribute(
+      "href",
+      expect.stringContaining("instagram.com"),
+    );
+  });
+
   it("social links have aria-label", () => {
     const { container } = renderFooter();
-    const externalLinks = container.querySelectorAll('a[rel="noopener noreferrer"]');
+    const externalLinks = container.querySelectorAll(
+      'a[rel="noopener noreferrer"]',
+    );
     externalLinks.forEach((link) => {
       expect(link.getAttribute("aria-label")).toBeTruthy();
     });

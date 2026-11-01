@@ -3,26 +3,51 @@ import styles from "./Footer.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_BLANCO.svg";
 import contactInfo from "../../data/contactInfo";
 
-const instagramLink = {
-  href: contactInfo.instagramUrl,
-  label: "Abrir Instagram en nueva pestaña",
-  icon: (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.3" cy="6.7" r="1" />
-    </svg>
-  ),
-};
+const socialLinks = [
+  {
+    id: "whatsapp",
+    href: contactInfo.whatsappUrl,
+    label: "Escribir por WhatsApp (se abre en nueva pestaña)",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+        <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+      </svg>
+    ),
+  },
+  {
+    id: "instagram",
+    href: contactInfo.instagramUrl,
+    label: "Abrir Instagram en nueva pestaña",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.3" cy="6.7" r="1" />
+      </svg>
+    ),
+  },
+];
 
 export default function Footer() {
   return (
@@ -48,15 +73,21 @@ export default function Footer() {
           </li>
         </ul>
 
-        <a
-          href={instagramLink.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={instagramLink.label}
-          className={styles.socialLink}
-        >
-          {instagramLink.icon}
-        </a>
+        <ul className={styles.socialList}>
+          {socialLinks.map((link) => (
+            <li key={link.id}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className={styles.socialLink}
+              >
+                {link.icon}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className={styles.bottom}>
