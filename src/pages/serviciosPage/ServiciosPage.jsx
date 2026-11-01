@@ -8,7 +8,7 @@ import styles from "./ServiciosPage.module.scss";
 export default function ServiciosPage() {
   useSeo(
     "Servicios de rotulación, impresión y personalización | Biquiño",
-    "Impresión digital, personalización de prendas y objetos, rotulación, diseño técnico, gestión de proyectos gráficos y web y redes sociales, en toda España.",
+    "Impresión digital, personalización de prendas y objetos, rotulación, diseño gráfico, gestión de proyectos gráficos y web y redes sociales, en toda España.",
   );
 
   return (
