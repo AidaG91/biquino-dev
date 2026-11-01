@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import InaugurationModal from "../InaugurationModal";
 import inaugurationData from "../../../data/inaugurationData";
@@ -40,6 +40,19 @@ describe("InaugurationModal", () => {
     vi.setSystemTime(target + 1000);
     renderModal();
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("muestra el mensaje final si la cuenta atrás termina con el aviso abierto", () => {
+    vi.setSystemTime(target - 500);
+    renderModal();
+    act(() => {
+      vi.advanceTimersByTime(1500);
+    });
+    expect(
+      screen.getByRole("heading", { name: inaugurationData.doneTitle }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(inaugurationData.doneText)).toBeInTheDocument();
+    expect(screen.queryByRole("timer")).not.toBeInTheDocument();
   });
 
   it("se cierra con el botón y no vuelve a salir", () => {

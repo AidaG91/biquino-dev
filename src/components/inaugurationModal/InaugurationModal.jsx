@@ -135,7 +135,9 @@ export default function InaugurationModal() {
           </ul>
         )}
 
-        <p className={styles.text}>{inaugurationData.text}</p>
+        <p className={styles.text}>
+          {units ? inaugurationData.text : inaugurationData.doneText}
+        </p>
         <Link to="/contacto" className={styles.cta} onClick={close}>
           {inaugurationData.cta}
         </Link>

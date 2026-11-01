@@ -7,6 +7,7 @@ const inaugurationData = {
   label: "7 de noviembre a las 12:00",
   text: `Te esperamos en nuestra inauguración, en ${contactInfo.addressLine1} (${contactInfo.address.locality}). Mientras tanto, pide tu presupuesto sin compromiso.`,
   doneTitle: "¡Ya hemos inaugurado!",
+  doneText: `Gracias por acompañarnos. Ya puedes visitarnos en ${contactInfo.addressLine1} (${contactInfo.address.locality}) o pedir tu presupuesto sin compromiso.`,
   cta: "Solicita tu presupuesto gratis",
 };
 
