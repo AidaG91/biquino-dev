@@ -15,7 +15,7 @@ const faqData = [
     id: "faq-3",
     question: "¿Trabajáis fuera de Galicia?",
     answer:
-      "Sí. Estamos en Verín (Ourense), pero enviamos a toda España e instalamos nosotros mismos en cualquier punto de España o fuera. El envío y el desplazamiento se cobran aparte y vienen incluidos en el presupuesto, así que sabes el coste total desde el principio.",
+      "Sí. Estamos en Verín (Ourense), pero enviamos a toda España e instalamos nosotros mismos en cualquier punto de España o fuera. El envío y el desplazamiento se detallan en el presupuesto, así sabes el coste total desde el principio.",
   },
   {
     id: "faq-4",
@@ -27,7 +27,7 @@ const faqData = [
     id: "faq-5",
     question: "¿El diseño gráfico está incluido?",
     answer:
-      "En la mayoría de los pedidos sí, sin coste extra. Depende del tipo de pedido: si hubiera que cobrar el diseño aparte, te lo indicamos en el presupuesto. Si ya tienes el diseño, revisamos tus archivos para que estén listos para imprimir.",
+      "Depende del tipo de pedido: en unos trabajos el diseño está incluido y en otros tiene un coste aparte. Te lo indicamos siempre en el presupuesto, antes de empezar. Si ya tienes el diseño, revisamos tus archivos para que estén listos para imprimir.",
   },
   {
     id: "faq-6",

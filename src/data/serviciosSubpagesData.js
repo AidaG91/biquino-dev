@@ -26,14 +26,15 @@ const serviciosSubpagesData = {
         title: "Pegatinas y etiquetas",
         description:
           "Pegatinas y etiquetas adhesivas con la forma, el tamaño y el material que necesites, para productos, envases, eventos o promoción. Las producimos en nuestro propio taller, con colores nítidos y acabados resistentes.",
-        photoCaption: "Foto: pegatinas cuadradas impresas con un escudo heráldico",
+        photoCaption:
+          "Foto: pegatinas cuadradas impresas con un escudo heráldico",
         image: photo("pegatinas-escudo"),
       },
     ],
   },
   personalizacion: {
     title: "Personalización de prendas y objetos",
-    lead: "DTF, vinilo textil y serigrafía para equipaciones, uniformes, eventos y merchandising, con un diseño adaptado a cada prenda y material.",
+    lead: "Estampado DTF (a todo color), vinilo textil y serigrafía para equipaciones, uniformes, eventos y merchandising, con un diseño adaptado a cada prenda y material.",
     cards: [
       {
         title: "Estampados textiles",
@@ -72,8 +73,10 @@ const serviciosSubpagesData = {
     ],
   },
   "diseno-tecnico": {
-    title: "Diseño técnico aplicado",
-    lead: "Formación en preimpresión, diseño gráfico y audiovisual para que cada idea se pueda imprimir, cortar o instalar sin sorpresas.",
+    title: "Diseño gráfico y preparación de archivos",
+    // Título corto para el <title> de la página (el largo se pasa de 60 caracteres).
+    seoTitle: "Diseño gráfico",
+    lead: "Diseñamos y preparamos tus archivos para que cada idea se pueda imprimir, cortar o instalar sin sorpresas.",
     cards: [
       {
         title: "Identidad visual",
@@ -107,6 +110,7 @@ const serviciosSubpagesData = {
   },
   "gestion-proyectos": {
     title: "Gestión de proyectos gráficos completos",
+    seoTitle: "Gestión de proyectos gráficos",
     lead: "Del primer contacto a la instalación: asesoramiento, diseño, producción e instalación en un mismo sitio.",
     cards: [
       {
@@ -126,14 +130,14 @@ const serviciosSubpagesData = {
       {
         title: "Supervisión e instalación final",
         description:
-          "Instalamos nosotros mismos vinilos, rótulos y elementos visuales, en cualquier punto de España o fuera y en la franja horaria que mejor te venga. El envío y el desplazamiento vienen incluidos en el presupuesto, para que sepas el coste total desde el principio.",
+          "Instalamos nosotros mismos vinilos, rótulos y elementos visuales, en cualquier punto de España o fuera y en la franja horaria que mejor te venga. El envío y el desplazamiento se detallan en el presupuesto, para que sepas el coste total desde el principio.",
         photoCaption: "Foto: equipo coordinando instalación",
         image: { src: supervisionInstalacionImg },
       },
     ],
   },
   "web-rrss": {
-    title: "Web y RRSS",
+    title: "Web y redes sociales",
     lead: "Webs y contenido para redes sociales con un estilo gráfico coherente: tu departamento creativo externo.",
     cards: [
       {
@@ -144,14 +148,14 @@ const serviciosSubpagesData = {
         image: { src: menuDiarioImg },
       },
       {
-        title: "Gestión de contenido y RRSS",
+        title: "Gestión de contenido y redes sociales",
         description:
           "Creamos tus publicaciones con un mismo estilo gráfico para que tu marca sea reconocible en todas ellas, y te preparamos un calendario de publicaciones. También podemos crear vídeo para tus redes.",
         photoCaption: "Foto: gestión de redes sociales",
         image: { src: gestionContenidoRrssImg },
       },
       {
-        title: "Desarrollo y Programación Web",
+        title: "Desarrollo y programación web",
         description:
           "Diseñamos y programamos tu web a medida, adaptada a móvil, y la mantenemos al día: actualizaciones mensuales, trimestrales o cuando necesites un cambio.",
         photoCaption: "Foto: diseño web",

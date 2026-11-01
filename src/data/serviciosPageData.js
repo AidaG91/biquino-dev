@@ -30,10 +30,11 @@ const serviciosPageData = [
   },
   {
     id: "diseno-tecnico",
-    title: "Diseño técnico aplicado",
+    title: "Diseño gráfico y preparación de archivos",
     description:
       "Nuestra base es la preimpresión y el diseño gráfico: creamos tu identidad visual, preparamos o revisamos tus archivos para que se impriman sin errores y te asesoramos sobre materiales y acabados. También hacemos fotografía de producto y de proyecto.",
-    photoCaption: "Foto: roll-up diseñado e impreso para un servicio de comedor",
+    photoCaption:
+      "Foto: roll-up diseñado e impreso para un servicio de comedor",
     image: photo("rollup-comedor"),
   },
   {
@@ -46,7 +47,7 @@ const serviciosPageData = [
   },
   {
     id: "web-rrss",
-    title: "Web y RRSS",
+    title: "Web y redes sociales",
     description:
       "Diseño, programación y mantenimiento de webs, con actualizaciones mensuales, trimestrales o cuando las necesites. En redes sociales creamos tus publicaciones con un estilo gráfico coherente y te preparamos un calendario de publicaciones.",
     photoCaption: "Foto: gestión de redes sociales",

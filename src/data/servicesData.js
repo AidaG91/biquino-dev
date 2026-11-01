@@ -8,9 +8,9 @@ const services = [
     id: "respuesta-rapida",
     title: "Respuesta rápida",
     teaser:
-      "Valoramos tu tiempo. Damos una respuesta rápida, no superando las 24/48h.",
+      "Valoramos tu tiempo. Respondemos a tu solicitud en un máximo de 24–48 horas.",
     fullDescription:
-      "Sabemos que cada proyecto tiene plazos ajustados. Por eso nos comprometemos a darte una respuesta en un máximo de 24-48 horas, sin importar la complejidad de tu solicitud. Así podrás avanzar con tu proyecto sin demoras innecesarias.",
+      "Sabemos que cada proyecto tiene plazos ajustados. Por eso nos comprometemos a darte una respuesta en un máximo de 24–48 horas. Así podrás avanzar con tu proyecto sin demoras innecesarias.",
     icon: respuestaRapidaIcon,
   },
   {
@@ -28,16 +28,16 @@ const services = [
     teaser:
       "Enviamos a toda España e instalamos nosotros mismos donde nos necesites, también fuera de España.",
     fullDescription:
-      "Estamos en Verín (Ourense), pero enviamos a toda España e instalamos nosotros mismos en cualquier punto, también fuera de España. El envío y el desplazamiento vienen incluidos en el presupuesto.",
+      "Estamos en Verín (Ourense), pero enviamos a toda España e instalamos nosotros mismos en cualquier punto, también fuera de España. El envío y el desplazamiento se detallan en el presupuesto.",
     icon: envioIcon,
   },
   {
     id: "calidad-precio",
     title: "Calidad-precio",
     teaser:
-      "Elección exhaustiva de los materiales para ofrecer la mejor calidad a un precio acorde.",
+      "Elegimos los materiales con criterio para que el acabado dure y el presupuesto se ajuste.",
     fullDescription:
-      "Seleccionamos cuidadosamente cada material para ofrecerte la mejor relación calidad‑precio del mercado. Trabajamos con proveedores de confianza y optimizamos nuestros procesos para que obtengas un acabado premium sin romper tu presupuesto.",
+      "Seleccionamos cada material con criterio para que el acabado dure y el precio sea justo. Trabajamos con proveedores de confianza y optimizamos nuestros procesos para ajustarnos a tu presupuesto sin renunciar a la calidad.",
     icon: calidadPrecioIcon,
   },
 ];
