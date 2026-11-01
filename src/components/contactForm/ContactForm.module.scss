@@ -24,8 +24,12 @@
 }
 
 // Sin la columna de datos (página de contacto): formulario centrado y legible.
-.contactSolo {
+// Doble clase para ganar a la regla de fila de escritorio de `.contact`: aquí
+// el título va encima del formulario, no a su lado.
+.contact.contactSolo {
   max-width: 720px;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .cfLeft,
