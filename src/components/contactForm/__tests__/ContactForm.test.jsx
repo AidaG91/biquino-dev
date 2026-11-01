@@ -15,7 +15,7 @@ function renderContactForm(props = {}) {
   return render(
     <MemoryRouter>
       <ContactForm showInfoColumn={false} {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -145,9 +145,7 @@ describe("ContactForm", () => {
     fillValidForm();
     fireEvent.submit(container.querySelector("form"));
 
-    await waitFor(() =>
-      expect(status).toHaveTextContent(/mensaje enviado/i),
-    );
+    await waitFor(() => expect(status).toHaveTextContent(/mensaje enviado/i));
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url, options] = fetchMock.mock.calls[0];
