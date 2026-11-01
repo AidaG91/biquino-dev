@@ -9,13 +9,13 @@ export default function ServicesSection() {
     <section className={styles.services}>
       <div className={styles.head}>
         <div>
-          <p className={styles.eyebrow}>Qué ofrecemos</p>
+          <p className={styles.eyebrow}>Por qué Biquiño</p>
           <h2 className={styles.servicesTitle}>
             Un servicio integral, de principio a fin
           </h2>
         </div>
         <Link to="/servicios" className={styles.linkArrow}>
-          Ver todos los servicios
+          Descubre nuestros servicios
           <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
         </Link>
       </div>
