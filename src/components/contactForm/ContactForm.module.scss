@@ -191,8 +191,15 @@ textarea {
   margin-top: v.$space-xxs;
 }
 
-.inputError {
-  border-color: v.$color-error !important;
+// Doble clase para igualar la especificidad de `.input:focus` sin !important.
+.input.inputError {
+  border-color: v.$color-error;
+}
+
+.requiredNote {
+  font-size: v.$font-size-sm;
+  color: v.$color-text-secondary;
+  margin: 0;
 }
 
 .formSuccess {
@@ -250,13 +257,4 @@ textarea {
   &:focus-visible {
     @include m.focus-ring;
   }
-}
-
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }

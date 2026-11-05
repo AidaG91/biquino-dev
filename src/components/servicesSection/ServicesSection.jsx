@@ -20,11 +20,11 @@ export default function ServicesSection() {
         </Link>
       </div>
 
-      <div className={styles.cardGrid}>
+      <ul className={styles.cardGrid}>
         {services.map((service) => (
           <ServiceCard key={service.id} data={service} />
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

@@ -64,13 +64,15 @@ const projectsData = [
     image: photo("cajero-cashzone-fachada"),
     beforeAfter: beforeAfter("cajero-cashzone-fachada"),
     alt: "Cajero automático en fachada de ladrillo con marco rotulado en verde y negro",
-    beforeAlt: "El mismo cajero antes de la rotulación, con un marco de cristal",
+    beforeAlt:
+      "El mismo cajero antes de la rotulación, con un marco de cristal",
     category: "Rotulación",
   },
   {
     id: "escaparate-tienda-moda",
     title: "Escaparate de tienda de moda",
-    description: "Vinilo de corte blanco y montaje en el escaparate de una tienda de moda.",
+    description:
+      "Vinilo de corte blanco y montaje en el escaparate de una tienda de moda.",
     image: photo("escaparate-vinilo-corte"),
     full: fullPhoto("escaparate-vinilo-corte"),
     alt: "Escaparate de tienda de moda con el texto «Outlet i més» en vinilo de corte blanco",
@@ -79,7 +81,8 @@ const projectsData = [
   {
     id: "equipaciones",
     title: "Equipaciones deportivas",
-    description: "Personalización de camisetas con nombres, dorsales y logotipos de patrocinadores.",
+    description:
+      "Personalización de camisetas con nombres, dorsales y logotipos de patrocinadores.",
     image: photo("equipaciones"),
     full: fullPhoto("equipaciones"),
     alt: "Camiseta deportiva azul con nombre, dorsal y logotipos de patrocinadores",
@@ -88,7 +91,8 @@ const projectsData = [
   {
     id: "pegatinas-boda",
     title: "Pegatinas para una boda",
-    description: "Etiquetas personalizadas para las cervezas de la boda de Claudia y Alberto.",
+    description:
+      "Etiquetas personalizadas para las cervezas de la boda de Claudia y Alberto.",
     image: photo("pegatinas-boda"),
     full: fullPhoto("pegatinas-boda"),
     alt: "Pegatinas redondas rojas y negras con los nombres Claudia y Alberto",
@@ -97,7 +101,8 @@ const projectsData = [
   {
     id: "furgoneta-reformas-chus",
     title: "Furgoneta de Reformas Chus",
-    description: "Rotulación de furgoneta con vinilo de corte: nombre, teléfono y localidad.",
+    description:
+      "Rotulación de furgoneta con vinilo de corte: nombre, teléfono y localidad.",
     image: photo("furgoneta-reformas-chus"),
     full: fullPhoto("furgoneta-reformas-chus"),
     alt: "Lateral de una furgoneta blanca rotulada con el nombre y el teléfono de Reformas Chus",
@@ -106,7 +111,8 @@ const projectsData = [
   {
     id: "chaqueta-dtf",
     title: "Chaqueta con estampado DTF",
-    description: "Estampado a todo color en la espalda de una chaqueta con transferencia DTF.",
+    description:
+      "Estampado a todo color en la espalda de una chaqueta con transferencia DTF.",
     image: photo("chaqueta-dtf"),
     full: fullPhoto("chaqueta-dtf"),
     alt: "Espalda de una chaqueta gris con un retrato ilustrado estampado a todo color",
@@ -115,7 +121,8 @@ const projectsData = [
   {
     id: "rollup-comedor",
     title: "Roll-up para un servicio de comedor",
-    description: "Diseño e impresión de un roll-up para el servicio de comedor de Emilia Molina.",
+    description:
+      "Diseño e impresión de un roll-up para el servicio de comedor de Emilia Molina.",
     image: photo("rollup-comedor"),
     full: fullPhoto("rollup-comedor"),
     alt: "Roll-up de Emilia Molina, servicio de comedor, con ilustraciones de frutas",
@@ -153,7 +160,8 @@ const projectsData = [
   {
     id: "tarjetas-visita",
     title: "Tarjetas de visita",
-    description: "Impresión de tarjetas de visita para un negocio de pintura decorativa.",
+    description:
+      "Impresión de tarjetas de visita para un negocio de pintura decorativa.",
     image: photo("tarjetas-visita"),
     full: fullPhoto("tarjetas-visita"),
     alt: "Tarjeta de visita roja de un negocio de pintura decorativa",

@@ -38,7 +38,12 @@
   gap: v.$space-lg;
 }
 
+.cardItem {
+  display: flex;
+}
+
 .card {
+  flex: 1;
   border: 1.5px solid v.$color-tile-bg;
   border-radius: v.$radius-lg;
   overflow: hidden;

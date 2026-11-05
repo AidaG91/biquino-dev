@@ -23,7 +23,8 @@ function rewriteSsgAssetUrls() {
       const entries = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
       const replacements = [];
       for (const [key, value] of Object.entries(entries)) {
-        if (!key.startsWith("src/assets/") || typeof value.file !== "string") continue;
+        if (!key.startsWith("src/assets/") || typeof value.file !== "string")
+          continue;
         replacements.push([`/${key}`, `/${value.file}`]);
       }
 
@@ -42,7 +43,9 @@ function rewriteSsgAssetUrls() {
             "",
           );
           const asyncLink = `<link rel="stylesheet" href="${url}" media="print" onload="this.media='all'" />`;
-          const preload = new RegExp(`(<link rel="preload" as="style" href="${esc}"[^>]*>\\s*)`);
+          const preload = new RegExp(
+            `(<link rel="preload" as="style" href="${esc}"[^>]*>\\s*)`,
+          );
           if (preload.test(out)) out = out.replace(preload, `$1${asyncLink}\n`);
           else out = out.replace(/<head([^>]*)>/, `<head$1>\n${asyncLink}`);
         }
@@ -103,7 +106,10 @@ function generateSitemap({ origin, exclude = [] }) {
           const p = path.join(dir, d.name);
           if (d.isDirectory()) walk(p);
           else if (d.name === "index.html") {
-            const rel = path.relative(distDir, path.dirname(p)).split(path.sep).join("/");
+            const rel = path
+              .relative(distDir, path.dirname(p))
+              .split(path.sep)
+              .join("/");
             routes.push(rel ? `/${rel}` : "/");
           }
         }
@@ -137,7 +143,10 @@ function checkCspHashes() {
       outDir = config.build.outDir;
     },
     async closeBundle() {
-      const netlifyToml = fs.readFileSync(path.resolve(root, "netlify.toml"), "utf8");
+      const netlifyToml = fs.readFileSync(
+        path.resolve(root, "netlify.toml"),
+        "utf8",
+      );
       const scriptSrc = netlifyToml.match(/script-src ([^;]*);/)?.[1] ?? "";
       const allowed = new Set(scriptSrc.match(/'sha256-[^']+'/g) ?? []);
       const hash = (code) =>
@@ -151,7 +160,9 @@ function checkCspHashes() {
           else if (p.endsWith(".html")) {
             const html = fs.readFileSync(p, "utf8");
             const inline = [
-              ...[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]),
+              ...[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(
+                (m) => m[1],
+              ),
               ...[...html.matchAll(/\son[a-z]+="([^"]*)"/g)].map((m) => m[1]),
             ];
             for (const code of inline) {
@@ -164,7 +175,9 @@ function checkCspHashes() {
 
       walk(path.resolve(root, outDir));
       if (missing.size > 0) {
-        const list = [...missing].map(([h, code]) => `  ${h}  ←  ${code}`).join("\n");
+        const list = [...missing]
+          .map(([h, code]) => `  ${h}  ←  ${code}`)
+          .join("\n");
         throw new Error(
           `Inline scripts not allowed by the CSP in netlify.toml. Add these hashes to script-src:\n${list}`,
         );

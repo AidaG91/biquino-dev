@@ -1,0 +1,24 @@
+@use "../../styles/abstracts/variables" as v;
+@use "../../styles/abstracts/mixins" as m;
+
+// Fuera de pantalla hasta recibir el foco con el teclado (no usa display:none
+// para que siga siendo el primer elemento al tabular).
+.skipLink {
+  position: fixed;
+  top: v.$space-sm;
+  left: v.$space-sm;
+  z-index: 3000;
+  padding: 0.85em 1.5em;
+  border-radius: v.$radius-md;
+  background-color: v.$color-cta;
+  color: v.$color-white;
+  font-family: v.$font-body;
+  font-size: v.$font-size-sm;
+  font-weight: 700;
+  transform: translateY(-200%);
+
+  &:focus-visible {
+    transform: none;
+    @include m.focus-ring;
+  }
+}

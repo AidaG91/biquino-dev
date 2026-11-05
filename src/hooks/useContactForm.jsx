@@ -90,7 +90,9 @@ export function useContactForm(onSuccess, initialData = {}) {
       });
 
       if (!response.ok) {
-        throw new Error(`Form submission failed with status ${response.status}`);
+        throw new Error(
+          `Form submission failed with status ${response.status}`,
+        );
       }
 
       setFormData(initialFormData);
