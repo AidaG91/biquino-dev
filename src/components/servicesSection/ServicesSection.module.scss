@@ -31,7 +31,13 @@
   gap: v.$space-md;
 }
 
+// El <li> estira la tarjeta a la altura de la fila, como hacía el grid.
+.cardItem {
+  display: flex;
+}
+
 .serviceCard {
+  flex: 1;
   border: 1.5px solid v.$color-border-tint;
   border-radius: v.$radius-lg;
   padding: v.$space-lg v.$space-md;

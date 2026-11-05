@@ -58,10 +58,16 @@
   gap: v.$space-md;
 }
 
+// El <li> es el elemento del grid; la tarjeta (botón) lo rellena.
+.item {
+  display: flex;
+}
+
 .card {
   position: relative;
   display: block;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   height: 220px;
   border-radius: v.$radius-lg;
   overflow: hidden;
@@ -171,31 +177,31 @@
       height: auto;
     }
 
-    .card:nth-child(1) {
+    .item:nth-child(1) {
       grid-column: 1;
       grid-row: 1 / span 2;
     }
 
-    .card:nth-child(1) .cardTitle {
+    .item:nth-child(1) .cardTitle {
       font-size: 1.4rem;
     }
 
-    .card:nth-child(2) {
+    .item:nth-child(2) {
       grid-column: 2;
       grid-row: 1;
     }
 
-    .card:nth-child(3) {
+    .item:nth-child(3) {
       grid-column: 3;
       grid-row: 1;
     }
 
-    .card:nth-child(4) {
+    .item:nth-child(4) {
       grid-column: 2;
       grid-row: 2;
     }
 
-    .card:nth-child(5) {
+    .item:nth-child(5) {
       grid-column: 3;
       grid-row: 2;
     }

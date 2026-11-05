@@ -36,26 +36,28 @@ export default function ServicioDetailPage() {
           Volver a Servicios
         </Link>
 
-        <div className={styles.svcGrid}>
+        <ul className={styles.svcGrid}>
           {servicio.cards.map((card) => (
-            <div key={card.title} className={styles.card}>
-              <div className={styles.cardTile}>
-                <img
-                  src={card.image.src}
-                  srcSet={card.image.srcSet}
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  alt={card.photoCaption.replace(/^Foto:\s*/i, "")}
-                  loading="lazy"
-                />
-                {card.image.illustrative && <IllustrativeLabel />}
-              </div>
-              <div className={styles.cardBody}>
-                <h2>{card.title}</h2>
-                <p>{card.description}</p>
-              </div>
-            </div>
+            <li key={card.title} className={styles.cardItem}>
+              <article className={styles.card}>
+                <div className={styles.cardTile}>
+                  <img
+                    src={card.image.src}
+                    srcSet={card.image.srcSet}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    alt={card.photoCaption.replace(/^Foto:\s*/i, "")}
+                    loading="lazy"
+                  />
+                  {card.image.illustrative && <IllustrativeLabel />}
+                </div>
+                <div className={styles.cardBody}>
+                  <h2>{card.title}</h2>
+                  <p>{card.description}</p>
+                </div>
+              </article>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className={styles.ctaBand}>
           <p className={styles.ctaText}>

@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { X } from "lucide-react";
 import ContactForm from "../../components/contactForm/ContactForm";
 import BeforeAfter from "../../components/beforeAfter/BeforeAfter";
@@ -19,6 +20,8 @@ export default function ProjectsPage() {
     return [ALL, ...unique];
   }, []);
 
+  const { pathname, hash } = useLocation();
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState(ALL);
   const [lightboxProject, setLightboxProject] = useState(null);
   const previousFocusRef = useRef(null);
@@ -35,7 +38,19 @@ export default function ProjectsPage() {
     setLightboxProject(project);
   };
 
-  const closeLightbox = () => setLightboxProject(null);
+  const closeLightbox = useCallback(() => {
+    setLightboxProject(null);
+    // Si se abrió desde un enlace /proyectos#<id>, limpia el hash para que
+    // recargar no lo reabra y se pueda volver a pulsar el mismo enlace.
+    if (hash) navigate(pathname, { replace: true });
+  }, [hash, navigate, pathname]);
+
+  // Enlaces desde la portada: /proyectos#<id> abre ese proyecto en el lightbox.
+  useEffect(() => {
+    const id = decodeURIComponent(hash.slice(1));
+    const linked = projects.find((project) => project.id === id);
+    if (linked) setLightboxProject(linked);
+  }, [hash]);
 
   useEffect(() => {
     if (!lightboxProject) return undefined;
@@ -75,7 +90,7 @@ export default function ProjectsPage() {
       document.removeEventListener("keydown", handleKeyDown);
       previousFocusRef.current?.focus();
     };
-  }, [lightboxProject]);
+  }, [lightboxProject, closeLightbox]);
 
   return (
     <article>
@@ -107,42 +122,43 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        <div
+        <ul
           className={`${styles.grid} ${isBentoLayout ? styles.gridBento : ""}`}
         >
           {filteredProjects.map((project) => (
-            <button
-              key={project.id}
-              type="button"
-              className={styles.card}
-              onClick={(event) => openLightbox(project, event)}
-            >
-              <img
-                src={project.image.src}
-                srcSet={project.image.srcSet}
-                style={{ objectPosition: project.imagePosition }}
-                sizes="(min-width: 768px) 33vw, 50vw"
-                alt=""
-                className={styles.image}
-                loading="lazy"
-              />
-              {project.beforeAfter && (
-                <span className={styles.beforeAfterBadge} aria-hidden="true">
-                  Antes / Después
+            <li key={project.id} className={styles.item}>
+              <button
+                type="button"
+                className={styles.card}
+                onClick={(event) => openLightbox(project, event)}
+              >
+                <img
+                  src={project.image.src}
+                  srcSet={project.image.srcSet}
+                  style={{ objectPosition: project.imagePosition }}
+                  sizes="(min-width: 768px) 33vw, 50vw"
+                  alt=""
+                  className={styles.image}
+                  loading="lazy"
+                />
+                {project.beforeAfter && (
+                  <span className={styles.beforeAfterBadge} aria-hidden="true">
+                    Antes / Después
+                  </span>
+                )}
+                <span className={styles.overlay}>
+                  <span className={styles.chipLabel}>{project.category}</span>{" "}
+                  <span className={styles.cardTitle}>{project.title}</span>
+                  <span className="visually-hidden">
+                    {project.beforeAfter
+                      ? ", ver el antes y el después"
+                      : ", ver imagen ampliada"}
+                  </span>
                 </span>
-              )}
-              <span className={styles.overlay}>
-                <span className={styles.chipLabel}>{project.category}</span>{" "}
-                <span className={styles.cardTitle}>{project.title}</span>
-                <span className="visually-hidden">
-                  {project.beforeAfter
-                    ? ", ver el antes y el después"
-                    : ", ver imagen ampliada"}
-                </span>
-              </span>
-            </button>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <ContactForm />

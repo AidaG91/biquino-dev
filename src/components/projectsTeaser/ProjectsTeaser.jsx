@@ -14,9 +14,7 @@ export default function ProjectsTeaser() {
         <div className={styles.head}>
           <div>
             <p className={styles.eyebrow}>Trabajos recientes</p>
-            <h2 className={styles.title}>
-              Proyectos que hemos hecho realidad
-            </h2>
+            <h2 className={styles.title}>Proyectos que hemos hecho realidad</h2>
           </div>
           <Link to="/proyectos" className={styles.linkArrow}>
             Ver todos los proyectos
@@ -26,7 +24,7 @@ export default function ProjectsTeaser() {
 
         <div className={styles.grid}>
           <Link
-            to="/proyectos"
+            to={`/proyectos#${big.id}`}
             className={`${styles.card} ${styles.cardBig}`}
           >
             <img
@@ -34,7 +32,7 @@ export default function ProjectsTeaser() {
               srcSet={big.image.srcSet}
               style={{ objectPosition: big.imagePosition }}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              alt={big.alt}
+              alt=""
               className={styles.image}
               loading="lazy"
             />
@@ -48,7 +46,7 @@ export default function ProjectsTeaser() {
             {small.map((project) => (
               <Link
                 key={project.id}
-                to="/proyectos"
+                to={`/proyectos#${project.id}`}
                 className={`${styles.card} ${styles.cardSmall}`}
               >
                 <img
@@ -56,7 +54,7 @@ export default function ProjectsTeaser() {
                   srcSet={project.image.srcSet}
                   style={{ objectPosition: project.imagePosition }}
                   sizes="(min-width: 1024px) 40vw, 100vw"
-                  alt={project.alt}
+                  alt=""
                   className={styles.image}
                   loading="lazy"
                 />

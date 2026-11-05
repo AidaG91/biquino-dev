@@ -29,7 +29,7 @@ export default function ServiciosPage() {
 
       <div className={styles.container}>
         {servicios.map((servicio) => (
-          <div key={servicio.id} className={styles.row}>
+          <article key={servicio.id} className={styles.row}>
             <div className={styles.rowImage}>
               <img
                 src={servicio.image.src}
@@ -49,7 +49,7 @@ export default function ServiciosPage() {
                 <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
               </Link>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 

@@ -87,6 +87,10 @@ export default function ContactForm({
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
 
+            <p className={styles.requiredNote}>
+              Los campos marcados con * son obligatorios.
+            </p>
+
             <div className={styles.formGroup}>
               <label htmlFor="name">Nombre completo *</label>
               <input
@@ -210,7 +214,7 @@ export default function ContactForm({
                     rel="noopener noreferrer"
                   >
                     política de privacidad
-                    <span className={styles.srOnly}>
+                    <span className="visually-hidden">
                       {" "}
                       (se abre en una pestaña nueva)
                     </span>
