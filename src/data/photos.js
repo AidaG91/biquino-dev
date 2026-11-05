@@ -27,5 +27,8 @@ export function fullPhoto(slug) {
 }
 
 export function beforeAfter(slug) {
-  return { before: url(`${slug}-antes-full`), after: url(`${slug}-despues-full`) };
+  return {
+    before: url(`${slug}-antes-full`),
+    after: url(`${slug}-despues-full`),
+  };
 }

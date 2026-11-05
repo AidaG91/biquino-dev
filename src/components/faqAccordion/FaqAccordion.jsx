@@ -9,7 +9,7 @@ export default function FaqAccordion({
 }) {
   const Heading = `h${headingLevel}`;
   const [openId, setOpenId] = useState(() =>
-    openFirstByDefault && items.length > 0 ? items[0].id : null
+    openFirstByDefault && items.length > 0 ? items[0].id : null,
   );
   const triggerRefs = useRef([]);
 

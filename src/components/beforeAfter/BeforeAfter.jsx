@@ -13,10 +13,16 @@ export default function BeforeAfter({ before, after, beforeAlt, afterAlt }) {
         className={`${styles.image} ${styles.before}`}
       />
 
-      <span className={`${styles.label} ${styles.labelBefore}`} aria-hidden="true">
+      <span
+        className={`${styles.label} ${styles.labelBefore}`}
+        aria-hidden="true"
+      >
         Antes
       </span>
-      <span className={`${styles.label} ${styles.labelAfter}`} aria-hidden="true">
+      <span
+        className={`${styles.label} ${styles.labelAfter}`}
+        aria-hidden="true"
+      >
         Después
       </span>
       <span className={styles.divider} aria-hidden="true">
