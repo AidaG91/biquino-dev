@@ -2,12 +2,14 @@ import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import SkipLink from "../components/skipLink/SkipLink";
 import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 import InaugurationModal from "../components/inaugurationModal/InaugurationModal";
 
 export default function SiteLayout() {
   return (
     <>
+      <SkipLink />
       <ScrollToTop />
       <Toaster
         position="top-center"
@@ -41,7 +43,7 @@ export default function SiteLayout() {
 
       <Header />
 
-      <main>
+      <main id="contenido" tabIndex={-1}>
         <Outlet />
       </main>
 
