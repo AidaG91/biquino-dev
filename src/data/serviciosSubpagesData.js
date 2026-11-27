@@ -4,7 +4,6 @@ import identidadVisualImg from "../assets/images/placeholders/subpaginas/diseno-
 import adaptacionArchivosImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/adaptacion-archivos.webp";
 import fotografiaProductoImg from "../assets/images/placeholders/subpaginas/diseno-tecnico/fotografia-producto.webp";
 import aperturaNegociosImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/apertura-negocios.webp";
-import produccionFabricacionImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/produccion-fabricacion.webp";
 import supervisionInstalacionImg from "../assets/images/placeholders/subpaginas/gestion-proyectos/supervision-instalacion.webp";
 import menuDiarioImg from "../assets/images/placeholders/subpaginas/web-rrss/menu-diario.webp";
 import gestionContenidoRrssImg from "../assets/images/placeholders/subpaginas/web-rrss/gestion-contenido-rrss.webp";
@@ -124,8 +123,9 @@ const serviciosSubpagesData = {
         title: "Producción y fabricación propia",
         description:
           "Producimos en nuestro taller todo lo relacionado con vinilo, cartelería, pegatinas y DTF, lo que nos da agilidad y control sobre el acabado. Cuando un trabajo necesita otra técnica, lo realizamos con talleres colaboradores de confianza y seguimos al frente: preparamos los archivos, supervisamos la producción y revisamos el resultado antes de entregarlo.",
-        photoCaption: "Foto: taller de producción",
-        image: { src: produccionFabricacionImg, illustrative: true },
+        photoCaption:
+          "Foto: taller de Biquiño en Verín, con el plóter de impresión, la laminadora y las mesas de trabajo",
+        image: photo("taller-produccion"),
       },
       {
         title: "Supervisión e instalación final",

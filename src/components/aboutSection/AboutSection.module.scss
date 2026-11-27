@@ -30,6 +30,16 @@
   margin: 0 0 v.$space-md;
 }
 
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: v.$radius-lg;
+  margin-top: v.$space-sm;
+}
+
 // Línea de tiempo vertical: el año en un círculo y una línea que une los hitos.
 .timeline {
   list-style: none;
