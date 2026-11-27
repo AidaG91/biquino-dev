@@ -6,16 +6,6 @@ import { photo, fullPhoto, beforeAfter } from "./photos";
 // tarjetas, para no cortar lo importante.
 const projectsData = [
   {
-    id: "caja-fada",
-    title: "Caja de regalo personalizada",
-    description:
-      "Impresión y montaje de una caja de regalo ilustrada, con apertura lateral.",
-    image: photo("caja-fada"),
-    full: fullPhoto("caja-fada"),
-    alt: "Caja de regalo con ilustración de un perrito y estampado de cuadros en tonos rosa, verde y azul, con la palabra Fada",
-    category: "Impresión digital",
-  },
-  {
     id: "nino-do-arenteiro",
     title: "Sudadera Niño do Arenteiro",
     description:

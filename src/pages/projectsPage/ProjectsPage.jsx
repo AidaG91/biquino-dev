@@ -125,22 +125,30 @@ export default function ProjectsPage() {
         <ul
           className={`${styles.grid} ${isBentoLayout ? styles.gridBento : ""}`}
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <li key={project.id} className={styles.item}>
               <button
                 type="button"
                 className={styles.card}
                 onClick={(event) => openLightbox(project, event)}
               >
-                <img
-                  src={project.image.src}
-                  srcSet={project.image.srcSet}
-                  style={{ objectPosition: project.imagePosition }}
-                  sizes="(min-width: 768px) 33vw, 50vw"
-                  alt=""
-                  className={styles.image}
-                  loading="lazy"
-                />
+                <picture>
+                  {/* En escritorio la primera tarjeta del mosaico es alta y
+                      estrecha: usa la foto completa en vez del recorte 4:3
+                      para no cortar los lados. 1024px = $bp-desktop. */}
+                  {isBentoLayout && index === 0 && project.full && (
+                    <source media="(min-width: 1024px)" srcSet={project.full} />
+                  )}
+                  <img
+                    src={project.image.src}
+                    srcSet={project.image.srcSet}
+                    style={{ objectPosition: project.imagePosition }}
+                    sizes="(min-width: 768px) 33vw, 50vw"
+                    alt=""
+                    className={styles.image}
+                    loading="lazy"
+                  />
+                </picture>
                 {project.beforeAfter && (
                   <span className={styles.beforeAfterBadge} aria-hidden="true">
                     Antes / Después
