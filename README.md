@@ -57,7 +57,7 @@ src/
 
 Los textos están en `src/data/`, no en los componentes:
 
-- `contactInfo.js`: nombre, dirección, teléfono, WhatsApp (el mismo número), email, Instagram y horario. Es la única fuente de estos datos; la web (pie, `/contacto`, aviso de inauguración) y los datos estructurados de Google salen de aquí.
+- `contactInfo.js`: nombre, dirección, teléfono, WhatsApp (el mismo número), email, Instagram y horario. Es la única fuente de estos datos; la web (pie, `/contacto`) y los datos estructurados de Google salen de aquí.
 - `serviciosPageData.js` y `serviciosSubpagesData.js`: página de servicios y subpáginas `/servicios/<slug>`.
 - `projectsData.js`: proyectos de la galería. El orden importa: los 3 primeros salen en la portada y los 5 primeros forman el mosaico de `/proyectos`.
 - `servicesData.js`: tarjetas de ventajas de la portada (respuesta rápida, servicio integral…).
@@ -101,7 +101,3 @@ Las ramas de trabajo salen de `main` y se integran en `main`. Netlify construye 
 - Una página 404 real (estado 404) para cualquier URL que no exista.
 - Caché larga para `/assets/*` y cabeceras de seguridad.
 - La **Content-Security-Policy**. `script-src` no permite scripts en línea salvo los autorizados por hash. Si el build falla con «Inline scripts not allowed by the CSP», añade a `script-src` el hash que indica el mensaje, o evita el script en línea. Si la web empieza a cargar recursos de otro dominio (fuentes, mapas, iframes), hay que añadirlo a la directiva correspondiente.
-
-## Modal de inauguración
-
-Hasta el 7 de noviembre de 2026 a las 12:00 la web muestra un aviso con cuenta atrás (`src/components/inaugurationModal/`, textos y fecha en `src/data/inaugurationData.js`). Se abre una vez por navegador y deja de abrirse solo pasada la fecha. Después de la inauguración se puede retirar: quita `<InaugurationModal />` de `src/routes/SiteLayout.jsx` y borra el componente, `inaugurationData.js` y `src/utils/getTimeLeft.js`.
