@@ -59,7 +59,7 @@ Los textos están en `src/data/`, no en los componentes:
 
 - `contactInfo.js`: nombre, dirección, teléfono, WhatsApp (el mismo número), email, Instagram y horario. Es la única fuente de estos datos; la web (pie, `/contacto`) y los datos estructurados de Google salen de aquí.
 - `serviciosPageData.js` y `serviciosSubpagesData.js`: página de servicios y subpáginas `/servicios/<slug>`.
-- `projectsData.js`: proyectos de la galería. El orden importa: los 3 primeros salen en la portada y los 5 primeros forman el mosaico de `/proyectos`.
+- `projectsData.js`: proyectos de la galería. El orden importa: los más recientes van primero, y los 3 primeros salen en la portada y los 5 primeros forman el mosaico de `/proyectos`.
 - `servicesData.js`: tarjetas de ventajas de la portada (respuesta rápida, servicio integral…).
 - `faqData.js`: preguntas frecuentes.
 

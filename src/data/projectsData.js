@@ -1,9 +1,50 @@
 import { photo, fullPhoto, beforeAfter } from "./photos";
 
-// El orden importa: los 3 primeros salen en la portada (el primero en grande) y
-// los 5 primeros forman el mosaico de /proyectos. imagePosition (opcional) es
-// el object-position de la foto en las tarjetas, para no cortar lo importante.
+// El orden importa: los más recientes van primero. Los 3 primeros salen en la
+// portada (el primero en grande) y los 5 primeros forman el mosaico de
+// /proyectos. imagePosition (opcional) es el object-position de la foto en las
+// tarjetas, para no cortar lo importante.
 const projectsData = [
+  {
+    id: "caja-fada",
+    title: "Caja de regalo personalizada",
+    description:
+      "Impresión y montaje de una caja de regalo ilustrada, con apertura lateral.",
+    image: photo("caja-fada"),
+    full: fullPhoto("caja-fada"),
+    alt: "Caja de regalo con ilustración de un perrito y estampado de cuadros en tonos rosa, verde y azul, con la palabra Fada",
+    category: "Impresión digital",
+  },
+  {
+    id: "nino-do-arenteiro",
+    title: "Sudadera Niño do Arenteiro",
+    description:
+      "Sudadera personalizada para la granxa escola Niño do Arenteiro, con su logotipo a todo color estampado en DTF.",
+    image: photo("sudadera-nino-do-arenteiro"),
+    full: fullPhoto("sudadera-nino-do-arenteiro"),
+    alt: "Sudadera verde claro con el logotipo ilustrado de Niño do Arenteiro, Granxa Escola: animales de granja en un nido",
+    category: "Personalización",
+  },
+  {
+    id: "chalecos-capelas",
+    title: "Chalecos Capelas Transportes",
+    description:
+      "Chalecos de alta visibilidad personalizados con el logotipo de la empresa en el pecho y el nombre de cada trabajador.",
+    image: photo("chaleco-capelas"),
+    full: fullPhoto("chaleco-capelas"),
+    alt: "Chaleco amarillo de alta visibilidad con bandas reflectantes y el logotipo de Capelas Transportes",
+    category: "Personalización",
+  },
+  {
+    id: "merchandising-biquino",
+    title: "Merchandising de Biquiño",
+    description:
+      "Nuestra propia imagen en gorras, gorros, abanicos, pegatinas, acreditaciones y tarjetas de visita.",
+    image: photo("merchandising-biquino"),
+    full: fullPhoto("merchandising-biquino"),
+    alt: "Gorra negra y gorro beige con la marca Biquiño junto a un abanico blanco con el logotipo en rojo",
+    category: "Personalización",
+  },
   {
     id: "marcan-huella",
     title: "Marcan Huella, protectora canina",
