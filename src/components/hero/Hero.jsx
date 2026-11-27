@@ -20,7 +20,7 @@ export default function Hero() {
             intermediarios.
           </p>
           <div className={styles.actions}>
-            <Link to="/contacto" className={styles.ctaPrimary}>
+            <Link to="/contacto/" className={styles.ctaPrimary}>
               Solicita tu presupuesto gratis
             </Link>
           </div>

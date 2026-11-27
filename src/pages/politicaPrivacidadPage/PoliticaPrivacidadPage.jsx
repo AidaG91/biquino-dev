@@ -14,7 +14,7 @@ export default function PoliticaPrivacidadPage() {
       title="Política de privacidad"
       updated={privacidadUpdated}
       sections={privacidadData}
-      related={{ to: "/aviso-legal", label: "Ver el aviso legal" }}
+      related={{ to: "/aviso-legal/", label: "Ver el aviso legal" }}
     />
   );
 }

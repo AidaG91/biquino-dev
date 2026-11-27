@@ -71,7 +71,7 @@ describe("ContactForm", () => {
     expect(screen.getByLabelText(/política de privacidad/i)).not.toBeChecked();
     expect(
       screen.getByRole("link", { name: /política de privacidad/i }),
-    ).toHaveAttribute("href", "/politica-de-privacidad");
+    ).toHaveAttribute("href", "/politica-de-privacidad/");
   });
 
   it("does not send the form until the privacy policy is accepted", () => {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logoBiquino from "../../assets/icons/LOGO_WEB.svg";
 import instagramIcon from "../../assets/icons/icon-instagram.svg";
@@ -7,16 +7,22 @@ import contactInfo from "../../data/contactInfo";
 
 const NAV_LINKS = [
   { name: "Inicio", path: "/", end: true },
-  { name: "Servicios", path: "/servicios" },
-  { name: "Proyectos", path: "/proyectos" },
-  { name: "FAQ", path: "/faq" },
-  { name: "Contacto", path: "/contacto" },
+  { name: "Servicios", path: "/servicios/" },
+  { name: "Proyectos", path: "/proyectos/" },
+  { name: "FAQ", path: "/faq/" },
+  { name: "Contacto", path: "/contacto/" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
   const toggleRef = useRef(null);
+  // Al prerenderizar la ruta llega sin barra final (/servicios) y en el
+  // navegador con ella (/servicios/). Se normaliza para que el enlace activo
+  // sea el mismo en el HTML generado y tras hidratar (NavLink no lo hace).
+  const currentPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const isActive = (link) =>
+    link.end ? currentPath === link.path : currentPath.startsWith(link.path);
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -78,16 +84,14 @@ export default function Header() {
           <ul className={styles["nav-list"]}>
             {NAV_LINKS.map((link) => (
               <li key={link.name} className={styles["nav-item"]}>
-                <NavLink
+                <Link
                   to={link.path}
-                  end={link.end}
-                  className={({ isActive }) =>
-                    `${styles["nav-link"]} ${isActive ? styles.active : ""}`
-                  }
+                  aria-current={isActive(link) ? "page" : undefined}
+                  className={`${styles["nav-link"]} ${isActive(link) ? styles.active : ""}`}
                   onClick={closeMenu}
                 >
                   {link.name}
-                </NavLink>
+                </Link>
               </li>
             ))}
             <li className={styles["nav-item"]}>

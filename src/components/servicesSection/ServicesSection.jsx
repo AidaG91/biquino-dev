@@ -14,7 +14,7 @@ export default function ServicesSection() {
             Un servicio integral, de principio a fin
           </h2>
         </div>
-        <Link to="/servicios" className={styles.linkArrow}>
+        <Link to="/servicios/" className={styles.linkArrow}>
           Descubre nuestros servicios
           <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
         </Link>

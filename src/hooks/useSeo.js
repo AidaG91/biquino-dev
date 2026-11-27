@@ -14,7 +14,9 @@ const DEFAULT_DESCRIPTION =
 
 export default function useSeo(title, description, { noindex = false } = {}) {
   const { pathname } = useLocation();
-  const url = `${SITE_URL}${pathname}`;
+  // Netlify sirve cada página en su carpeta (/servicios/) y redirige con 301
+  // la versión sin barra, así que la canonical siempre lleva barra final.
+  const url = `${SITE_URL}${pathname.endsWith("/") ? pathname : `${pathname}/`}`;
   const pageTitle = title || DEFAULT_TITLE;
   const pageDescription = description || DEFAULT_DESCRIPTION;
 

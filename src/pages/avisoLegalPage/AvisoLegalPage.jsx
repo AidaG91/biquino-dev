@@ -15,7 +15,7 @@ export default function AvisoLegalPage() {
       updated={avisoLegalUpdated}
       sections={avisoLegalData}
       related={{
-        to: "/politica-de-privacidad",
+        to: "/politica-de-privacidad/",
         label: "Ver la política de privacidad",
       }}
     />

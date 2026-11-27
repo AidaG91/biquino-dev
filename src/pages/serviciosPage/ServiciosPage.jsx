@@ -44,7 +44,10 @@ export default function ServiciosPage() {
             <div className={styles.rowContent}>
               <h2>{servicio.title}</h2>
               <p>{servicio.description}</p>
-              <Link to={`/servicios/${servicio.id}`} className={styles.ctaLink}>
+              <Link
+                to={`/servicios/${servicio.id}/`}
+                className={styles.ctaLink}
+              >
                 Ver detalle
                 <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
               </Link>
