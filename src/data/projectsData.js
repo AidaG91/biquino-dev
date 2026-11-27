@@ -95,7 +95,7 @@ const projectsData = [
       "Etiquetas personalizadas para las cervezas de la boda de Claudia y Alberto.",
     image: photo("pegatinas-boda"),
     full: fullPhoto("pegatinas-boda"),
-    alt: "Pegatinas redondas rojas y negras con los nombres Claudia y Alberto",
+    alt: "Botellines de cerveza con etiquetas redondas rojas y negras con los nombres Claudia y Alberto, junto a las hojas de pegatinas",
     category: "Impresión digital",
   },
   {
