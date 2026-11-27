@@ -16,7 +16,7 @@ export default function ProjectsTeaser() {
             <p className={styles.eyebrow}>Trabajos recientes</p>
             <h2 className={styles.title}>Proyectos que hemos hecho realidad</h2>
           </div>
-          <Link to="/proyectos" className={styles.linkArrow}>
+          <Link to="/proyectos/" className={styles.linkArrow}>
             Ver todos los proyectos
             <ArrowRight size={13} strokeWidth={2.3} aria-hidden="true" />
           </Link>
@@ -24,7 +24,7 @@ export default function ProjectsTeaser() {
 
         <div className={styles.grid}>
           <Link
-            to={`/proyectos#${big.id}`}
+            to={`/proyectos/#${big.id}`}
             className={`${styles.card} ${styles.cardBig}`}
           >
             <img
@@ -46,7 +46,7 @@ export default function ProjectsTeaser() {
             {small.map((project) => (
               <Link
                 key={project.id}
-                to={`/proyectos#${project.id}`}
+                to={`/proyectos/#${project.id}`}
                 className={`${styles.card} ${styles.cardSmall}`}
               >
                 <img

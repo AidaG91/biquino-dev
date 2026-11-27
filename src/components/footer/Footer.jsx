@@ -83,12 +83,12 @@ export default function Footer() {
         <nav aria-label="Información legal">
           <ul className={styles.legalList}>
             <li>
-              <Link to="/aviso-legal" className={styles.link}>
+              <Link to="/aviso-legal/" className={styles.link}>
                 Aviso legal
               </Link>
             </li>
             <li>
-              <Link to="/politica-de-privacidad" className={styles.link}>
+              <Link to="/politica-de-privacidad/" className={styles.link}>
                 Política de privacidad
               </Link>
             </li>

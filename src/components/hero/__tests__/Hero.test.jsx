@@ -35,7 +35,7 @@ describe("Hero", () => {
   it("renders CTA linking to contact page", () => {
     renderHero();
     const cta = screen.getByText("Solicita tu presupuesto gratis");
-    expect(cta).toHaveAttribute("href", "/contacto");
+    expect(cta).toHaveAttribute("href", "/contacto/");
   });
 
   it("renders hero image with descriptive alt text", () => {

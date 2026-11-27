@@ -17,7 +17,7 @@ export default function ServicioDetailPage() {
   );
 
   if (!servicio) {
-    return <Navigate to="/servicios" replace />;
+    return <Navigate to="/servicios/" replace />;
   }
 
   return (
@@ -31,7 +31,7 @@ export default function ServicioDetailPage() {
       </div>
 
       <div className={styles.container}>
-        <Link to="/servicios" className={styles.backLink}>
+        <Link to="/servicios/" className={styles.backLink}>
           <ArrowLeft size={14} strokeWidth={2.3} aria-hidden="true" />
           Volver a Servicios
         </Link>
@@ -64,7 +64,7 @@ export default function ServicioDetailPage() {
             ¿Te interesa este servicio? Cuéntanos tu proyecto y te preparamos un
             presupuesto sin compromiso.
           </p>
-          <Link to={`/contacto?servicio=${slug}`} className={styles.ctaButton}>
+          <Link to={`/contacto/?servicio=${slug}`} className={styles.ctaButton}>
             Solicitar presupuesto
             <ArrowRight size={15} strokeWidth={2.3} aria-hidden="true" />
           </Link>

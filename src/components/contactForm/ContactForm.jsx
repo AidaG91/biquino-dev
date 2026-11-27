@@ -209,7 +209,7 @@ export default function ContactForm({
                 <label htmlFor="privacy">
                   He leído y acepto la{" "}
                   <a
-                    href="/politica-de-privacidad"
+                    href="/politica-de-privacidad/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

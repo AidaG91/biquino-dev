@@ -67,11 +67,11 @@ describe("Footer", () => {
     renderFooter();
     expect(screen.getByRole("link", { name: "Aviso legal" })).toHaveAttribute(
       "href",
-      "/aviso-legal",
+      "/aviso-legal/",
     );
     expect(
       screen.getByRole("link", { name: "Política de privacidad" }),
-    ).toHaveAttribute("href", "/politica-de-privacidad");
+    ).toHaveAttribute("href", "/politica-de-privacidad/");
   });
 
   it("displays copyright with current year", () => {

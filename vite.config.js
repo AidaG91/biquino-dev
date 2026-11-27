@@ -110,7 +110,8 @@ function generateSitemap({ origin, exclude = [] }) {
               .relative(distDir, path.dirname(p))
               .split(path.sep)
               .join("/");
-            routes.push(rel ? `/${rel}` : "/");
+            // Con barra final: es la URL que sirve Netlify sin redirigir.
+            routes.push(rel ? `/${rel}/` : "/");
           }
         }
       }
@@ -192,7 +193,7 @@ export default defineConfig({
     react(),
     reactSsg(),
     rewriteSsgAssetUrls(),
-    generateSitemap({ origin: "https://biquino.es", exclude: ["/404"] }),
+    generateSitemap({ origin: "https://biquino.es", exclude: ["/404/"] }),
     checkCspHashes(),
   ],
   build: {

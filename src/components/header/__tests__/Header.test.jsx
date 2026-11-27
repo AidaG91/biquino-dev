@@ -70,10 +70,29 @@ describe("Header", () => {
     const hamburger = getToggle();
     fireEvent.click(hamburger);
     expect(hamburger).toHaveAttribute("aria-expanded", "true");
-    const faqLink = container.querySelector('a[href="/faq"]');
+    const faqLink = container.querySelector('a[href="/faq/"]');
     fireEvent.click(faqLink);
     expect(hamburger).toHaveAttribute("aria-expanded", "false");
   });
+
+  it.each(["/servicios", "/servicios/", "/servicios/rotulacion/"])(
+    "marks Servicios as the current page at %s",
+    (path) => {
+      const { container } = render(
+        <MemoryRouter initialEntries={[path]}>
+          <Header />
+        </MemoryRouter>,
+      );
+      const nav = container.querySelector("nav");
+      expect(nav.querySelector('a[href="/servicios/"]')).toHaveAttribute(
+        "aria-current",
+        "page",
+      );
+      expect(nav.querySelector('a[href="/"]')).not.toHaveAttribute(
+        "aria-current",
+      );
+    },
+  );
 
   it("hides the closed mobile menu from keyboard and screen readers", () => {
     const { container } = renderHeader();
