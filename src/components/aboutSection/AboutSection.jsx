@@ -2,7 +2,7 @@ import aboutData from "../../data/aboutData";
 import styles from "./AboutSection.module.scss";
 
 export default function AboutSection() {
-  const { eyebrow, title, paragraphs, timeline } = aboutData;
+  const { eyebrow, title, paragraphs, image, timeline } = aboutData;
 
   return (
     <section className={styles.about} aria-labelledby="about-title">
@@ -17,6 +17,19 @@ export default function AboutSection() {
               {text}
             </p>
           ))}
+          {image && (
+            <img
+              src={image.src}
+              srcSet={image.srcSet}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              alt={image.alt}
+              className={styles.image}
+              width={960}
+              height={720}
+              loading="lazy"
+              decoding="async"
+            />
+          )}
         </div>
 
         <ol className={styles.timeline}>
